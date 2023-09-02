@@ -24,10 +24,16 @@ MOD_CODE=$2
 
 OUTPUT_DIR=output
 OUTPUT_SUFFIX=''
-DATE_NOW=$(date -d "+8 hours" +%m%d)
 if [ ! -d $OUTPUT_DIR ]; then
 	mkdir $OUTPUT_DIR
 fi
+
+if  [[ $3 == v* ]]; then
+    DATE_NOW=$(echo $3 | cut -d'-' -f2)
+else
+    DATE_NOW=$(date -d "+8 hours" +%m%d)
+fi
+
 
 fun_zip() {
     FILE_NAME=$(basename dol*.zip)
