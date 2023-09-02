@@ -15,7 +15,7 @@ APK_DIR=dolapk
 
 OUTPUT_DIR=output
 OUTPUT_SUFFIX=''
-DATE_NOW=$(date -d "+8 hours" +%m%d)
+DATE_NOW=$(echo $3 | cut -d'-' -f2)
 if [ ! -d $OUTPUT_DIR ]; then
 	mkdir $OUTPUT_DIR
 fi
@@ -34,6 +34,9 @@ fun_zip() {
     zip -q -r dol.zip *
     mv dol.zip ../$OUTPUT_DIR/$OUTPUT_NAME
     cd ..
+
+    # for generate markdown form
+    echo "${VERSION}_${MOD_CODE}=$OUTPUT_NAME" >> "$GITHUB_ENV"
 }
 
 fun_apk() {
@@ -57,6 +60,9 @@ fun_apk() {
     OUTPUT_NAME="dol-chs-${CHS_VER}${OUTPUT_SUFFIX}-${DATE_NOW}.apk"
 
     mv signed/*.apk $OUTPUT_DIR/$OUTPUT_NAME
+
+    # for generate markdown form
+    echo "${VERSION}_${MOD_CODE}=$OUTPUT_NAME" >> "$GITHUB_ENV"
 }
 
 fun_check_code() {

@@ -38,7 +38,7 @@ jobs:
         run: |
           echo ${{ secrets.SIGNING_KEY }} > dol.base64
           base64 -d dol.base64 > dol.jks
-          ./mod.sh ${{ matrix.version }} ${{ matrix.mod }}
+          ./mod.sh ${{ matrix.version }} ${{ matrix.mod }} ${{ github.ref }}
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
@@ -59,6 +59,22 @@ jobs:
       # - name: Display structure of downloaded files
       #   run: ls -R
       #   working-directory: outputs
+      - name: Generate release body
+        id: gen_release_note
+        run: |
+          BASEURL=https://github.com/sakarie9/DOL-CHS-MODS/releases/tag/${{ github.ref }}
+          md=$(cat << EOF
+          |     | 美化           | 美化+作弊     |
+          |-----|----------------|---------------|
+          | apk |  [下载]($BASEURL/$APK_1) | [下载]($BASEURL/$APK_3) |
+          | zip |  [下载]($BASEURL/$ZIP_1) | [下载]($BASEURL/$ZIP_3) |
+          EOF
+          )
+          md="${md//'%'/'%25'}"                               # Multiline escape sequences for %
+          md="${md//$'\n'/'%0A'}"                             # Multiline escape sequences for '\n'
+          md="${md//$'\r'/'%0D'}"                             # Multiline escape sequences for '\r'
+          echo "RELEASE_BODY=$md" >> $GITHUB_OUTPUT
+
       - name: Upload to release
         uses: svenstaro/upload-release-action@v2
         with:
@@ -67,3 +83,5 @@ jobs:
           tag: ${{ github.ref }}
           overwrite: true
           file_glob: true
+          body: |
+            ${{ steps.gen_release_note.outputs.RELEASE_BODY }}
