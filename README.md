@@ -21,7 +21,9 @@
 
 [Latest Release](https://github.com/sakarie9/DOL-CHS-MODS/releases/latest)
 
-### 版本说明
+### 各版本说明
+<details>
+<summary>点击展开</summary>
 
 - 美化 | [Degrees of Lewdity Graphics Mod][5] [BEEESSS Community Sprite Compilation][6]
 
@@ -47,6 +49,7 @@
 
   ⚠️仍在早期开发阶段，未支持的头发会显示为光头⚠️
 
+</details>
 
 ### 整合包使用须知
 
