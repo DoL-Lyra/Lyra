@@ -15,7 +15,7 @@ APK_DIR=dolapk
 
 OUTPUT_DIR=output
 OUTPUT_SUFFIX=''
-DATE_NOW=$(echo $3 | cut -d'-' -f2)
+DATE_NOW=$(date -d "+8 hours" +%m%d)
 if [ ! -d $OUTPUT_DIR ]; then
 	mkdir $OUTPUT_DIR
 fi
