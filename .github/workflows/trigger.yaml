@@ -62,7 +62,7 @@ jobs:
       - name: Generate release body
         id: gen_release_note
         run: |
-          BASEURL=https://github.com/sakarie9/DOL-CHS-MODS/releases/tag/${{ github.ref }}
+          BASEURL=https://github.com/sakarie9/DOL-CHS-MODS/releases/tag/${{ github.ref_name }}
           md=$(cat << EOF
           |     | 美化           | 美化+作弊     |
           |-----|----------------|---------------|
@@ -83,5 +83,6 @@ jobs:
           tag: ${{ github.ref }}
           overwrite: true
           file_glob: true
+          prerelease: true
           body: |
             ${{ steps.gen_release_note.outputs.RELEASE_BODY }}
