@@ -66,8 +66,8 @@ jobs:
           md=$(cat << EOF
           |     | 美化           | 美化+作弊     |
           |-----|----------------|---------------|
-          | apk |  [下载]($BASEURL/$APK_1) | [下载]($BASEURL/$APK_3) |
-          | zip |  [下载]($BASEURL/$ZIP_1) | [下载]($BASEURL/$ZIP_3) |
+          | apk |  [下载]($BASEURL/$(cat outputs/APK_1)) | [下载]($BASEURL/$(cat outputs/APK_3)) |
+          | zip |  [下载]($BASEURL/$(cat outputs/ZIP_1)) | [下载]($BASEURL/$(cat outputs/ZIP_3)) |
           EOF
           )
           md="${md//'%'/'%25'}"                               # Multiline escape sequences for %

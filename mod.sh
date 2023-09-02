@@ -36,7 +36,7 @@ fun_zip() {
     cd ..
 
     # for generate markdown form
-    echo "${VERSION}_${MOD_CODE}=$OUTPUT_NAME" >> $GITHUB_ENV
+    echo "$OUTPUT_NAME" > $OUTPUT_DIR/${VERSION}_${MOD_CODE}
 }
 
 fun_apk() {
@@ -62,7 +62,7 @@ fun_apk() {
     mv signed/*.apk $OUTPUT_DIR/$OUTPUT_NAME
 
     # for generate markdown form
-    echo "${VERSION}_${MOD_CODE}=$OUTPUT_NAME" >> $GITHUB_ENV
+    echo "$OUTPUT_NAME" > $OUTPUT_DIR/${VERSION}_${MOD_CODE}
 }
 
 fun_check_code() {
