@@ -21,13 +21,15 @@
 
 ### 整合包使用须知
 
-根据汉化仓库中的 [免责声明](https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/blob/main/README.md#%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E)
+- 本整合包中 Android 端应用名称修改为 `DOL CHS MODS` 且与原版及汉化版共存，请使用导出存档功能转移存档
 
-```
-汉化组不对任何修改后的汉化版本负责，包括但不限于修改游戏本体html文件，使用可能改变游戏内容的mod，使用他人发布的整合包等；汉化组也不会为任何第三方发布的mod版/修改版/魔改版/整合包等背书或担保。请在反馈问题前检查游戏是否已被修改，若被修改请勿提交，我们可能不会接受使用修改版本的内容反馈。
-```
+- 根据汉化仓库中的 [免责声明](https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/blob/main/README.md#%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E)
 
-在使用本整合包出现问题时在未判断问题是否由本整合包引入之前请勿向汉化仓库反馈
+    ```
+    汉化组不对任何修改后的汉化版本负责，包括但不限于修改游戏本体html文件，使用可能改变游戏内容的mod，使用他人发布的整合包等；汉化组也不会为任何第三方发布的mod版/修改版/魔改版/整合包等背书或担保。请在反馈问题前检查游戏是否已被修改，若被修改请勿提交，我们可能不会接受使用修改版本的内容反馈。
+    ```
+
+    在使用本整合包出现问题时在未判断问题是否由本整合包引入之前请勿向汉化仓库反馈
 
 [1]: https://vrelnir.blogspot.com/
 [2]: https://degreesoflewdity.miraheze.org/wiki/Main_Page
