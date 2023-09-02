@@ -10,6 +10,8 @@
   - [汉化仓库][4]
   - [Degrees of Lewdity Graphics Mod][5]
   - [BEEESSS Community Sprite Compilation][6]
+  - [韩站特写][7]
+  - [Papa Paril BEEESSS Burger Joint][8]
 
 ### 关于本仓库
 
@@ -18,6 +20,33 @@
 ### 下载
 
 [Latest Release](https://github.com/sakarie9/DOL-CHS-MODS/releases/latest)
+
+### 版本说明
+
+- 美化 | [Degrees of Lewdity Graphics Mod][5] [BEEESSS Community Sprite Compilation][6]
+
+  经典美化
+
+- 作弊
+
+  不需要在设置启动作弊即可使用作弊功能，可以解锁成就
+
+- HP
+
+  显示敌人当前 HP
+
+- 特写1 | [原帖][7]
+
+  在立绘旁显示特写头像
+
+  ⚠️仍在早期开发阶段，未支持的头发会显示为光头⚠️
+
+- 特写2 | [Papa Paril BEEESSS Burger Joint][8]
+
+  另一个特写版本
+
+  ⚠️仍在早期开发阶段，未支持的头发会显示为光头⚠️
+
 
 ### 整合包使用须知
 
@@ -37,3 +66,5 @@
 [4]: https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/
 [5]: https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod
 [6]: https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation
+[7]: https://arca.live/b/textgame/83875947
+[8]: https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint
