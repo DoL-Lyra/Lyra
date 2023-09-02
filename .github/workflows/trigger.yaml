@@ -18,7 +18,7 @@ jobs:
       fail-fast: true
       matrix:
         version: [zip, apk]
-        mod: [1,3]
+        mod: [1,3,5,7,9,11,13,15,17,19,21,23]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-java@v3
@@ -56,18 +56,26 @@ jobs:
         with:
           name: dol-chs-mods
           path: outputs
-      # - name: Display structure of downloaded files
-      #   run: ls -R
-      #   working-directory: outputs
       - name: Generate release body
         id: gen_release_note
         run: |
+          cd outputs
           BASEURL=https://github.com/sakarie9/DOL-CHS-MODS/releases/download/${{ github.ref_name }}
           md=$(cat << EOF
-          |     | 美化           | 美化+作弊     |
-          |-----|----------------|---------------|
-          | apk |  [下载]($BASEURL/$(cat outputs/apk_1)) | [下载]($BASEURL/$(cat outputs/apk_3)) |
-          | zip |  [下载]($BASEURL/$(cat outputs/zip_1)) | [下载]($BASEURL/$(cat outputs/zip_3)) |
+          |                    | ZIP                              | APK                            |
+          |--------------------|----------------------------------|--------------------------------|
+          | 美化               |  [下载]($BASEURL/$(cat zip_1))   | [下载]($BASEURL/$(cat apk_1))  |
+          | 美化+作弊          | [下载]( $BASEURL/$(cat zip_3) )  | [下载]($BASEURL/$(cat apk_3))  |
+          | 美化+HP            | [下载]( $BASEURL/$(cat zip_5) )  | [下载]($BASEURL/$(cat apk_5))  |
+          | 美化+作弊+HP       | [下载]( $BASEURL/$(cat zip_7) )  | [下载]($BASEURL/$(cat apk_7))  |
+          | 美化+特写1         | [下载]( $BASEURL/$(cat zip_9) )  | [下载]($BASEURL/$(cat apk_9))  |
+          | 美化+特写1+作弊    | [下载]( $BASEURL/$(cat zip_11) ) | [下载]($BASEURL/$(cat apk_11)) |
+          | 美化+HP+特写1      | [下载]( $BASEURL/$(cat zip_13) ) | [下载]($BASEURL/$(cat apk_13)) |
+          | 美化+HP+特写1+作弊 | [下载]( $BASEURL/$(cat zip_15) ) | [下载]($BASEURL/$(cat apk_15)) |
+          | 美化+特写2         | [下载]( $BASEURL/$(cat zip_17) ) | [下载]($BASEURL/$(cat apk_17)) |
+          | 美化+特写2+作弊    | [下载]( $BASEURL/$(cat zip_19 )  | [下载]($BASEURL/$(cat apk_19)) |
+          | 美化+HP+特写2      | [下载]( $BASEURL/$(cat zip_21) ) | [下载]($BASEURL/$(cat apk_21)) |
+          | 美化+HP+特写2+作弊 | [下载]( $BASEURL/$(cat zip_23) ) | [下载]($BASEURL/$(cat apk_23)) |
           EOF
           )
           md="${md//'%'/'%25'}"                               # Multiline escape sequences for %
