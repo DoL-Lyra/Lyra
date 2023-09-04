@@ -58,8 +58,8 @@ fun_apk() {
     FILE_NAME=$(basename dol*.apk)
     BASE_NAME=${FILE_NAME%.*}
     CHS_VER=${BASE_NAME##*chs-}
-    wget -nc -O apktool.jar https://github.com/iBotPeaches/Apktool/releases/download/v2.8.1/apktool_2.8.1.jar
-    wget -nc -O uber-apk-signer.jar https://github.com/patrickfav/uber-apk-signer/releases/download/v1.3.0/uber-apk-signer-1.3.0.jar
+    wget -q -nc -O apktool.jar https://github.com/iBotPeaches/Apktool/releases/download/v2.8.1/apktool_2.8.1.jar
+    wget -q -nc -O uber-apk-signer.jar https://github.com/patrickfav/uber-apk-signer/releases/download/v1.3.0/uber-apk-signer-1.3.0.jar
 
     java -jar apktool.jar d dol*.apk -o $APK_DIR
 
@@ -122,8 +122,8 @@ fun_beautify() {
     BEAUTIFY_DIR="beautify"
     mkdir $BEAUTIFY_DIR
     cd $BEAUTIFY_DIR
-    wget -nc -O B-1.tar.gz https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod/-/archive/master/degrees-of-lewdity-graphics-mod-master.tar.gz
-    wget -nc -O B-2.tar.gz https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation/-/archive/master/kaervek-beeesss-community-sprite-compilation-master.tar.gz
+    wget -q -nc -O B-1.tar.gz https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod/-/archive/master/degrees-of-lewdity-graphics-mod-master.tar.gz
+    wget -q -nc -O B-2.tar.gz https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation/-/archive/master/kaervek-beeesss-community-sprite-compilation-master.tar.gz
 
     tar xf B-1.tar.gz degrees-of-lewdity-graphics-mod-master/img --strip-components 1
     tar xf B-2.tar.gz kaervek-beeesss-community-sprite-compilation-master/img --strip-components 1
@@ -150,7 +150,7 @@ fun_avatar_type2() {
     AVATAR2_DIR="avatar2"
     mkdir $AVATAR2_DIR
     cd $AVATAR2_DIR
-    wget -nc -O avatar.rar https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint/-/raw/master/Paril_BJ_BEEESSS_Addon.rar
+    wget -q -nc -O avatar.rar https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint/-/raw/master/Paril_BJ_BEEESSS_Addon.rar
     unrar x avatar.rar
     cd ..
     cp -r $AVATAR2_DIR/'Paril BJ BEEESSS Addon'/img/* $IMG_PATH/
