@@ -26,6 +26,9 @@ jobs:
           distribution: 'adopt'
           java-version: '8'
 
+      - name: Install APT packages
+        run: sudo apt install -y unrar
+
       - id: getRelease
         name: release-downloader
         uses: robinraju/release-downloader@v1.8
