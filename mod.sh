@@ -151,7 +151,7 @@ fun_avatar_type2() {
     mkdir $AVATAR2_DIR
     cd $AVATAR2_DIR
     wget -q -nc -O avatar.rar https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint/-/raw/master/Paril_BJ_BEEESSS_Addon.rar
-    unrar x avatar.rar
+    unrar x avatar.rar -idq
     cd ..
     cp -r $AVATAR2_DIR/'Paril BJ BEEESSS Addon'/img/* $IMG_PATH/
 }
