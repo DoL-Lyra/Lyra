@@ -27,6 +27,8 @@
 
 - 美化 | [Degrees of Lewdity Graphics Mod][5] [BEEESSS Community Sprite Compilation][6]
 
+  ![预览](assets/beautify.webp)
+
   经典美化
 
 - 作弊
@@ -39,11 +41,15 @@
 
 - 特写1 | [原帖][7]
 
+  ![预览](assets/beautify-avatar1.webp)
+
   在立绘旁显示特写头像
 
   ⚠️仍在早期开发阶段，未支持的头发会显示为光头⚠️
 
 - 特写2 | [Papa Paril BEEESSS Burger Joint][8]
+
+  ![预览](assets/beautify-avatar2.webp)
 
   另一个特写版本
 
