@@ -22,8 +22,6 @@
 [Latest Release](https://github.com/sakarie9/DOL-CHS-MODS/releases/latest)
 
 ### 各版本说明
-<details>
-<summary>点击展开</summary>
 
 - 美化 | [Degrees of Lewdity Graphics Mod][5] [BEEESSS Community Sprite Compilation][6]
 
@@ -53,7 +51,24 @@
 
   另一个特写版本
 
-  ⚠️仍在早期开发阶段，未支持的头发会显示为光头⚠️
+  ⚠️仍在早期开发阶段，未支持的头发会显示为光头，目前支持的头发比特写1更少⚠️
+
+
+### 更新日志
+<details>
+<summary>点击展开</summary>
+
+- v1.3.0-0904
+
+  修正特写2未被应用的问题
+
+- v1.3.0-0903
+
+  添加特写12及HP
+
+- v1.3.0-0902
+  
+  首次更新
 
 </details>
 
