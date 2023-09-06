@@ -13,18 +13,23 @@ jobs:
       - uses: actions/checkout@v3
       - name: run script
         run: |
-          CHS_VER=$(curl https://api.github.com/repos/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/releases/latest | jq -r '.tag_name' | cut -d '-' -f3)
+          CHS_VER=$(curl -s https://api.github.com/repos/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/releases/latest | jq -r '.tag_name' | cut -d '-' -f3)
 
-          MODS_VER=$(curl https://api.github.com/repos/sakarie9/DOL-CHS-MODS/releases/latest | jq -r '.tag_name' | cut -d '-' -f1 | cut -d 'v' -f2)
+          # MODS_VER=$(curl -s https://api.github.com/repos/sakarie9/DOL-CHS-MODS/releases/latest | jq -r '.tag_name' | cut -d '-' -f1 | cut -d 'v' -f2)
+
+          MODS_VER=$(git describe --tags --abbrev=0 | cut -d '-' -f1 | cut -d 'v' -f2)
 
           result=$(echo $CHS_VER | grep "${MODS_VER}")
+
           if [[ "$result" == "" ]]
           then
             echo "Update needed"
             echo "NEED_UPDATE=true" >> "$GITHUB_ENV"
+
             NEW_VER=$(echo $CHS_VER | tr -d "a-zA-Z")
             DATE=$(date -d "+8 hours" +%m%d)
             NEW_TAG=v${NEW_VER}-${DATE}
+
             echo $NEW_TAG
             echo "NEW_TAG=$NEW_TAG" >> "$GITHUB_ENV"
           else
