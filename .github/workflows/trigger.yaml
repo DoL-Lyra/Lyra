@@ -1,6 +1,11 @@
 name: Trigger
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/trigger.yaml'
   schedule:
     - cron: '0 */6 * * *' # every 6 hour
     - cron: '0 * * * 5' # Friday every hour
@@ -10,7 +15,9 @@ jobs:
   check_update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          fetch-tags: true
       - name: run script
         run: |
           CHS_VER=$(curl -s https://api.github.com/repos/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/releases/latest | jq -r '.tag_name' | cut -d '-' -f3)
