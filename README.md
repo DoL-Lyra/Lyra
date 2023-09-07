@@ -3,13 +3,14 @@
 ## 简介
 ### 放在前面...
 - <img decoding="async" src="https://gitgud.io/uploads/-/system/user/avatar/9096/avatar.png" width="24"> <b>游戏作者</b>
-  
   - [Vrelnir 的博客][1]
   - [游戏 wiki (英文)][2]
   - [游戏源码仓库][3]
-  - [汉化仓库][4]
+- [汉化仓库][4]
+- 美化
   - [Degrees of Lewdity Graphics Mod][5]
   - [BEEESSS Community Sprite Compilation][6]
+- 特写
   - [韩站特写][7]
   - [Papa Paril BEEESSS Burger Joint][8]
 
@@ -23,7 +24,7 @@
 
 ### 各版本说明
 
-- 美化 | [Degrees of Lewdity Graphics Mod][5] [BEEESSS Community Sprite Compilation][6]
+- 美化 | [Degrees of Lewdity Graphics Mod][5] & [BEEESSS Community Sprite Compilation][6]
 
   ![预览](assets/beautify.webp)
 
