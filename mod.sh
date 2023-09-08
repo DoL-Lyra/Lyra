@@ -46,22 +46,31 @@ if [ ! -d $OUTPUT_DIR ]; then
 	mkdir $OUTPUT_DIR
 fi
 
-OUTPUT_SUFFIX=''
-WE_SUFFIX=''
-if [[ $WE == "we" ]]; then
-    WE_SUFFIX='we-'
-fi
+fun_name() {
+    OUTPUT_PREFIX='' # 文件名前缀
+    OUTPUT_SUFFIX='' # 文件名后缀
+
+    BASE_NAME=${FILE_NAME%.*}
+    DOL_VER=$(echo $BASE_NAME | cut -d '-' -f 2)
+    CHS_VER=$(echo $BASE_NAME | cut -d '-' -f 4)
+    WE_VER=$(echo $BASE_NAME | cut -d '-' -f 7)
+    if [[ $WE == "we" ]]; then
+        OUTPUT_PREFIX="dol-chs-${CHS_VER}-we-${WE_VER}"
+    else
+        OUTPUT_PREFIX="dol-chs-${CHS_VER}"
+    fi
+    OUTPUT_PREFIX="${OUTPUT_PREFIX//'alpha'/'a'}"
+    OUTPUT_PREFIX="${OUTPUT_PREFIX//'beta'/'b'}"
+}
 
 # ZIP
 fun_zip() {
-    FILE_NAME=$(basename dol*.zip)
-    BASE_NAME=${FILE_NAME%.*}
-    CHS_VER=${BASE_NAME##*chs-}
     unzip -q ${FILE_NAME} -d $EXTRACT_DIR
 
     fun_check_code
 
-    OUTPUT_NAME="dol-${WE_SUFFIX}chs-${CHS_VER}${OUTPUT_SUFFIX}-${DATE_NOW}.zip"
+    OUTPUT_NAME="${OUTPUT_PREFIX}${OUTPUT_SUFFIX}-${DATE_NOW}.zip"
+    echo $OUTPUT_NAME
 
     pushd $EXTRACT_DIR
     zip -q -r dol.zip *
@@ -74,9 +83,6 @@ fun_zip() {
 
 # APK
 fun_apk() {
-    FILE_NAME=$(basename dol*.apk)
-    BASE_NAME=${FILE_NAME%.*}
-    CHS_VER=${BASE_NAME##*chs-}
     wget -q -nc -O apktool.jar $URL_APKTOOL
     wget -q -nc -O uber-apk-signer.jar $URL_APKSIGN
 
@@ -93,7 +99,8 @@ fun_apk() {
     java -jar apktool.jar b $EXTRACT_DIR -o tmp.apk
     java -jar uber-apk-signer.jar -a tmp.apk --ks dol.jks --ksAlias dol --ksKeyPass dolchs --ksPass dolchs -o signed
 
-    OUTPUT_NAME="dol-${WE_SUFFIX}chs-${CHS_VER}${OUTPUT_SUFFIX}-${DATE_NOW}.apk"
+    OUTPUT_NAME="${OUTPUT_PREFIX}${OUTPUT_SUFFIX}-${DATE_NOW}.apk"
+    echo $OUTPUT_NAME
 
     mv signed/*.apk $OUTPUT_DIR/$OUTPUT_NAME
 
@@ -105,38 +112,38 @@ fun_apk() {
 fun_check_code() {
     if [ $(( MOD_CODE&1 )) -ne 0 ]
     then
-        echo Start patch beautify...
+        echo 1-Start patch beautify...
         fun_beautify
         OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-beautify
-        echo Complete patch beautify!
+        echo 1-Complete patch beautify!
     fi
     if [ $(( MOD_CODE&2 )) -ne 0 ]
     then
-        echo Start patch cheat...
+        echo 2-Start patch cheat...
         fun_cheat
         OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-cheat
-        echo Complete patch cheat!
+        echo 2-Complete patch cheat!
     fi
     if [ $(( MOD_CODE&4 )) -ne 0 ]
     then
-        echo Start patch HP...
+        echo 4-Start patch HP...
         fun_hp
         OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-hp
-        echo Complete patch HP!
+        echo 4-Complete patch HP!
     fi
     if [ $(( MOD_CODE&8 )) -ne 0 ]
     then
-        echo Start patch avatar type 1...
+        echo 8-Start patch avatar type 1...
         fun_avatar_type1
         OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-avatar1
-        echo Complete patch avatar type 1!
+        echo 8-Complete patch avatar type 1!
     fi
     if [ $(( MOD_CODE&16 )) -ne 0 ]
     then
-        echo Start patch avatar type 2...
+        echo 16-Start patch avatar type 2...
         fun_avatar_type2
         OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-avatar2
-        echo Complete patch avatar type 2!
+        echo 16-Complete patch avatar type 2!
     fi
 }
 
@@ -186,11 +193,15 @@ fun_avatar_type2() {
 # 入口
 case "$VERSION" in
     "zip")
+        FILE_NAME=$(basename dol*.zip)
+        fun_name
         IMG_PATH=$EXTRACT_DIR/img
         HTML_PATH="$EXTRACT_DIR/Degrees of Lewdity.html"
         fun_zip
     ;;
     "apk")
+        FILE_NAME=$(basename dol*.apk)
+        fun_name
         IMG_PATH=$EXTRACT_DIR/assets/www/img
         HTML_PATH="$EXTRACT_DIR/assets/www/Degrees of Lewdity.html"
         fun_apk
