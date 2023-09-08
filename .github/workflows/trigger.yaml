@@ -1,11 +1,6 @@
 name: Trigger
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - '.github/workflows/trigger.yaml'
   schedule:
     - cron: '0 */6 * * *' # every 6 hour
     - cron: '0 * * * 5' # every hour at friday
