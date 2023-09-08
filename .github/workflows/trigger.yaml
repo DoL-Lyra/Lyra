@@ -21,19 +21,58 @@ jobs:
           fetch-tags: true
       - name: run script
         run: |
-          CHS_VER=$(curl -s https://api.github.com/repos/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/releases/latest | jq -r '.tag_name' | cut -d '-' -f3)
-          MODS_VER=$(git describe --tags --abbrev=0 | cut -d '-' -f1 | cut -d 'v' -f2)
+          ORIGIN_TAG=$(curl -s https://api.github.com/repos/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/releases/latest | jq -r '.tag_name')
+          CHS_VER=$(echo $ORIGIN_TAG | cut -d '-' -f3)
+          MODS_VER=$(git describe --tags --abbrev=0 | cut -d '-' -f2)
 
-          result=$(echo $CHS_VER | grep "${MODS_VER}")
-
-          if [[ "$result" == "" ]]
+          if [[ "$CHS_VER" != "$MODS_VER" ]]
           then
             echo "Update needed"
             echo "NEED_UPDATE=true" >> "$GITHUB_ENV"
 
-            NEW_VER=$(echo $CHS_VER | tr -d "a-zA-Z")
+            NEW_VER="${ORIGIN_TAG//'chs-'/}"
             DATE=$(date -d "+8 hours" +%m%d)
-            NEW_TAG=v${NEW_VER}-${DATE}
+            NEW_TAG=${NEW_VER}-${DATE}
+
+            echo $NEW_TAG
+            echo "NEW_TAG=$NEW_TAG" >> "$GITHUB_ENV"
+          else
+            echo "Already updated"
+            echo "NEED_UPDATE=false" >> "$GITHUB_ENV"
+          fi
+
+      - name: create tag
+        if: env.NEED_UPDATE == 'true'
+        uses: rickstaa/action-create-tag@v1
+        id: "tag_create"
+        with:
+          tag: ${{ env.NEW_TAG }}
+          tag_exists_error: true
+
+  check_update_we:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+      - name: run script
+        run: |
+          ORIGIN_TAG=$(curl -s https://api.github.com/repos/Eltirosto/Degrees-of-Lewdity-World-Expansion-Chinese-Localization/releases/latest | jq -r '.tag_name')
+          CHS_VER=$(echo $ORIGIN_TAG | cut -d '-' -f3)
+          CHS_WE_VER=$(echo $ORIGIN_TAG | cut -d '-' -f6)
+
+          MODS_VER=$(git describe --tags --abbrev=0 | cut -d '-' -f2)
+          MODS_WE_VER=$(git describe --tags --abbrev=0 | cut -d '-' -f4)
+
+          if [[ "$CHS_VER" != "$MODS_VER" ]] || [[ "$CHS_WE_VER" != "$MODS_WE_VER" ]]
+          then
+            echo "Update needed"
+            echo "NEED_UPDATE=true" >> "$GITHUB_ENV"
+
+            NEW_VER="${ORIGIN_TAG//'chs-'/}"
+            DATE=$(date -d "+8 hours" +%m%d)
+            NEW_TAG=${NEW_VER}-we-${MODS_VER}-${DATE}
 
             echo $NEW_TAG
             echo "NEW_TAG=$NEW_TAG" >> "$GITHUB_ENV"
