@@ -96,6 +96,7 @@ jobs:
           tag: ${{ github.ref }}
           overwrite: true
           file_glob: true
+          make_latest: false
           # prerelease: true
           release_name: ${{ github.ref_name }} 原版汉化整合
           body: |

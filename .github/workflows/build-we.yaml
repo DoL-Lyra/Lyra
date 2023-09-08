@@ -95,6 +95,7 @@ jobs:
           tag: ${{ github.ref }}
           overwrite: true
           file_glob: true
+          make_latest: true
           # prerelease: true
           release_name: ${{ github.ref_name }} 世界扩展汉化整合
           body: |
