@@ -138,10 +138,10 @@ fun_beautify() {
     BEAUTIFY_DIR="beautify"
     mkdir $BEAUTIFY_DIR
     pushd $BEAUTIFY_DIR
-    wget -q -nc -O B-1.tar.gz $URL_BEAUTIFY_1
+    wget -q -nc -O B-1.zip $URL_BEAUTIFY_1
     wget -q -nc -O B-2.tar.gz $URL_BEAUTIFY_2
 
-    tar xf B-1.tar.gz degrees-of-lewdity-graphics-mod-master/img --strip-components 1
+    unzip -q B-1.zip
     tar xf B-2.tar.gz kaervek-beeesss-community-sprite-compilation-master/img --strip-components 1
     popd
     cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
