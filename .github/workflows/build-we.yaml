@@ -10,8 +10,6 @@ on:
       - 'README.md'
       - 'LICENSE'
       - '.github/workflows/trigger.yaml'
-  release:
-    types: [prereleased]
   workflow_dispatch:
 
 jobs:
