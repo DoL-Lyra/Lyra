@@ -57,14 +57,14 @@ jobs:
 
           MODS_WE_VER=$(git tag --sort=-creatordate | grep -v 'we' | head -n 1 | cut -d '-' -f3)
 
-          if [[ "$CHS_VER" != "$MODS_VER" ]] || [[ "$CHS_WE_VER" != "$MODS_WE_VER" ]]
+          if [[ "$CHS_WE_VER" != "$MODS_WE_VER" ]]
           then
             echo "Update needed"
             echo "NEED_UPDATE=true" >> "$GITHUB_ENV"
 
             NEW_VER="${ORIGIN_TAG//'chs-'/}"
             DATE=$(date -d "+8 hours" +%m%d)
-            NEW_TAG=${NEW_VER}-we-${MODS_VER}-${DATE}
+            NEW_TAG=${NEW_VER}-${DATE}
 
             echo $NEW_TAG
             echo "NEW_TAG=$NEW_TAG" >> "$GITHUB_ENV"
