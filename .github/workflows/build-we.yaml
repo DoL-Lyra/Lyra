@@ -1,0 +1,101 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - v*we*
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE'
+  workflow_dispatch:
+
+jobs:
+  build_matrix_:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        pack: [zip, apk]
+        code: [1,3,5,7,9,11,13,15,17,19,21,23]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: '8'
+
+      - name: Install APT packages
+        run: sudo apt install -y unrar
+
+      - name: Download world expansion files
+        uses: robinraju/release-downloader@v1.8
+        with:
+          repository: "Eltirosto/Degrees-of-Lewdity-World-Expansion-Chinese-Localization"
+          latest: true
+          fileName: "*.${{ matrix.pack }}"
+
+      - name: Run mod script
+        run: |
+          echo ${{ secrets.SIGNING_KEY }} > dol.base64
+          base64 -d dol.base64 > dol.jks
+          ./mod.sh we ${{ matrix.pack }} ${{ matrix.code }} ${{ github.ref_name }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dol-chs-mods-we
+          path: output/*
+
+  release:
+    runs-on: ubuntu-latest
+    needs: build_matrix
+    if: github.ref_type == 'tag'
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: dol-chs-mods-we
+          path: outputs
+      - name: Generate release body origin
+        id: gen_release_note
+        run: |
+          cd outputs
+          BASEURL=https://github.com/sakarie9/DOL-CHS-MODS/releases/download/${{ github.ref_name }}
+          md=$(cat << EOF
+          ### 世界扩展汉化整合
+
+          | 版本选择               	| ZIP                            	| APK                            	|
+          |------------------------	|--------------------------------	|--------------------------------	|
+          | 美化                   	| [下载]($BASEURL/$(cat zip_1))  	| [下载]($BASEURL/$(cat apk_1))  	|
+          | 美化+作弊              	| [下载]($BASEURL/$(cat zip_3))  	| [下载]($BASEURL/$(cat apk_3))  	|
+          | 美化+HP                	| [下载]($BASEURL/$(cat zip_5))  	| [下载]($BASEURL/$(cat apk_5))  	|
+          | **美化+作弊+HP**       	| [下载]($BASEURL/$(cat zip_7))  	| [下载]($BASEURL/$(cat apk_7))  	|
+          | 美化+特写1             	| [下载]($BASEURL/$(cat zip_9))  	| [下载]($BASEURL/$(cat apk_9))  	|
+          | 美化+作弊+特写1        	| [下载]($BASEURL/$(cat zip_11)) 	| [下载]($BASEURL/$(cat apk_11)) 	|
+          | 美化+HP+特写1          	| [下载]($BASEURL/$(cat zip_13)) 	| [下载]($BASEURL/$(cat apk_13)) 	|
+          | **美化+作弊+HP+特写1** 	| [下载]($BASEURL/$(cat zip_15)) 	| [下载]($BASEURL/$(cat apk_15)) 	|
+          | 美化+特写2             	| [下载]($BASEURL/$(cat zip_17)) 	| [下载]($BASEURL/$(cat apk_17)) 	|
+          | 美化+作弊+特写2        	| [下载]($BASEURL/$(cat zip_19)) 	| [下载]($BASEURL/$(cat apk_19)) 	|
+          | 美化+HP+特写2          	| [下载]($BASEURL/$(cat zip_21)) 	| [下载]($BASEURL/$(cat apk_21)) 	|
+          | **美化+作弊+HP+特写2** 	| [下载]($BASEURL/$(cat zip_23)) 	| [下载]($BASEURL/$(cat apk_23)) 	|
+          EOF
+          )
+          md="${md//'%'/'%25'}"                               # Multiline escape sequences for %
+          md="${md//$'\n'/'%0A'}"                             # Multiline escape sequences for '\n'
+          md="${md//$'\r'/'%0D'}"                             # Multiline escape sequences for '\r'
+          echo "RELEASE_BODY=$md" >> $GITHUB_OUTPUT
+
+      - name: Upload to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: outputs/{*.zip,*.apk}
+          tag: ${{ github.ref }}
+          overwrite: true
+          file_glob: true
+          # prerelease: true
+          release_name: ${{ github.ref_name }} 世界扩展汉化整合
+          body: |
+            ${{ steps.gen_release_note.outputs.RELEASE_BODY }}
