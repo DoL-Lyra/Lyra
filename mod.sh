@@ -18,12 +18,14 @@
 # 美化+HP+特写2+作弊 23
 # echo $(( 3&1 )) = 1
 
-# 参数1 版本 (zip apk)
-VERSION=$1
-# 参数2 MOD代码
-MOD_CODE=$2
-# 参数3 可选，格式为月日，如 1231
-if  [[ $3 == v* ]]; then
+# 参数1 世界扩展 （we origin）
+WE=$1
+# 参数2 包类型 (zip apk)
+VERSION=$2
+# 参数3 MOD代码
+MOD_CODE=$3
+# 参数4 可选，格式为月日，如 1231
+if  [[ $4 == v* ]]; then
     DATE_NOW=$(echo $3 | cut -d'-' -f2)
 else
     DATE_NOW=$(date -d "+8 hours" +%m%d)
@@ -40,9 +42,14 @@ URL_AVATAR_2=https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint/-/raw/master/
 
 EXTRACT_DIR=extract # 解压目录
 OUTPUT_DIR=output # 输出目录
-OUTPUT_SUFFIX=''
 if [ ! -d $OUTPUT_DIR ]; then
 	mkdir $OUTPUT_DIR
+fi
+
+OUTPUT_SUFFIX=''
+WE_SUFFIX=''
+if [[ $WE == "we" ]]; then
+    WE_SUFFIX='we-'
 fi
 
 # ZIP
@@ -54,7 +61,7 @@ fun_zip() {
 
     fun_check_code
 
-    OUTPUT_NAME="dol-chs-${CHS_VER}${OUTPUT_SUFFIX}-${DATE_NOW}.zip"
+    OUTPUT_NAME="dol-${WE_SUFFIX}chs-${CHS_VER}${OUTPUT_SUFFIX}-${DATE_NOW}.zip"
 
     pushd $EXTRACT_DIR
     zip -q -r dol.zip *
@@ -86,7 +93,7 @@ fun_apk() {
     java -jar apktool.jar b $EXTRACT_DIR -o tmp.apk
     java -jar uber-apk-signer.jar -a tmp.apk --ks dol.jks --ksAlias dol --ksKeyPass dolchs --ksPass dolchs -o signed
 
-    OUTPUT_NAME="dol-chs-${CHS_VER}${OUTPUT_SUFFIX}-${DATE_NOW}.apk"
+    OUTPUT_NAME="dol-${WE_SUFFIX}chs-${CHS_VER}${OUTPUT_SUFFIX}-${DATE_NOW}.apk"
 
     mv signed/*.apk $OUTPUT_DIR/$OUTPUT_NAME
 
