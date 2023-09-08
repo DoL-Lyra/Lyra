@@ -9,6 +9,8 @@ on:
     paths-ignore:
       - 'README.md'
       - 'LICENSE'
+  release:
+    types: [prereleased]
   workflow_dispatch:
 
 jobs:
