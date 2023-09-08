@@ -13,7 +13,7 @@ on:
 
 jobs:
   build_matrix_origin:
-    if: "!contains(github.ref_name, 'we')"
+    if: "!contains(github.ref_name, 'we') || github.ref_name == 'branch'"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
@@ -51,7 +51,7 @@ jobs:
           path: output/*
   
   build_matrix_we:
-    if: "contains(github.ref_name, 'we')"
+    if: "contains(github.ref_name, 'we') || github.ref_name == 'branch'"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
