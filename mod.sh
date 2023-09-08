@@ -192,6 +192,12 @@ fun_avatar_type2() {
     cp -r $AVATAR2_DIR/'Paril BJ BEEESSS Addon'/img/* $IMG_PATH/
 }
 
+fun_apk_workaround() {
+    APK_URL_TEMP=https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/releases/download/v0.4.1.7-chs-alpha1.4.0/dol-0.4.1.7-chs-alpha1.4.0.apk
+    wget -q -nc -O dol-0.4.1.7-we-chs-alpha1.0.0.apk $APK_URL_TEMP
+    FILE_NAME=$(basename dol*.apk)
+}
+
 # 入口
 case "$VERSION" in
     "zip")
@@ -203,6 +209,10 @@ case "$VERSION" in
     ;;
     "apk")
         FILE_NAME=$(basename dol*.apk)
+        # missing apk workaround
+        if [ -z $FILE_NAME ]; then
+            fun_apk_workaround
+        fi
         fun_name
         IMG_PATH=$EXTRACT_DIR/assets/www/img
         HTML_PATH="$EXTRACT_DIR/assets/www/Degrees of Lewdity.html"
