@@ -83,12 +83,35 @@ fun_zip() {
     echo "$OUTPUT_NAME" > $OUTPUT_DIR/${VERSION}_${MOD_CODE}
 }
 
+fun_apk_workaround_1() {
+    APK_URL_TEMP=https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/releases/download/v0.4.1.7-chs-alpha1.4.0/dol-0.4.1.7-chs-alpha1.4.0.apk
+    wget -q -nc -O dol-0.4.1.7-we-chs-alpha1.0.0.apk $APK_URL_TEMP
+    FILE_NAME=$(basename dol*.apk)
+}
+
+WORKAROUND=0
+
+fun_apk_workaround_2() {
+    rm -rf $EXTRACT_DIR/assets/www/img
+    rm -f "$EXTRACT_DIR/assets/www/Degrees of Lewdity.html"
+
+    FILE_NAME_ZIP=$(basename dol*.zip)
+    unzip -q ${FILE_NAME_ZIP} -d extract_zip
+
+    mv extract_zip/img $EXTRACT_DIR/assets/www/
+    mv "extract_zip/Degrees of Lewdity.html" $EXTRACT_DIR/assets/www/
+}
+
 # APK
 fun_apk() {
     wget -q -nc -O apktool.jar $URL_APKTOOL
     wget -q -nc -O uber-apk-signer.jar $URL_APKSIGN
 
     java -jar apktool.jar d dol*.apk -o $EXTRACT_DIR
+
+    if [[ $WORKAROUND == 1 ]]; then
+        fun_apk_workaround_2
+    fi
 
     # 修改包名
     sed -i 's/"com.vrelnir.DegreesOfLewdityWE"/"com.vrelnir.DegreesOfLewdityWE.chsmods"/g' $EXTRACT_DIR/AndroidManifest.xml
@@ -192,12 +215,6 @@ fun_avatar_type2() {
     cp -r $AVATAR2_DIR/'Paril BJ BEEESSS Addon'/img/* $IMG_PATH/
 }
 
-fun_apk_workaround() {
-    APK_URL_TEMP=https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/releases/download/v0.4.1.7-chs-alpha1.4.0/dol-0.4.1.7-chs-alpha1.4.0.apk
-    wget -q -nc -O dol-0.4.1.7-we-chs-alpha1.0.0.apk $APK_URL_TEMP
-    FILE_NAME=$(basename dol*.apk)
-}
-
 # 入口
 case "$VERSION" in
     "zip")
@@ -211,7 +228,8 @@ case "$VERSION" in
         FILE_NAME=$(basename dol*.apk)
         # missing apk workaround
         if [[ $FILE_NAME != "dol*" ]]; then
-            fun_apk_workaround
+            WORKAROUND=1
+            fun_apk_workaround_1
         fi
         fun_name
         IMG_PATH=$EXTRACT_DIR/assets/www/img
