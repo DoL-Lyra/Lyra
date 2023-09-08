@@ -210,7 +210,7 @@ case "$VERSION" in
     "apk")
         FILE_NAME=$(basename dol*.apk)
         # missing apk workaround
-        if [ -z $FILE_NAME ]; then
+        if [[ $FILE_NAME != "dol*" ]]; then
             fun_apk_workaround
         fi
         fun_name
