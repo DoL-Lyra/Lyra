@@ -43,11 +43,10 @@ jobs:
 
       - name: create tag
         if: env.NEED_UPDATE == 'true'
-        uses: rickstaa/action-create-tag@v1
-        id: "tag_create"
+        uses: softprops/action-gh-release@v1
         with:
-          tag: ${{ env.NEW_TAG }}
-          tag_exists_error: true
+          tag_name: ${{ env.NEW_TAG }}
+          prerelease: true
 
   check_update_we:
     runs-on: ubuntu-latest
@@ -83,8 +82,7 @@ jobs:
 
       - name: create tag
         if: env.NEED_UPDATE == 'true'
-        uses: rickstaa/action-create-tag@v1
-        id: "tag_create"
+        uses: softprops/action-gh-release@v1
         with:
-          tag: ${{ env.NEW_TAG }}
-          tag_exists_error: true
+          tag_name: ${{ env.NEW_TAG }}
+          prerelease: true
