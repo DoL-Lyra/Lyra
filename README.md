@@ -24,6 +24,10 @@
 
 ### 各版本说明
 
+- 原版和世界扩展
+  
+  两种底包，世界扩展包含原版及世界扩展mod及汉化
+
 - 美化 | [Degrees of Lewdity Graphics Mod][5] & [BEEESSS Community Sprite Compilation][6]
 
   ![预览](assets/beautify.webp)
@@ -58,6 +62,10 @@
 ### 更新日志
 <details>
 <summary>点击展开</summary>
+
+- 0908
+
+  新增世界扩展作为底包
 
 - v1.3.0-0904
 
