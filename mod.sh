@@ -26,7 +26,7 @@ VERSION=$2
 MOD_CODE=$3
 # 参数4 可选，格式为月日，如 1231
 if  [[ $4 == v* ]]; then
-    DATE_NOW=$(echo $4 | cut -d'-' -f2)
+    DATE_NOW=$(echo $4 | awk -F- '{print $NF}')
 else
     DATE_NOW=$(date -d "+8 hours" +%m%d)
 fi
