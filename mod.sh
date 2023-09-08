@@ -52,11 +52,13 @@ fun_name() {
 
     BASE_NAME=${FILE_NAME%.*}
     DOL_VER=$(echo $BASE_NAME | cut -d '-' -f 2)
-    CHS_VER=$(echo $BASE_NAME | cut -d '-' -f 4)
-    WE_VER=$(echo $BASE_NAME | cut -d '-' -f 7)
     if [[ $WE == "we" ]]; then
-        OUTPUT_PREFIX="dol-chs-${CHS_VER}-we-${WE_VER}"
+        # WE
+        WE_VER=$(echo $BASE_NAME | cut -d '-' -f 5)
+        OUTPUT_PREFIX="dol-we-chs-${WE_VER}"
     else
+        # 原版
+        CHS_VER=$(echo $BASE_NAME | cut -d '-' -f 4)
         OUTPUT_PREFIX="dol-chs-${CHS_VER}"
     fi
     OUTPUT_PREFIX="${OUTPUT_PREFIX//'alpha'/'a'}"
