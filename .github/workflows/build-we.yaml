@@ -35,7 +35,7 @@ jobs:
         with:
           repository: "Eltirosto/Degrees-of-Lewdity-World-Expansion-Chinese-Localization"
           latest: true
-          fileName: "*.${{ matrix.pack }}"
+          # fileName: "*.${{ matrix.pack }}"
 
       - name: Run mod script
         run: |
