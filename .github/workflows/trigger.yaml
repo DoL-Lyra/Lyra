@@ -55,7 +55,7 @@ jobs:
           ORIGIN_TAG=$(curl -s https://api.github.com/repos/Eltirosto/Degrees-of-Lewdity-World-Expansion-Chinese-Localization/releases/latest | jq -r '.tag_name')
           CHS_WE_VER=$(echo $ORIGIN_TAG | cut -d '-' -f4)
 
-          MODS_WE_VER=$(git tag --sort=-creatordate | grep -v 'we' | head -n 1 | cut -d '-' -f3)
+          MODS_WE_VER=$(git tag --sort=-creatordate | grep 'we' | head -n 1 | cut -d '-' -f3)
 
           if [[ "$CHS_WE_VER" != "$MODS_WE_VER" ]]
           then
