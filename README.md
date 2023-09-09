@@ -2,11 +2,23 @@
 
 ## 简介
 ### 放在前面...
-- <img decoding="async" src="https://gitgud.io/uploads/-/system/user/avatar/9096/avatar.png" width="24"> <b>游戏作者</b>
-  - [Vrelnir 的博客][1]
-  - [游戏 wiki (英文)][2]
-  - [游戏源码仓库][3]
-- [汉化仓库][4]
+- <img decoding="async" src="https://gitgud.io/uploads/-/system/user/avatar/9096/avatar.png" width="24"> <b>游戏作者</b> $\color{purple} {Vrelnir}$
+  - [Vrelnir 的博客][blog]
+  - [英文游戏维基][wiki-en]
+  - [中文游戏维基][wiki-cn]
+  - [官方 Discord][discord]
+  - [游戏源码仓库][gitgud]
+- [原版汉化仓库][3]
+- 世界扩展模组开发团队
+  - 成员:
+    - <img decoding="async" src="https://gitgud.io/uploads/-/system/user/avatar/25293/avatar.png?width=400" width="24"> $\color{green} {Chylli, 当前模组负责人}$
+    - <img decoding="async" src="https://gitgud.io/uploads/-/system/user/avatar/44574/avatar.png?width=400" width="24"> $\color{Gold} {J-Side}$
+    - <img decoding="async" src="https://gitgud.io/uploads/-/system/user/avatar/25929/avatar.png?width=400" width="24"> $\color{blue} {FrostDragonZ | Revenant, 同时也是 Dragon Mod 的负责人}$
+    - $\color{Gold} {Frostberg}$
+  - [英文模组维基][we-wiki-en]
+  - [模组 Discord][we-discord]
+  - [模组源码仓库][we-gitgud]
+- [世界扩展模组汉化仓库][4]
 - 美化
   - [Degrees of Lewdity Graphics Mod][5]
   - [BEEESSS Community Sprite Compilation][6]
@@ -95,14 +107,20 @@
 
 - 根据汉化仓库中的 [免责声明](https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/blob/main/README.md#%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E)
 
-    > 汉化组不对任何修改后的汉化版本负责，包括但不限于修改游戏本体html文件，使用可能改变游戏内容的mod，使用他人发布的整合包等；汉化组也不会为任何第三方发布的mod版/修改版/魔改版/整合包等背书或担保。请在反馈问题前检查游戏是否已被修改，若被修改请勿提交，我们可能不会接受使用修改版本的内容反馈。
+    > 汉化组不对任何修改后的汉化版本负责，包括但不限于修改游戏本体 html 文件，使用可能改变游戏内容的模组，使用他人发布的整合包等；汉化组也不会为任何第三方发布的模组版/修改版/魔改版/整合包等背书或担保。请在反馈问题前检查游戏是否已被修改，若被修改请勿提交，我们可能不会接受使用修改版本的内容反馈。
 
     在使用本整合包出现问题时在未判断问题是否由本整合包引入之前请勿向汉化仓库反馈
 
-[1]: https://vrelnir.blogspot.com/
-[2]: https://degreesoflewdity.miraheze.org/wiki/Main_Page
-[3]: https://gitgud.io/Vrelnir/degrees-of-lewdity/-/tree/master/
-[4]: https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/
+[blog]: https://vrelnir.blogspot.com/
+[wiki-en]: https://degreesoflewdity.miraheze.org/wiki
+[wiki-cn]: https://degreesoflewditycn.miraheze.org/wiki
+[gitgud]: https://gitgud.io/Vrelnir/degrees-of-lewdity/-/tree/master/
+[discord]: https://discord.gg/VznUtEh
+[we-wiki-en]: https://degreesoflewdity.miraheze.org/wiki
+[we-gitgud]: https://gitgud.io/Vrelnir/degrees-of-lewdity/-/tree/master/
+[we-discord]: https://discord.gg/4APXgn4
+[3]: https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/
+[4]: https://github.com/Eltirosto/Degrees-of-Lewdity-World-Expansion-Chinese-Localization
 [5]: https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod
 [6]: https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation
 [7]: https://arca.live/b/textgame/83875947
