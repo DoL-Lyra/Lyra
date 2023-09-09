@@ -83,13 +83,13 @@ fun_zip() {
     echo "$OUTPUT_NAME" > $OUTPUT_DIR/${VERSION}_${MOD_CODE}
 }
 
+WORKAROUND=0
+
 fun_apk_workaround_1() {
     APK_URL_TEMP=https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/releases/download/v0.4.1.7-chs-alpha1.4.0/dol-0.4.1.7-chs-alpha1.4.0.apk
     wget -q -nc -O dol-0.4.1.7-we-chs-alpha1.0.0.apk $APK_URL_TEMP
     FILE_NAME=$(basename dol*.apk)
 }
-
-WORKAROUND=0
 
 fun_apk_workaround_2() {
     rm -rf $EXTRACT_DIR/assets/www/img
@@ -113,11 +113,20 @@ fun_apk() {
         fun_apk_workaround_2
     fi
 
-    # 修改包名
-    sed -i 's/"com.vrelnir.DegreesOfLewdityWE"/"com.vrelnir.DegreesOfLewdityWE.chsmods"/g' $EXTRACT_DIR/AndroidManifest.xml
+    # 修改原版包名
+    if [[ $WE != "we" ]]; then
+        # 修改包名
+        sed -i 's/"com.vrelnir.DegreesOfLewdityWE"/"com.vrelnir.DegreesOfLewdityWE.chsmods"/g' $EXTRACT_DIR/AndroidManifest.xml
 
-    # 修改应用名
-    sed -i 's/Degrees of Lewdity/DOL CHS MODS/g' $EXTRACT_DIR/res/values/strings.xml
+        # 修改应用名
+        sed -i 's/Degrees of Lewdity/DOL CHS MODS/g' $EXTRACT_DIR/res/values/strings.xml
+    else # 修改世界扩展包名
+        # 修改包名
+        sed -i 's/"com.vrelnir.DegreesOfLewdityWE"/"com.vrelnir.DegreesOfLewdityWE.we.chsmods"/g' $EXTRACT_DIR/AndroidManifest.xml
+
+        # 修改应用名
+        sed -i 's/Degrees of Lewdity/DOL WE CHS MODS/g' $EXTRACT_DIR/res/values/strings.xml
+    fi
 
     fun_check_code
 
