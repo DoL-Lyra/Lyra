@@ -86,8 +86,10 @@ fun_zip() {
 WORKAROUND=0
 
 fun_apk_workaround_1() {
+    FILE_NAME_ZIP=$(basename dol*.zip)
+    FILE_NAME_ZIP="${FILE_NAME_ZIP%.*}"
     APK_URL_TEMP=https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/releases/download/v0.4.1.7-chs-alpha1.4.0/dol-0.4.1.7-chs-alpha1.4.0.apk
-    wget -q -nc -O dol-0.4.1.7-we-chs-alpha1.0.0.apk $APK_URL_TEMP
+    wget -q -nc -O $FILE_NAME_ZIP.apk $APK_URL_TEMP
     FILE_NAME=$(basename dol*.apk)
 }
 
