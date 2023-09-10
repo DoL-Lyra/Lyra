@@ -6,6 +6,10 @@ on:
     - cron: '0 * * * 5' # every hour at friday
   workflow_dispatch:
 
+env:
+  GIT_EMAIL: 20642596+sakarie9@users.noreply.github.com
+  GIT_USERNAME: sakaeir9
+
 jobs:
   check_update:
     runs-on: ubuntu-latest
@@ -38,12 +42,11 @@ jobs:
 
       - name: create empty commit
         if: env.NEED_UPDATE == 'true'
-        uses: velocibear/create-empty-commit@v1.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          email: 20642596+sakarie9@users.noreply.github.com
-          name: sakarie9
-          message: "CI: new we update"
+        run: |
+          git config user.name $GIT_EMAIL
+          git config user.email $GIT_USERNAME
+          git commit --allow-empty -m "CI: new update"
+          git push
 
       - name: create tag
         if: env.NEED_UPDATE == 'true'
@@ -54,6 +57,7 @@ jobs:
 
   check_update_we:
     runs-on: ubuntu-latest
+    needs: check_update
     steps:
       - uses: actions/checkout@v4
         with:
@@ -84,12 +88,11 @@ jobs:
 
       - name: create empty commit
         if: env.NEED_UPDATE == 'true'
-        uses: velocibear/create-empty-commit@v1.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          email: 20642596+sakarie9@users.noreply.github.com
-          name: sakarie9
-          message: "CI: new update"
+        run: |
+          git config user.name $GIT_EMAIL
+          git config user.email $GIT_USERNAME
+          git commit --allow-empty -m "CI: new we update"
+          git push
 
       - name: create tag
         if: env.NEED_UPDATE == 'true'
