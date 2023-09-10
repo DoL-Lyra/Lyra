@@ -1,4 +1,4 @@
-# Degrees of Lewdity 整合包发布库
+# Degrees of Lewdity 整合包发布仓库
 
 ## 简介
 ### 放在前面...
