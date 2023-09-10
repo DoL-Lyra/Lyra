@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 env:
-  GIT_EMAIL: 20642596+sakarie9@users.noreply.github.com
-  GIT_USERNAME: sakarie9
+  GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+  GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
 
 jobs:
   check_update:
