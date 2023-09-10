@@ -8,7 +8,7 @@ on:
 
 env:
   GIT_EMAIL: 20642596+sakarie9@users.noreply.github.com
-  GIT_USERNAME: sakaeir9
+  GIT_USERNAME: sakarie9
 
 jobs:
   check_update:
