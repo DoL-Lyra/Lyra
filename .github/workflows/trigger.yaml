@@ -43,8 +43,8 @@ jobs:
       - name: create empty commit
         if: env.NEED_UPDATE == 'true'
         run: |
-          git config user.name $GIT_EMAIL
-          git config user.email $GIT_USERNAME
+          git config --global user.name $GIT_USERNAME
+          git config --global user.email $GIT_EMAIL
           git commit --allow-empty -m "CI: new update"
           git push
 
@@ -89,8 +89,8 @@ jobs:
       - name: create empty commit
         if: env.NEED_UPDATE == 'true'
         run: |
-          git config user.name $GIT_EMAIL
-          git config user.email $GIT_USERNAME
+          git config --global user.name $GIT_USERNAME
+          git config --global user.email $GIT_EMAIL
           git commit --allow-empty -m "CI: new we update"
           git push
 
