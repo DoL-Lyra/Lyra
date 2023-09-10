@@ -36,6 +36,15 @@ jobs:
             echo "NEED_UPDATE=false" >> "$GITHUB_ENV"
           fi
 
+      - name: create empty commit
+        if: env.NEED_UPDATE == 'true'
+        uses: velocibear/create-empty-commit@v1.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          email: 20642596+sakarie9@users.noreply.github.com
+          name: sakarie9
+          message: "CI: new we update"
+
       - name: create tag
         if: env.NEED_UPDATE == 'true'
         uses: softprops/action-gh-release@v1
@@ -72,6 +81,15 @@ jobs:
             echo "Already updated"
             echo "NEED_UPDATE=false" >> "$GITHUB_ENV"
           fi
+
+      - name: create empty commit
+        if: env.NEED_UPDATE == 'true'
+        uses: velocibear/create-empty-commit@v1.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          email: 20642596+sakarie9@users.noreply.github.com
+          name: sakarie9
+          message: "CI: new update"
 
       - name: create tag
         if: env.NEED_UPDATE == 'true'
