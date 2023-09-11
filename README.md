@@ -54,26 +54,33 @@
 
   显示敌人当前 HP
 
-- 特写1 | [原帖][7]
+- BJ特写 | [Papa Paril BEEESSS Burger Joint][8]
 
-  ![预览](assets/beautify-avatar1.webp)
+  ![预览](assets/beautify-avatarbj.webp)
+
+  另一个特写版本
+
+  ⚠️仍在早期开发阶段，未支持的头发会显示为光头⚠️
+
+- KR特写 | [原帖][7]
+
+  ![预览](assets/beautify-avatarkr.webp)
 
   在立绘旁显示特写头像
 
   ⚠️仍在早期开发阶段，未支持的头发会显示为光头⚠️
 
-- 特写2 | [Papa Paril BEEESSS Burger Joint][8]
-
-  ![预览](assets/beautify-avatar2.webp)
-
-  另一个特写版本
-
-  ⚠️仍在早期开发阶段，未支持的头发会显示为光头，目前支持的头发比特写1更少⚠️
-
-
 ### 更新日志
 <details>
 <summary>点击展开</summary>
+
+- 0911
+
+  修改特写命名
+
+  > 特写1 -> KR特写
+
+  > 特写2 -> BJ特写
 
 - 0908
 
