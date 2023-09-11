@@ -1,21 +1,21 @@
 #!/bin/bash
 
 # 使用二进制决定是否应用某MOD
-# 128 64 32    16    8    4    2   1
-# N   N   N   特写2 特写1 HP 作弊 美化
+# 128 64 32    16      8    4    2   1
+# N   N   N   KR特写 BJ特写 HP 作弊 美化
 
 # 美化 1
 # 美化+作弊 3
 # 美化+HP 5
 # 美化+作弊+HP 7
-# 美化+特写1 9
-# 美化+特写1+作弊 11
-# 美化+HP+特写1 13
-# 美化+HP+特写1+作弊 15
-# 美化+特写2 17
-# 美化+特写2+作弊 19
-# 美化+HP+特写2 21
-# 美化+HP+特写2+作弊 23
+# 美化+BJ特写 9
+# 美化+BJ特写+作弊 11
+# 美化+HP+BJ特写 13
+# 美化+HP+BJ特写+作弊 15
+# 美化+KR特写 17
+# 美化+KR特写+作弊 19
+# 美化+HP+KR特写 21
+# 美化+HP+KR特写+作弊 23
 # echo $(( 3&1 )) = 1
 
 # 参数1 世界扩展 （we origin）
@@ -38,7 +38,7 @@ URL_APKSIGN=https://github.com/patrickfav/uber-apk-signer/releases/download/v1.3
 # 资源
 URL_BEAUTIFY_1=https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod/-/raw/master/img.zip
 URL_BEAUTIFY_2=https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation/-/archive/master/kaervek-beeesss-community-sprite-compilation-master.tar.gz
-URL_AVATAR_2=https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint/-/raw/master/Paril_BJ_BEEESSS_Addon.rar
+URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint/-/raw/master/Paril_BJ_BEEESSS_Addon.rar
 
 EXTRACT_DIR=extract # 解压目录
 OUTPUT_DIR=output # 输出目录
@@ -169,17 +169,17 @@ fun_check_code() {
     fi
     if [ $(( MOD_CODE&8 )) -ne 0 ]
     then
-        echo 8-Start patch avatar type 1...
-        fun_avatar_type1
-        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-avatar1
-        echo 8-Complete patch avatar type 1!
+        echo 8-Start patch avatar type BJ...
+        fun_avatar_bj
+        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-avatarbj
+        echo 8-Complete patch avatar type BJ!
     fi
     if [ $(( MOD_CODE&16 )) -ne 0 ]
     then
-        echo 16-Start patch avatar type 2...
-        fun_avatar_type2
-        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-avatar2
-        echo 16-Complete patch avatar type 2!
+        echo 16-Start patch avatar type kr...
+        fun_avatar_kr
+        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-avatarkr
+        echo 16-Complete patch avatar type kr!
     fi
 }
 
@@ -209,21 +209,21 @@ fun_hp() {
     }' "${HTML_PATH}"
 }
 
-# 特写1
-fun_avatar_type1() {
-    unzip -q assets/얼굴추가.zip
-    cp -r 얼굴추가/img/* $IMG_PATH/
-}
-
-# 特写2
-fun_avatar_type2() {
-    AVATAR2_DIR="avatar2"
-    mkdir $AVATAR2_DIR
-    pushd $AVATAR2_DIR
-    wget -q -nc -O avatar.rar $URL_AVATAR_2
+# BJ特写
+fun_avatar_bj() {
+    AVATARBJ_DIR="avatarbj"
+    mkdir $AVATARBJ_DIR
+    pushd $AVATARBJ_DIR
+    wget -q -nc -O avatar.rar $URL_AVATAR_BJ
     unrar x avatar.rar -idq
     popd
-    cp -r $AVATAR2_DIR/'Paril BJ BEEESSS Addon'/img/* $IMG_PATH/
+    cp -r $AVATARBJ_DIR/'Paril BJ BEEESSS Addon'/img/* $IMG_PATH/
+}
+
+# KR特写
+fun_avatar_kr() {
+    unzip -q assets/얼굴추가.zip
+    cp -r 얼굴추가/img/* $IMG_PATH/
 }
 
 # 入口
