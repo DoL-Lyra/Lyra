@@ -6,7 +6,6 @@ on:
       - main
     tags:
       - '*'
-      - '!*we*'
     paths-ignore:
       - 'README.md'
       - 'LICENSE'
@@ -98,7 +97,7 @@ jobs:
           tag: ${{ github.ref }}
           overwrite: true
           file_glob: true
-          make_latest: false
+          make_latest: true
           # prerelease: true
           release_name: ${{ github.ref_name }} 原版汉化整合
           body: |

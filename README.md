@@ -9,16 +9,6 @@
   - [官方 Discord][discord]
   - [游戏源码仓库][gitgud]
 - [原版汉化仓库][3]
-- 世界扩展模组开发团队
-  - 成员:
-    - <img decoding="async" src="https://gitgud.io/uploads/-/system/user/avatar/25293/avatar.png?width=400" width="24"> $\color{green} {Chylli, 当前模组负责人}$
-    - <img decoding="async" src="https://gitgud.io/uploads/-/system/user/avatar/44574/avatar.png?width=400" width="24"> $\color{Gold} {J-Side}$
-    - <img decoding="async" src="https://gitgud.io/uploads/-/system/user/avatar/25929/avatar.png?width=400" width="24"> $\color{blue} {FrostDragonZ | Revenant, 同时也是 Dragon Mod 的负责人}$
-    - $\color{Gold} {Frostberg}$
-  - [英文模组维基][we-wiki-en]
-  - [模组 Discord][we-discord]
-  - [模组源码仓库][we-gitgud]
-- [世界扩展模组汉化仓库][4]
 - 美化
   - [Degrees of Lewdity Graphics Mod][5]
   - [BEEESSS Community Sprite Compilation][6]
@@ -35,10 +25,6 @@
 [Latest Release](https://github.com/sakarie9/DOL-CHS-MODS/releases/latest)
 
 ### 各版本说明
-
-- 原版和世界扩展
-  
-  两种底包，世界扩展包含原版及世界扩展mod及汉化
 
 - 美化 | [Degrees of Lewdity Graphics Mod][5] & [BEEESSS Community Sprite Compilation][6]
 
@@ -105,10 +91,8 @@
 - 版本格式
   - 文件名格式
     - `dol-chs-{汉化版本号}-{MOD}-{日期}.{zip,apk}`
-    - `dol-we-chs-{世界扩展汉化版本号}-{MOD}-{日期}.{zip,apk}`
   - tag 格式
     - `{原版版本号}-{汉化版本号}-{日期}`
-    - `{原版版本号}-we-{世界扩展汉化版本号}-{日期}`
 
 - 本整合包中 Android 端应用名称修改为 `DOL CHS MODS` 且与原版及汉化版共存，请使用导出存档功能转移存档
 
@@ -123,11 +107,7 @@
 [wiki-cn]: https://degreesoflewditycn.miraheze.org/wiki
 [gitgud]: https://gitgud.io/Vrelnir/degrees-of-lewdity/-/tree/master/
 [discord]: https://discord.gg/VznUtEh
-[we-wiki-en]: https://degreesoflewdity.miraheze.org/wiki
-[we-gitgud]: https://gitgud.io/Vrelnir/degrees-of-lewdity/-/tree/master/
-[we-discord]: https://discord.gg/4APXgn4
 [3]: https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/
-[4]: https://github.com/Eltirosto/Degrees-of-Lewdity-World-Expansion-Chinese-Localization
 [5]: https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod
 [6]: https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation
 [7]: https://arca.live/b/textgame/83875947
