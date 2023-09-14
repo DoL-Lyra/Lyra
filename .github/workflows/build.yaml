@@ -41,7 +41,7 @@ jobs:
         run: |
           echo ${{ secrets.SIGNING_KEY }} > dol.base64
           base64 -d dol.base64 > dol.jks
-          ./mod.sh origin ${{ matrix.pack }} ${{ matrix.code }} ${{ github.ref_name }}
+          ./mod.sh ${{ matrix.pack }} ${{ matrix.code }} ${{ github.ref_name }}
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
