@@ -158,9 +158,9 @@ fun_cheat() {
 
 # HP
 fun_hp() {
-    sed -i '/看起来无法承受更多的痛苦/{n;n;n;n;a\
-    \n\t\t\tHP：&lt;&lt;= Math.round($enemyhealth) &gt;&gt;
-    }' "${HTML_PATH}"
+    sed -i "/看起来无法承受更多的痛苦/{n;n;n;n
+    ;r assets/HP.patch
+    }" "${HTML_PATH}"
 }
 
 # BJ特写
