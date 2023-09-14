@@ -16,13 +16,14 @@
 # 美化+HP+KR特写 21
 # 美化+HP+KR特写+作弊 23
 
-# 参数2 包类型 (zip apk)
+# 参数1 包类型 (zip apk)
 VERSION=$1
-# 参数3 MOD代码
+# 参数2 MOD代码
 MOD_CODE=$2
-# 参数4 可选，格式为月日，如 1231
-if  [[ $3 == v* ]]; then
-    DATE_NOW=$(echo $4 | awk -F- '{print $NF}')
+# 参数3 可选，格式为月日，如 1231
+DATE_PARAM=$3
+if  [[ $DATE_PARAM == v* ]]; then
+    DATE_NOW=$(echo $DATE_PARAM | awk -F- '{print $NF}')
 else
     DATE_NOW=$(date -d "+8 hours" +%m%d)
 fi
