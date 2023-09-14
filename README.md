@@ -8,17 +8,17 @@
   - [中文游戏维基][wiki-cn]
   - [官方 Discord][discord]
   - [游戏源码仓库][gitgud]
-- [原版汉化仓库][3]
+- [原版汉化仓库][github-chs]
 - 美化
-  - [Degrees of Lewdity Graphics Mod][5]
-  - [BEEESSS Community Sprite Compilation][6]
+  - [Degrees of Lewdity Graphics Mod][beeesss]
+  - [BEEESSS Community Sprite Compilation][beeesss-ext]
 - 特写
-  - [韩站特写][7]
-  - [Papa Paril BEEESSS Burger Joint][8]
+  - [韩站特写][avatar-kr]
+  - [Papa Paril BEEESSS Burger Joint][avatar-bj]
 
 ### 关于本仓库
 
-本仓库是基于 [汉化仓库][4] 制作的自动化打包仓库，使用 Github Actions 提供多种 Mod 组合可供选择，跟随汉化仓库更新
+本仓库是基于 [汉化仓库][github-chs] 制作的自动化打包仓库，使用 Github Actions 提供多种 Mod 组合可供选择，跟随汉化仓库更新
 
 ### 下载
 
@@ -26,7 +26,7 @@
 
 ### 各版本说明
 
-- 美化 | [Degrees of Lewdity Graphics Mod][5] & [BEEESSS Community Sprite Compilation][6]
+- 美化 | [Degrees of Lewdity Graphics Mod][beeesss] & [BEEESSS Community Sprite Compilation][beeesss-ext]
 
   ![预览](assets/beautify.webp)
 
@@ -40,7 +40,7 @@
 
   显示敌人当前 HP
 
-- BJ特写 | [Papa Paril BEEESSS Burger Joint][8]
+- BJ特写 | [Papa Paril BEEESSS Burger Joint][avatar-bj]
 
   ![预览](assets/beautify-avatarbj.webp)
 
@@ -48,7 +48,7 @@
 
   ⚠️仍在早期开发阶段，未支持的头发会显示为光头⚠️
 
-- KR特写 | [原帖][7]
+- KR特写 | [原帖][avatar-kr]
 
   ![预览](assets/beautify-avatarkr.webp)
 
@@ -59,6 +59,12 @@
 ### 更新日志
 <details>
 <summary>点击展开</summary>
+
+- 0914
+
+  移除世界扩展
+
+  使用新格式HP显示
 
 - 0911
 
@@ -102,13 +108,14 @@
 
     在使用本整合包出现问题时在未判断问题是否由本整合包引入之前请勿向汉化仓库反馈
 
-[blog]: https://vrelnir.blogspot.com/
+[blog]: https://vrelnir.blogspot.com
 [wiki-en]: https://degreesoflewdity.miraheze.org/wiki
 [wiki-cn]: https://degreesoflewditycn.miraheze.org/wiki
-[gitgud]: https://gitgud.io/Vrelnir/degrees-of-lewdity/-/tree/master/
+[gitgud]: https://gitgud.io/Vrelnir/degrees-of-lewdity/-/tree/master
 [discord]: https://discord.gg/VznUtEh
-[3]: https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/
-[5]: https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod
-[6]: https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation
-[7]: https://arca.live/b/textgame/83875947
-[8]: https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint
+[github-chs]: https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization
+
+[beeesss]: https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod
+[beeesss-ext]: https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation
+[avatar-bj]: https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint
+[avatar-kr]: https://arca.live/b/textgame/83875947
