@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# 使用二进制决定是否应用某MOD
 # 128 64 32    16      8    4    2   1
 # N   N   N   KR特写 BJ特写 HP 作弊 美化
 
@@ -16,16 +15,13 @@
 # 美化+KR特写+作弊 19
 # 美化+HP+KR特写 21
 # 美化+HP+KR特写+作弊 23
-# echo $(( 3&1 )) = 1
 
-# 参数1 世界扩展 （we origin）
-WE=$1
 # 参数2 包类型 (zip apk)
-VERSION=$2
+VERSION=$1
 # 参数3 MOD代码
-MOD_CODE=$3
+MOD_CODE=$2
 # 参数4 可选，格式为月日，如 1231
-if  [[ $4 == v* ]]; then
+if  [[ $3 == v* ]]; then
     DATE_NOW=$(echo $4 | awk -F- '{print $NF}')
 else
     DATE_NOW=$(date -d "+8 hours" +%m%d)
@@ -49,18 +45,10 @@ fi
 fun_name() {
     OUTPUT_PREFIX='' # 文件名前缀
     OUTPUT_SUFFIX='' # 文件名后缀
-
     BASE_NAME=${FILE_NAME%.*}
     DOL_VER=$(echo $BASE_NAME | cut -d '-' -f 2)
-    if [[ $WE == "we" ]]; then
-        # WE
-        WE_VER=$(echo $BASE_NAME | cut -d '-' -f 5)
-        OUTPUT_PREFIX="dol-we-chs-${WE_VER}"
-    else
-        # 原版
-        CHS_VER=$(echo $BASE_NAME | cut -d '-' -f 4)
-        OUTPUT_PREFIX="dol-chs-${CHS_VER}"
-    fi
+    CHS_VER=$(echo $BASE_NAME | cut -d '-' -f 4)
+    OUTPUT_PREFIX="dol-chs-${CHS_VER}"
     OUTPUT_PREFIX="${OUTPUT_PREFIX//'alpha'/'a'}"
     OUTPUT_PREFIX="${OUTPUT_PREFIX//'beta'/'b'}"
 }
@@ -83,27 +71,6 @@ fun_zip() {
     echo "$OUTPUT_NAME" > $OUTPUT_DIR/${VERSION}_${MOD_CODE}
 }
 
-WORKAROUND=0
-
-fun_apk_workaround_1() {
-    FILE_NAME_ZIP=$(basename dol*.zip)
-    FILE_NAME_ZIP="${FILE_NAME_ZIP%.*}"
-    APK_URL_TEMP=https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/releases/download/v0.4.1.7-chs-alpha1.4.0/dol-0.4.1.7-chs-alpha1.4.0.apk
-    wget -q -nc -O $FILE_NAME_ZIP.apk $APK_URL_TEMP
-    FILE_NAME=$(basename dol*.apk)
-}
-
-fun_apk_workaround_2() {
-    rm -rf $EXTRACT_DIR/assets/www/img
-    rm -f "$EXTRACT_DIR/assets/www/Degrees of Lewdity.html"
-
-    FILE_NAME_ZIP=$(basename dol*.zip)
-    unzip -q ${FILE_NAME_ZIP} -d extract_zip
-
-    mv extract_zip/img $EXTRACT_DIR/assets/www/
-    mv "extract_zip/Degrees of Lewdity.html" $EXTRACT_DIR/assets/www/
-}
-
 # APK
 fun_apk() {
     wget -q -nc -O apktool.jar $URL_APKTOOL
@@ -111,24 +78,11 @@ fun_apk() {
 
     java -jar apktool.jar d dol*.apk -o $EXTRACT_DIR
 
-    if [[ $WORKAROUND == 1 ]]; then
-        fun_apk_workaround_2
-    fi
+    # 修改包名
+    sed -i 's/"com.vrelnir.DegreesOfLewdityWE"/"com.vrelnir.DegreesOfLewdityWE.chsmods"/g' $EXTRACT_DIR/AndroidManifest.xml
 
-    # 修改原版包名
-    if [[ $WE != "we" ]]; then
-        # 修改包名
-        sed -i 's/"com.vrelnir.DegreesOfLewdityWE"/"com.vrelnir.DegreesOfLewdityWE.chsmods"/g' $EXTRACT_DIR/AndroidManifest.xml
-
-        # 修改应用名
-        sed -i 's/Degrees of Lewdity/DOL CHS MODS/g' $EXTRACT_DIR/res/values/strings.xml
-    else # 修改世界扩展包名
-        # 修改包名
-        sed -i 's/"com.vrelnir.DegreesOfLewdityWE"/"com.vrelnir.DegreesOfLewdityWE.we.chsmods"/g' $EXTRACT_DIR/AndroidManifest.xml
-
-        # 修改应用名
-        sed -i 's/Degrees of Lewdity/DOL WE CHS MODS/g' $EXTRACT_DIR/res/values/strings.xml
-    fi
+    # 修改应用名
+    sed -i 's/Degrees of Lewdity/DOL CHS MODS/g' $EXTRACT_DIR/res/values/strings.xml
 
     fun_check_code
 
@@ -237,11 +191,6 @@ case "$VERSION" in
     ;;
     "apk")
         FILE_NAME=$(basename dol*.apk)
-        # missing apk workaround
-        if [[ $FILE_NAME != "dol*" ]] && [[ $WE == "we" ]]; then
-            WORKAROUND=1
-            fun_apk_workaround_1
-        fi
         fun_name
         IMG_PATH=$EXTRACT_DIR/assets/www/img
         HTML_PATH="$EXTRACT_DIR/assets/www/Degrees of Lewdity.html"
