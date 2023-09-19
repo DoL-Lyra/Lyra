@@ -26,7 +26,7 @@
 
 ### 在线
 
-- [Github Pages](https://sakarie9.github.io/DOL-CHS-MODS)
+- [Vercel](https://dol-chs-mods.vercel.app/)
 
 - [Netlify](https://dol-chs-mods.netlify.app)
   大陆访问更快
