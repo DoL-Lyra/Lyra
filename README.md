@@ -24,6 +24,13 @@
 
 [Latest Release](https://github.com/sakarie9/DOL-CHS-MODS/releases/latest)
 
+### 在线
+
+- [Github Pages](https://sakarie9.github.io/DOL-CHS-MODS)
+
+- [Netlify](https://dol-chs-mods.netlify.app)
+  大陆访问更快
+
 ### 各版本说明
 
 - 美化 | [Degrees of Lewdity Graphics Mod][beeesss] & [BEEESSS Community Sprite Compilation][beeesss-ext]
