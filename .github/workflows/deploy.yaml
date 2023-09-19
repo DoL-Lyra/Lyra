@@ -56,40 +56,6 @@ jobs:
           name: ${{ env.RELEASE_ARTIFACT_NAME }}
           path: ${{ env.RELEASE_ARTIFACT_PATH }}
 
-  deploy-github:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v3
-      - name: Download release artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: ${{ env.RELEASE_ARTIFACT_NAME }}
-      - name: Unzip release artifact
-        run: |
-          unzip -q ${{ env.RELEASE_ARTIFACT_PATH }} -d ${{ env.RELEASE_FOLDER_PATH }}
-      - name: Modify manifest.json
-        shell: python3 {0}
-        run: |
-          import json
-          with open("${{ env.RELEASE_FOLDER_PATH }}/manifest.json", "r+", encoding="utf-8") as manifest_file:
-            manifest_json = json.loads(manifest_file.read())
-            manifest_json["scope"] = "/${{ github.event.repository.name }}/"
-            manifest_json["start_url"] = "/${{ github.event.repository.name }}/"
-            manifest_json["shortcuts"][0]["url"] = "/${{ github.event.repository.name }}/"
-            manifest_json["icons"][0]["src"] = "/${{ github.event.repository.name }}/icon.png"
-            manifest_file.seek(0)
-            manifest_file.truncate()
-            manifest_file.write(json.dumps(manifest_json, indent=2))
-      - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          build_dir: ${{ env.RELEASE_FOLDER_PATH }}
-          keep_history: false
-          target_branch: gh-pages
-
   deploy-netlify:
     runs-on: ubuntu-latest
     needs: build
@@ -109,12 +75,12 @@ jobs:
         with:
           build_dir: ${{ env.RELEASE_FOLDER_PATH }}
           keep_history: false
-          target_branch: netlify-pages
+          target_branch: pages
 
   post-build:
     runs-on: ubuntu-latest
     if: ${{ always() }}
-    needs: [build, deploy-github, deploy-netlify]
+    needs: [build, deploy]
     steps:
       - name: Cleanup
         uses: geekyeggo/delete-artifact@v2
