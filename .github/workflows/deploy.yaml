@@ -56,7 +56,7 @@ jobs:
           name: ${{ env.RELEASE_ARTIFACT_NAME }}
           path: ${{ env.RELEASE_ARTIFACT_PATH }}
 
-  deploy-netlify:
+  deploy:
     runs-on: ubuntu-latest
     needs: build
     steps:
