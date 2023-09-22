@@ -102,3 +102,8 @@ jobs:
           release_name: ${{ github.ref_name }} 原版汉化整合
           body: |
             ${{ steps.gen_release_note.outputs.RELEASE_BODY }}
+
+  call-pkgbuild:
+    uses: ./.github/workflows/deploy.yaml
+    needs: release
+    secrets: inherit

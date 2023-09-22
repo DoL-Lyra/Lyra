@@ -1,9 +1,10 @@
 name: Deploy
 
 on:
-  release:
-    types: [released]
+  # release:
+  #   types: [released]
   workflow_dispatch:
+  workflow_call:
 
 env:
   RELEASE_ARTIFACT_NAME: dol-release-package
