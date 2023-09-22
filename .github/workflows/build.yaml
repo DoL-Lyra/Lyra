@@ -106,4 +106,5 @@ jobs:
   call-pkgbuild:
     uses: ./.github/workflows/deploy.yaml
     needs: release
+    if: github.ref_type == 'tag'
     secrets: inherit
