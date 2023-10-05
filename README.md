@@ -26,10 +26,7 @@
 
 ### 在线
 
-- [Vercel](https://dol-chs-mods.vercel.app/)
-
 - [Netlify](https://dol-chs-mods.netlify.app)
-  大陆访问更快
 
 > 在线版仅使用 `美化+作弊+HP+BJ特写` 构建，需要其他版本请前往 [Release](https://github.com/sakarie9/DOL-CHS-MODS/releases) 下载本地版
 
