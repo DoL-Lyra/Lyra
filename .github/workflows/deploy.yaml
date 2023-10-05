@@ -69,11 +69,21 @@ jobs:
       - name: Unzip release artifact
         run: |
           unzip -q ${{ env.RELEASE_ARTIFACT_PATH }} -d ${{ env.RELEASE_FOLDER_PATH }}
-      - name: Deploy to Netlify Pages
-        uses: crazy-max/ghaction-github-pages@v3
+      - name: Deploy to main repo
+        uses: crazy-max/ghaction-github-pages@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          build_dir: ${{ env.RELEASE_FOLDER_PATH }}
+          keep_history: false
+          target_branch: pages
+      - name: Deploy to organization repo
+        uses: crazy-max/ghaction-github-pages@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+        with:
+          repo: DOL-CHS-MODS/DOL-CHS-MODS-pages
           build_dir: ${{ env.RELEASE_FOLDER_PATH }}
           keep_history: false
           target_branch: pages
