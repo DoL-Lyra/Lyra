@@ -109,7 +109,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_PAT: ${{ secrets.GH_PAT }}
         with:
-          repo: DOL-CHS-MODS/DOL-CHS-MODS-pages
+          repo: DOL-CHS-MODS/pages
           build_dir: ${{ env.RELEASE_FOLDER_PATH }}
           keep_history: false
           target_branch: pages
