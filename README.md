@@ -36,7 +36,7 @@
 
 ### 各版本说明
 
-- 美化
+- BESC
   1. [Degrees of Lewdity Graphics Mod][beeesss] 基础美化
   2. [BEEESSS Community Sprite Compilation][beeesss-ext] 社区补充包
   3. [BEEESSS Wax][beeesss-wex] 身体美化

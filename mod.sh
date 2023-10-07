@@ -1,20 +1,20 @@
 #!/bin/bash
 
-# 128 64 32    16      8    4    2   1
-# N   N   N   KR特写 BJ特写 HP 作弊 美化
+# 128 64  32    16      8    4    2    1
+# N   N   N   KR特写 BJ特写 HP 作弊  BESC
 
-# 美化 1
-# 美化+作弊 3
-# 美化+HP 5
-# 美化+作弊+HP 7
-# 美化+BJ特写 9
-# 美化+BJ特写+作弊 11
-# 美化+HP+BJ特写 13
-# 美化+HP+BJ特写+作弊 15
-# 美化+KR特写 17
-# 美化+KR特写+作弊 19
-# 美化+HP+KR特写 21
-# 美化+HP+KR特写+作弊 23
+# BESC 1
+# BESC+作弊 3
+# BESC+HP 5
+# BESC+作弊+HP 7
+# BESC+BJ特写 9
+# BESC+BJ特写+作弊 11
+# BESC+HP+BJ特写 13
+# BESC+HP+BJ特写+作弊 15
+# BESC+KR特写 17
+# BESC+KR特写+作弊 19
+# BESC+HP+KR特写 21
+# BESC+HP+KR特写+作弊 23
 
 # 参数1 包类型 (zip apk)
 VERSION=$1
@@ -33,9 +33,9 @@ fi
 URL_APKTOOL=https://github.com/iBotPeaches/Apktool/releases/download/v2.8.1/apktool_2.8.1.jar
 URL_APKSIGN=https://github.com/patrickfav/uber-apk-signer/releases/download/v1.3.0/uber-apk-signer-1.3.0.jar
 # 资源
-URL_BEAUTIFY_1=https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod/-/raw/master/img.zip
-URL_BEAUTIFY_2=https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation/-/archive/master/kaervek-beeesss-community-sprite-compilation-master.tar.gz
-URL_BEAUTIFY_3=https://gitgud.io/GTXMEGADUDE/beeesss-wax/-/raw/master/BEEESSS_WAX.rar
+URL_BES=https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod/-/raw/master/img.zip
+URL_BESC=https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation/-/archive/master/kaervek-beeesss-community-sprite-compilation-master.tar.gz
+URL_BESC_WAX=https://gitgud.io/GTXMEGADUDE/beeesss-wax/-/raw/master/BEEESSS_WAX.rar
 #URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint/-/raw/master/Paril_BJ_BEEESSS_Addon.rar
 URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint/-/raw/be9c9af63349beb811775f7802f06915dede290a/Paril_BJ_BEEESSS_Addon.rar
 
@@ -105,10 +105,10 @@ fun_apk() {
 fun_check_code() {
     if [ $(( MOD_CODE&1 )) -ne 0 ]
     then
-        echo 1-Start patch beautify...
+        echo 1-Start patch besc...
         fun_beautify
-        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-beautify
-        echo 1-Complete patch beautify!
+        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-besc
+        echo 1-Complete patch besc!
     fi
     if [ $(( MOD_CODE&2 )) -ne 0 ]
     then
@@ -145,9 +145,9 @@ fun_beautify() {
     BEAUTIFY_DIR="beautify"
     mkdir $BEAUTIFY_DIR
     pushd $BEAUTIFY_DIR
-    wget -q -nc -O B-1.zip $URL_BEAUTIFY_1
-    wget -q -nc -O B-2.tar.gz $URL_BEAUTIFY_2
-    wget -q -nc -O B-3.rar $URL_BEAUTIFY_3
+    wget -q -nc -O B-1.zip $URL_BES
+    wget -q -nc -O B-2.tar.gz $URL_BESC
+    wget -q -nc -O B-3.rar $URL_BESC_WAX
 
     unzip -q B-1.zip
     tar xf B-2.tar.gz kaervek-beeesss-community-sprite-compilation-master/img --strip-components 1
