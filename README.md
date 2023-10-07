@@ -12,9 +12,11 @@
 - 美化
   - [Degrees of Lewdity Graphics Mod][beeesss]
   - [BEEESSS Community Sprite Compilation][beeesss-ext]
+  - [BEEESSS Wax][beeesss-wex]
 - 特写
-  - [韩站特写][avatar-kr]
   - [Papa Paril BEEESSS Burger Joint][avatar-bj]
+  - [韩站特写][avatar-kr]
+
 
 ### 关于本仓库
 
@@ -34,11 +36,12 @@
 
 ### 各版本说明
 
-- 美化 | [Degrees of Lewdity Graphics Mod][beeesss] & [BEEESSS Community Sprite Compilation][beeesss-ext]
+- 美化
+  1. [Degrees of Lewdity Graphics Mod][beeesss] 基础美化
+  2. [BEEESSS Community Sprite Compilation][beeesss-ext] 社区补充包
+  3. [BEEESSS Wax][beeesss-wex] 身体美化
 
   ![预览](assets/beautify.webp)
-
-  经典美化
 
 - 作弊
 
@@ -52,7 +55,9 @@
 
   ![预览](assets/beautify-avatarbj.webp)
 
-  在立绘旁显示特写头像，推荐使用
+  在立绘旁显示特写头像
+
+  ⚠️目前作者已归档此包，可能无后续更新⚠️
 
   ⚠️仍在早期开发阶段，未支持的头发会显示为光头⚠️
 
@@ -62,11 +67,17 @@
 
   另一个特写版本
 
+  ⚠️已长时间未更新⚠️
+
   ⚠️仍在早期开发阶段，未支持的头发会显示为光头⚠️
 
 ### 更新日志
 <details>
 <summary>点击展开</summary>
+
+- 1007
+
+  添加 BEEESSS Wax 身体美化
 
 - 0914
 
@@ -125,5 +136,6 @@
 
 [beeesss]: https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod
 [beeesss-ext]: https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation
+[beeesss-wex]: https://gitgud.io/GTXMEGADUDE/beeesss-wax
 [avatar-bj]: https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint
 [avatar-kr]: https://arca.live/b/textgame/83875947
