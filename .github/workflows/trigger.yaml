@@ -40,13 +40,13 @@ jobs:
             echo "NEED_UPDATE=false" >> "$GITHUB_ENV"
           fi
 
-      - name: create empty commit
-        if: env.NEED_UPDATE == 'true'
-        run: |
-          git config --global user.name $GIT_USERNAME
-          git config --global user.email $GIT_EMAIL
-          git commit --allow-empty -m "CI: new update"
-          git push
+      # - name: create empty commit
+      #   if: env.NEED_UPDATE == 'true'
+      #   run: |
+      #     git config --global user.name $GIT_USERNAME
+      #     git config --global user.email $GIT_EMAIL
+      #     git commit --allow-empty -m "CI: new update"
+      #     git push
 
       - name: create tag
         if: env.NEED_UPDATE == 'true'
