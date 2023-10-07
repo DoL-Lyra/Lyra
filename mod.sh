@@ -35,6 +35,7 @@ URL_APKSIGN=https://github.com/patrickfav/uber-apk-signer/releases/download/v1.3
 # 资源
 URL_BEAUTIFY_1=https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod/-/raw/master/img.zip
 URL_BEAUTIFY_2=https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation/-/archive/master/kaervek-beeesss-community-sprite-compilation-master.tar.gz
+URL_BEAUTIFY_3=https://gitgud.io/GTXMEGADUDE/beeesss-wax/-/raw/master/BEEESSS_WAX.rar
 #URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint/-/raw/master/Paril_BJ_BEEESSS_Addon.rar
 URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint/-/raw/be9c9af63349beb811775f7802f06915dede290a/Paril_BJ_BEEESSS_Addon.rar
 
@@ -146,9 +147,12 @@ fun_beautify() {
     pushd $BEAUTIFY_DIR
     wget -q -nc -O B-1.zip $URL_BEAUTIFY_1
     wget -q -nc -O B-2.tar.gz $URL_BEAUTIFY_2
+    wget -q -nc -O B-3.rar $URL_BEAUTIFY_3
 
     unzip -q B-1.zip
     tar xf B-2.tar.gz kaervek-beeesss-community-sprite-compilation-master/img --strip-components 1
+    unrar x B-3.rar -idq
+    cp -r 'BEEESSS WAX/chubby/img' .
     popd
     cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
 }
