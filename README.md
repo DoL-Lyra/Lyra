@@ -14,8 +14,8 @@
   - [BEEESSS Community Sprite Compilation][beeesss-ext]
   - [BEEESSS Wax][beeesss-wax]
 - 特写
-  - [Papa Paril BEEESSS Burger Joint][avatar-bj]
-  - [韩站特写][avatar-kr]
+  - [Papa Paril BEEESSS Burger Joint][sideview-bj]
+  - [韩站特写][sideview-kr]
 
 
 ### 关于本仓库
