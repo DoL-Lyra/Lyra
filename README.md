@@ -44,11 +44,13 @@
 
   [BEEESSS Community Sprite Compilation][beeesss-ext] BES 社区补充包
 
-  ![预览](assets/beautify.webp)
+  ![预览](assets/readme-besc.webp)
 
 - WAX
 
   [BEEESSS Wax][beeesss-wex] 身体美化
+
+  ![预览](assets/readme-wax.webp)
 
 - 作弊
 
@@ -60,7 +62,7 @@
 
 - BJ特写 | [Papa Paril BEEESSS Burger Joint][avatar-bj]
 
-  ![预览](assets/beautify-avatarbj.webp)
+  ![预览](assets/readme-bj.webp)
 
   在立绘旁显示特写头像
 
@@ -70,7 +72,7 @@
 
 - KR特写 | [原帖][avatar-kr]
 
-  ![预览](assets/beautify-avatarkr.webp)
+  ![预览](assets/readme-kr.webp)
 
   另一个特写版本
 
