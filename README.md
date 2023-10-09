@@ -48,7 +48,7 @@
 
 - WAX
 
-  [BEEESSS Wax][beeesss-wex] 身体美化
+  [BEEESSS Wax][beeesss-wax] 身体美化
 
   ![预览](assets/readme-wax.webp)
 
