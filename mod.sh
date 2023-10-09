@@ -1,20 +1,23 @@
 #!/bin/bash
 
-# 128 64     32    16   8    4      2    1
+# 128 64     32    16     8    4     2   1
 # N   WAX   KR特写 BJ特写 HP 作弊  BESC BES
 
-# BESC 1
-# BESC+作弊 3
-# BESC+HP 5
-# BESC+作弊+HP 7
-# BESC+BJ特写 9
-# BESC+BJ特写+作弊 11
-# BESC+HP+BJ特写 13
-# BESC+HP+BJ特写+作弊 15
-# BESC+KR特写 17
-# BESC+KR特写+作弊 19
-# BESC+HP+KR特写 21
-# BESC+HP+KR特写+作弊 23
+# 二进制: 0000001, 十进制: 1, 功能: BES+
+# 二进制: 0000011, 十进制: 3, 功能: BES+BESC+
+# 二进制: 0001100, 十进制: 12, 功能: 作弊+HP+
+# 二进制: 0001101, 十进制: 13, 功能: BES+作弊+HP+
+# 二进制: 0001111, 十进制: 15, 功能: BES+BESC+作弊+HP+
+# 二进制: 0010011, 十进制: 19, 功能: BES+BESC+BJ特写+
+# 二进制: 0011111, 十进制: 31, 功能: BES+BESC+作弊+HP+BJ特写+
+# 二进制: 0100011, 十进制: 35, 功能: BES+BESC+KR特写+
+# 二进制: 0101111, 十进制: 47, 功能: BES+BESC+作弊+HP+KR特写+
+# 二进制: 1000011, 十进制: 67, 功能: BES+BESC+WAX+
+# 二进制: 1001111, 十进制: 79, 功能: BES+BESC+作弊+HP+WAX+
+# 二进制: 1010011, 十进制: 83, 功能: BES+BESC+BJ特写+WAX+
+# 二进制: 1011111, 十进制: 95, 功能: BES+BESC+作弊+HP+BJ特写+WAX+
+# 二进制: 1100011, 十进制: 99, 功能: BES+BESC+KR特写+WAX+
+# 二进制: 1101111, 十进制: 111, 功能: BES+BESC+作弊+HP+KR特写+WAX+
 
 # 参数1 包类型 (zip apk)
 VERSION=$1
@@ -106,52 +109,79 @@ fun_apk() {
 fun_check_code() {
     if [ $(( MOD_CODE&1 )) -ne 0 ]
     then
-        echo 1-Start patch besc...
-        fun_beautify
-        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-besc
-        echo 1-Complete patch besc!
+        echo 1-Start patch bes...
+        fun_bes
+        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-bes
+        echo 1-Complete patch bes!
     fi
     if [ $(( MOD_CODE&2 )) -ne 0 ]
     then
-        echo 2-Start patch cheat...
-        fun_cheat
-        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-cheat
-        echo 2-Complete patch cheat!
+        echo 2-Start patch besc...
+        fun_besc
+        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}c
+        echo 2-Complete patch besc!
+    fi
+    if [ $(( MOD_CODE&64 )) -ne 0 ]
+    then
+        echo 64-Start patch wax...
+        fun_wax
+        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-wax
+        echo 64-Complete patch wax!
     fi
     if [ $(( MOD_CODE&4 )) -ne 0 ]
     then
-        echo 4-Start patch HP...
-        fun_hp
-        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-hp
-        echo 4-Complete patch HP!
+        echo 4-Start patch cheat...
+        fun_cheat
+        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-cheat
+        echo 4-Complete patch cheat!
     fi
     if [ $(( MOD_CODE&8 )) -ne 0 ]
     then
-        echo 8-Start patch avatar type BJ...
-        fun_avatar_bj
-        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-avatarbj
-        echo 8-Complete patch avatar type BJ!
+        echo 8-Start patch HP...
+        fun_hp
+        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-hp
+        echo 8-Complete patch HP!
     fi
     if [ $(( MOD_CODE&16 )) -ne 0 ]
     then
-        echo 16-Start patch avatar type kr...
+        echo 16-Start patch avatar type BJ...
+        fun_avatar_bj
+        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-avatarbj
+        echo 16-Complete patch avatar type BJ!
+    fi
+    if [ $(( MOD_CODE&32 )) -ne 0 ]
+    then
+        echo 32-Start patch avatar type kr...
         fun_avatar_kr
         OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-avatarkr
-        echo 16-Complete patch avatar type kr!
+        echo 32-Complete patch avatar type kr!
     fi
 }
 
 # 美化
-fun_beautify() {
+fun_bes() {
     BEAUTIFY_DIR="beautify"
     mkdir $BEAUTIFY_DIR
     pushd $BEAUTIFY_DIR
     wget -q -nc -O B-1.zip $URL_BES
-    wget -q -nc -O B-2.tar.gz $URL_BESC
-    wget -q -nc -O B-3.rar $URL_BESC_WAX
-
     unzip -q B-1.zip
-    tar xf B-2.tar.gz kaervek-beeesss-community-sprite-compilation-master/img --strip-components 1
+    popd
+    cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
+}
+fun_besc() {
+    BEAUTIFY_DIR="beautify"
+    mkdir $BEAUTIFY_DIR
+    pushd $BEAUTIFY_DIR
+    wget -q -nc -O B-2.tar.gz $URL_BESC
+        tar xf B-2.tar.gz kaervek-beeesss-community-sprite-compilation-master/img --strip-components 1
+    popd
+    cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
+}
+fun_wax() {
+    BEAUTIFY_DIR="beautify"
+    mkdir $BEAUTIFY_DIR
+    pushd $BEAUTIFY_DIR
+    wget -q -nc -O B-3.rar $URL_BESC_WAX
     unrar x B-3.rar -idq
     cp -r 'BEEESSS WAX/chubby/img' .
     popd
