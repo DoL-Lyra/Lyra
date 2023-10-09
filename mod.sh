@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# 128 64  32    16      8    4    2    1
-# N   N   N   KR特写 BJ特写 HP 作弊  BESC
+# 128 64     32    16   8    4      2    1
+# N   WAX   KR特写 BJ特写 HP 作弊  BESC BES
 
 # BESC 1
 # BESC+作弊 3
