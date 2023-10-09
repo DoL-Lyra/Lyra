@@ -36,12 +36,19 @@
 
 ### 各版本说明
 
+- BES
+  
+  [Degrees of Lewdity Graphics Mod][beeesss] 基础美化
+
 - BESC
-  1. [Degrees of Lewdity Graphics Mod][beeesss] 基础美化
-  2. [BEEESSS Community Sprite Compilation][beeesss-ext] 社区补充包
-  3. [BEEESSS Wax][beeesss-wex] 身体美化
+
+  [BEEESSS Community Sprite Compilation][beeesss-ext] BES 社区补充包
 
   ![预览](assets/beautify.webp)
+
+- WAX
+
+  [BEEESSS Wax][beeesss-wex] 身体美化
 
 - 作弊
 
@@ -74,6 +81,10 @@
 ### 更新日志
 <details>
 <summary>点击展开</summary>
+
+- 1009
+
+  更精细的美化版本种类
 
 - 1007
 
