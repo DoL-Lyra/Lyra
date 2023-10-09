@@ -12,7 +12,7 @@
 - 美化
   - [Degrees of Lewdity Graphics Mod][beeesss]
   - [BEEESSS Community Sprite Compilation][beeesss-ext]
-  - [BEEESSS Wax][beeesss-wex]
+  - [BEEESSS Wax][beeesss-wax]
 - 特写
   - [Papa Paril BEEESSS Burger Joint][avatar-bj]
   - [韩站特写][avatar-kr]
@@ -60,7 +60,7 @@
 
   显示敌人当前 HP
 
-- BJ特写 | [Papa Paril BEEESSS Burger Joint][avatar-bj]
+- BJ特写 | [Papa Paril BEEESSS Burger Joint][sideview-bj]
 
   ![预览](assets/readme-bj.webp)
 
@@ -70,7 +70,7 @@
 
   ⚠️仍在早期开发阶段，未支持的头发会显示为光头⚠️
 
-- KR特写 | [原帖][avatar-kr]
+- KR特写 | [原帖][sideview-kr]
 
   ![预览](assets/readme-kr.webp)
 
@@ -149,6 +149,6 @@
 
 [beeesss]: https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod
 [beeesss-ext]: https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation
-[beeesss-wex]: https://gitgud.io/GTXMEGADUDE/beeesss-wax
-[avatar-bj]: https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint
-[avatar-kr]: https://arca.live/b/textgame/83875947
+[beeesss-wax]: https://gitgud.io/GTXMEGADUDE/beeesss-wax
+[sideview-bj]: https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint
+[sideview-kr]: https://arca.live/b/textgame/83875947
