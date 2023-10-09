@@ -82,10 +82,11 @@ fun_apk() {
     java -jar apktool.jar d dol*.apk -o $EXTRACT_DIR
 
     # 修改包名
-    sed -i 's/"com.vrelnir.DegreesOfLewdityWE"/"com.vrelnir.DegreesOfLewdityWE.chsmods"/g' $EXTRACT_DIR/AndroidManifest.xml
+    sed -i 's/"com.vrelnir.DegreesOfLewdity"/"com.vrelnir.DegreesOfLewdityWE.chsmods"/g' $EXTRACT_DIR/AndroidManifest.xml
 
     # 修改应用名
     sed -i 's/Degrees of Lewdity/DOL CHS MODS/g' $EXTRACT_DIR/res/values/strings.xml
+    sed -i 's/DoL/DOL CHS MODS/g' $EXTRACT_DIR/res/values/strings.xml
 
     fun_check_code
 
