@@ -144,17 +144,17 @@ fun_check_code() {
     fi
     if [ $(( MOD_CODE&16 )) -ne 0 ]
     then
-        echo 16-Start patch avatar type BJ...
-        fun_avatar_bj
-        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-avatarbj
-        echo 16-Complete patch avatar type BJ!
+        echo 16-Start patch sideview type BJ...
+        fun_sideview_bj
+        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-sideviewbj
+        echo 16-Complete patch sideview type BJ!
     fi
     if [ $(( MOD_CODE&32 )) -ne 0 ]
     then
-        echo 32-Start patch avatar type kr...
-        fun_avatar_kr
-        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-avatarkr
-        echo 32-Complete patch avatar type kr!
+        echo 32-Start patch sideview type kr...
+        fun_sideview_kr
+        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-sideviewkr
+        echo 32-Complete patch sideview type kr!
     fi
 }
 
@@ -163,8 +163,10 @@ fun_bes() {
     BEAUTIFY_DIR="beautify"
     mkdir $BEAUTIFY_DIR
     pushd $BEAUTIFY_DIR
+
     wget -q -nc -O B-1.zip $URL_BES
     unzip -q B-1.zip
+
     popd
     cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
 }
@@ -172,8 +174,10 @@ fun_besc() {
     BEAUTIFY_DIR="beautify"
     mkdir $BEAUTIFY_DIR
     pushd $BEAUTIFY_DIR
+
     wget -q -nc -O B-2.tar.gz $URL_BESC
         tar xf B-2.tar.gz kaervek-beeesss-community-sprite-compilation-master/img --strip-components 1
+
     popd
     cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
 }
@@ -181,9 +185,11 @@ fun_wax() {
     BEAUTIFY_DIR="beautify"
     mkdir $BEAUTIFY_DIR
     pushd $BEAUTIFY_DIR
+
     wget -q -nc -O B-3.rar $URL_BESC_WAX
     unrar x B-3.rar -idq
     cp -r 'BEEESSS WAX/chubby/img' .
+    
     popd
     cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
 }
@@ -201,7 +207,7 @@ fun_hp() {
 }
 
 # BJ特写
-fun_avatar_bj() {
+fun_sideview_bj() {
     AVATARBJ_DIR="avatarbj"
     mkdir $AVATARBJ_DIR
     pushd $AVATARBJ_DIR
@@ -212,7 +218,7 @@ fun_avatar_bj() {
 }
 
 # KR特写
-fun_avatar_kr() {
+fun_sideview_kr() {
     unzip -q assets/얼굴추가.zip
     cp -r 얼굴추가/img/* $IMG_PATH/
 }
