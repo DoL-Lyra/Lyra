@@ -67,23 +67,23 @@ jobs:
           md=$(cat << EOF
           ## 原版汉化整合
 
-          | 版本选择                            	| ZIP                             	| APK                             	|
-          |-------------------------------------	|---------------------------------	|---------------------------------	|
-          | BES                                 	| [下载]($BASEURL/$(cat zip_1))   	| [下载]($BASEURL/$(cat apk_1))   	|
-          | BESC                                	| [下载]($BASEURL/$(cat zip_3))   	| [下载]($BASEURL/$(cat apk_3))   	|
-          | 作弊+HP                             	| [下载]($BASEURL/$(cat zip_12))  	| [下载]($BASEURL/$(cat apk_12))  	|
-          | BES+作弊+HP                         	| [下载]($BASEURL/$(cat zip_13))  	| [下载]($BASEURL/$(cat apk_13))  	|
-          | BESC+作弊+HP                        	| [下载]($BASEURL/$(cat zip_15))  	| [下载]($BASEURL/$(cat apk_15))  	|
-          | BESC+BJ特写                         	| [下载]($BASEURL/$(cat zip_19))  	| [下载]($BASEURL/$(cat apk_19))  	|
-          | BESC+作弊+HP+BJ特写                 	| [下载]($BASEURL/$(cat zip_31))  	| [下载]($BASEURL/$(cat apk_31))  	|
-          | BESC+KR特写                         	| [下载]($BASEURL/$(cat zip_35))  	| [下载]($BASEURL/$(cat apk_35))  	|
-          | BESC+作弊+HP+KR特写                 	| [下载]($BASEURL/$(cat zip_47))  	| [下载]($BASEURL/$(cat apk_47))  	|
-          | BESC+WAX                            	| [下载]($BASEURL/$(cat zip_67))  	| [下载]($BASEURL/$(cat apk_67))  	|
-          | ***BESC+作弊+HP+WAX(推荐)***        	| [下载]($BASEURL/$(cat zip_79))  	| [下载]($BASEURL/$(cat apk_79))  	|
-          | BESC+BJ特写+WAX                     	| [下载]($BASEURL/$(cat zip_83))  	| [下载]($BASEURL/$(cat apk_83))  	|
-          | ***BESC+作弊+HP+BJ特写+WAX(推荐)*** 	| [下载]($BASEURL/$(cat zip_95))  	| [下载]($BASEURL/$(cat apk_95))  	|
-          | BESC+KR特写+WAX                     	| [下载]($BASEURL/$(cat zip_99))  	| [下载]($BASEURL/$(cat apk_99))  	|
-          | BESC+作弊+HP+KR特写+WAX             	| [下载]($BASEURL/$(cat zip_111)) 	| [下载]($BASEURL/$(cat apk_111)) 	|
+          | 版本选择                        	| ZIP                             	| APK                             	|
+          |---------------------------------	|---------------------------------	|---------------------------------	|
+          | BES                             	| [下载]($BASEURL/$(cat zip_1))   	| [下载]($BASEURL/$(cat apk_1))   	|
+          | BESC                            	| [下载]($BASEURL/$(cat zip_3))   	| [下载]($BASEURL/$(cat apk_3))   	|
+          | 作弊+HP                         	| [下载]($BASEURL/$(cat zip_12))  	| [下载]($BASEURL/$(cat apk_12))  	|
+          | BES+作弊+HP                     	| [下载]($BASEURL/$(cat zip_13))  	| [下载]($BASEURL/$(cat apk_13))  	|
+          | ***BESC+作弊+HP(推荐)***        	| [下载]($BASEURL/$(cat zip_15))  	| [下载]($BASEURL/$(cat apk_15))  	|
+          | BESC+BJ特写                     	| [下载]($BASEURL/$(cat zip_19))  	| [下载]($BASEURL/$(cat apk_19))  	|
+          | ***BESC+作弊+HP+BJ特写(推荐)*** 	| [下载]($BASEURL/$(cat zip_31))  	| [下载]($BASEURL/$(cat apk_31))  	|
+          | BESC+KR特写                     	| [下载]($BASEURL/$(cat zip_35))  	| [下载]($BASEURL/$(cat apk_35))  	|
+          | BESC+作弊+HP+KR特写             	| [下载]($BASEURL/$(cat zip_47))  	| [下载]($BASEURL/$(cat apk_47))  	|
+          | BESC+WAX                        	| [下载]($BASEURL/$(cat zip_67))  	| [下载]($BASEURL/$(cat apk_67))  	|
+          | BESC+作弊+HP+WAX                	| [下载]($BASEURL/$(cat zip_79))  	| [下载]($BASEURL/$(cat apk_79))  	|
+          | BESC+BJ特写+WAX                 	| [下载]($BASEURL/$(cat zip_83))  	| [下载]($BASEURL/$(cat apk_83))  	|
+          | BESC+作弊+HP+BJ特写+WAX         	| [下载]($BASEURL/$(cat zip_95))  	| [下载]($BASEURL/$(cat apk_95))  	|
+          | BESC+KR特写+WAX                 	| [下载]($BASEURL/$(cat zip_99))  	| [下载]($BASEURL/$(cat apk_99))  	|
+          | BESC+作弊+HP+KR特写+WAX         	| [下载]($BASEURL/$(cat zip_111)) 	| [下载]($BASEURL/$(cat apk_111)) 	|
           EOF
           )
           md="${md//'%'/'%25'}"                               # Multiline escape sequences for %

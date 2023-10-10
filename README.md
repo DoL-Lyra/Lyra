@@ -32,7 +32,7 @@
 
 - [Netlify](https://dol-chs-mods.netlify.app)
 
-> 在线版仅使用 `BESC+作弊+HP+BJ特写+WAX` 构建，需要其他版本请前往 [Release](https://github.com/sakarie9/DOL-CHS-MODS/releases) 下载本地版
+> 在线版仅使用 `BESC+作弊+HP+BJ特写` 构建，需要其他版本请前往 [Release](https://github.com/sakarie9/DOL-CHS-MODS/releases) 下载本地版
 
 ### 各版本说明
 
@@ -51,6 +51,8 @@
   [BEEESSS Wax][beeesss-wax] 身体美化
 
   ![预览](assets/readme-wax.webp)
+
+  ⚠️过大的胸部可能会出现贴图错位问题⚠️
 
 - 作弊
 
