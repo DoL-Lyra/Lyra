@@ -21,7 +21,7 @@ jobs:
         uses: robinraju/release-downloader@v1.8
         with:
           latest: true
-          fileName: "dol-chs-*-besc-cheat-hp-avatarbj-*.zip"
+          fileName: "dol-chs-*-besc-cheat-hp-sideviewbj-*.zip"
       - name: Extract downloaded file
         run: |
           echo "Downloaded Chinese version DOL: ${{ steps.getRelease.outputs.tag_name }}"
