@@ -69,10 +69,8 @@ jobs:
 
           | 版本选择                        	| ZIP                             	| APK                             	|
           |---------------------------------	|---------------------------------	|---------------------------------	|
-          | BES                             	| [下载]($BASEURL/$(cat zip_1))   	| [下载]($BASEURL/$(cat apk_1))   	|
           | BESC                            	| [下载]($BASEURL/$(cat zip_3))   	| [下载]($BASEURL/$(cat apk_3))   	|
           | 作弊+HP                         	| [下载]($BASEURL/$(cat zip_12))  	| [下载]($BASEURL/$(cat apk_12))  	|
-          | BES+作弊+HP                     	| [下载]($BASEURL/$(cat zip_13))  	| [下载]($BASEURL/$(cat apk_13))  	|
           | ***BESC+作弊+HP(推荐)***        	| [下载]($BASEURL/$(cat zip_15))  	| [下载]($BASEURL/$(cat apk_15))  	|
           | BESC+BJ特写                     	| [下载]($BASEURL/$(cat zip_19))  	| [下载]($BASEURL/$(cat apk_19))  	|
           | ***BESC+作弊+HP+BJ特写(推荐)*** 	| [下载]($BASEURL/$(cat zip_31))  	| [下载]($BASEURL/$(cat apk_31))  	|
