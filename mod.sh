@@ -196,8 +196,12 @@ fun_wax() {
 
 # 作弊
 fun_cheat() {
+    # cheat
     sed -i 's/and \$cheatdisable is &quot;f&quot;//' "${HTML_PATH}"
+    # achievement
     sed -i 's/&lt;&lt;set $feats.locked to true&gt;&gt;//g' "${HTML_PATH}"
+    # magic
+    sed -i 's@\.replace(/\\\[/g, &quot;&amp;#91;&quot;)\.replace(/\\\]/g, &quot;&amp;#93;&quot;)@@g' "${HTML_PATH}"
 }
 
 # HP
