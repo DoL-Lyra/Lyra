@@ -197,6 +197,7 @@ fun_wax() {
 # 作弊
 fun_cheat() {
     sed -i 's/and \$cheatdisable is &quot;f&quot;//' "${HTML_PATH}"
+    sed -i 's/&lt;&lt;set $feats.locked to true&gt;&gt;//g' "${HTML_PATH}"
 }
 
 # HP
