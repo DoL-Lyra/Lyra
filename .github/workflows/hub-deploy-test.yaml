@@ -50,7 +50,7 @@ jobs:
         with:
           hugo-version: "latest"
 
-      - name: Build
+      - name: Build netlify
         run: |
           hugo --minify
 
@@ -63,9 +63,9 @@ jobs:
           repo: DOL-CHS-MODS/hub
           build_dir: ./public
           keep_history: false
-          target_branch: gh-pages
+          target_branch: pages
 
-      - name: Build netlify
+      - name: Build Github
         run: |
           rm -rf public
           sed -i 's#dol-chs-mods-hub.netlify.app/#dol-chs-mods.github.io/hub/#' config/_default/config.toml
@@ -80,4 +80,5 @@ jobs:
           repo: DOL-CHS-MODS/hub
           build_dir: ./public
           keep_history: false
-          target_branch: pages
+          target_branch: gh-pages
+
