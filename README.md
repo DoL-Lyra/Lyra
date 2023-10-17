@@ -22,6 +22,8 @@
 
 本仓库是基于 [汉化仓库][github-chs] 制作的自动化打包仓库，使用 Github Actions 提供多种 Mod 组合可供选择，跟随汉化仓库更新
 
+该仓库并非 DoL 或汉化组官方发布渠道
+
 ### 各版本说明
 
 [版本说明](https://dol-chs-mods.github.io/hub/docs/)
@@ -41,6 +43,10 @@
 ### 更新日志
 <details>
 <summary>点击展开</summary>
+
+- 1017
+
+  版本说明及下载表格移至独立发布页
 
 - 1014
 

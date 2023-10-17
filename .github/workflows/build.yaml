@@ -10,7 +10,7 @@ on:
       - 'README.md'
       - 'LICENSE'
       - '.github/workflows/trigger.yaml'
-      - '.github/workflows/hub.yaml'
+      - '.github/workflows/deploy-hub.yaml'
   workflow_dispatch:
 
 jobs:
