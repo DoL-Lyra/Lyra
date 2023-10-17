@@ -48,6 +48,11 @@ jobs:
         with:
           name: dol-chs-mods
           path: output/*
+      - name: Upload artifacts pairs
+        uses: actions/upload-artifact@v3
+        with:
+          name: pairs
+          path: pairs/*
 
   release:
     runs-on: ubuntu-latest
