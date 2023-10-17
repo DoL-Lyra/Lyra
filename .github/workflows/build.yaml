@@ -111,8 +111,14 @@ jobs:
           body: |
             ${{ steps.gen_release_note.outputs.RELEASE_BODY }}
 
-  call-pkgbuild:
+  call-deploy:
     uses: ./.github/workflows/deploy.yaml
+    needs: release
+    if: github.ref_type == 'tag'
+    secrets: inherit
+
+  call-deploy-hub:
+    uses: ./.github/workflows/deploy-hub.yaml
     needs: release
     if: github.ref_type == 'tag'
     secrets: inherit

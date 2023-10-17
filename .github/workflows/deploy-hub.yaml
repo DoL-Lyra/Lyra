@@ -1,11 +1,11 @@
 name: Deploy Hub
 
 on:
-  push:
-    branches:
-      - hub
-    paths:
-      - '.github/workflows/hub.yaml'
+  # push:
+  #   branches:
+  #     - hub
+  #   paths:
+  #     - '.github/workflows/hub.yaml'
   workflow_dispatch:
 
 jobs:
@@ -26,6 +26,20 @@ jobs:
         with:
           name: pairs
           path: hub/pairs
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r hub/requirements.txt
+
+      - name: Generate posts
+        run: |
+          cd hub
+          python gen-comb.py ${{ github.ref_name }}
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
