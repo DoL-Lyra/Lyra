@@ -2,7 +2,11 @@
 title: "DoL 整合包发布页"
 ---
 
-此发布页内容由 [Github: sakarie9/DOL-CHS-MODS](https://github.com/sakarie9/DOL-CHS-MODS) 构建
+**此发布页内容由 [Github: sakarie9/DOL-CHS-MODS](https://github.com/sakarie9/DOL-CHS-MODS) 构建，并非 DoL 或汉化组官方发布网站**
+
+---
+
+### 版本说明
 
 {{< button href="docs/" target="_self" >}}
 各版本说明
@@ -10,7 +14,7 @@ title: "DoL 整合包发布页"
 
 ### 在线游玩
 
-- [Github Pages](https://dol-chs-mods.github.io/pages/)
+- [Github Pages](https://dol-chs-mods-hub.netlify.app/)
 
 > 在线版仅使用 `BESC+作弊+HP+BJ特写` 构建，需要其他版本请下载本地版
 

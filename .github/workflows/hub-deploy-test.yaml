@@ -68,7 +68,7 @@ jobs:
       - name: Build netlify
         run: |
           rm -rf public
-          sed -i 's#dol-chs-mods.github.io/hub/#dol-chs-mods-hub.netlify.app/#' config/_default/config.toml
+          sed -i 's#dol-chs-mods-hub.netlify.app/#dol-chs-mods.github.io/hub/#' config/_default/config.toml
           hugo --minify
 
       - name: Deploy to organization repo

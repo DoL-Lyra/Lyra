@@ -6,7 +6,7 @@ baseURL = "https://dol-chs-mods.github.io/hub/"
 #defaultContentLanguage = "en"
 
 enableRobotsTXT = true
-paginate = 3
+paginate = 5
 summaryLength = 0
 
 languageCode = "zh-cn"
