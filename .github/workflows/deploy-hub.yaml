@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - hub
+    paths:
+      - '.github/workflows/hub.yaml'
   workflow_dispatch:
 
 jobs:
