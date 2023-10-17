@@ -9,6 +9,10 @@ on:
   workflow_dispatch:
   workflow_call:
 
+env:
+  GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+  GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
