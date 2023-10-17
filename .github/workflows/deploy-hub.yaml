@@ -55,6 +55,10 @@ jobs:
           git commit -m "Update ${{ github.ref_name }}"
           git push
 
+      - uses: actions/setup-go@v4
+        with:
+          go-version: '^1.21.3'
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
