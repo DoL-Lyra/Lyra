@@ -22,65 +22,21 @@
 
 本仓库是基于 [汉化仓库][github-chs] 制作的自动化打包仓库，使用 Github Actions 提供多种 Mod 组合可供选择，跟随汉化仓库更新
 
+### 各版本说明
+
+[版本说明](https://dol-chs-mods.github.io/hub/docs/)
+
 ### 下载
 
-[Latest Release](https://github.com/sakarie9/DOL-CHS-MODS/releases/latest)
+[下载站](https://dol-chs-mods.github.io/hub/)
+
+[镜像站](https://dol-chs-mods-hub.netlify.app/)
 
 ### 在线
 
-- [Github Pages](https://dol-chs-mods.github.io/pages/)
+[Github Pages](https://dol-chs-mods.github.io/pages/)
 
-> 在线版仅使用 `BESC+作弊+HP+BJ特写` 构建，需要其他版本请前往 [Release](https://github.com/sakarie9/DOL-CHS-MODS/releases) 下载本地版
-
-### 各版本说明
-
-- BES
-  
-  [Degrees of Lewdity Graphics Mod][beeesss] 基础美化
-
-- BESC
-
-  [BEEESSS Community Sprite Compilation][beeesss-ext] BES 社区补充包
-
-  ![预览](assets/readme-besc.webp)
-
-- WAX
-
-  [BEEESSS Wax][beeesss-wax] 身体美化
-
-  ![预览](assets/readme-wax.webp)
-
-  ⚠️过大的胸部可能会出现贴图错位问题⚠️
-
-- 作弊
-
-  默认启动作弊，且不会禁用成就，即使游戏提醒 `这个存档将禁用成就`
-
-  重新启用言灵法术
-
-- HP | @洛汐
-
-  显示敌人当前 HP
-
-- BJ特写 | [Papa Paril BEEESSS Burger Joint][sideview-bj]
-
-  ![预览](assets/readme-bj.webp)
-
-  在立绘旁显示特写头像
-
-  ⚠️目前作者已归档此包，可能无后续更新⚠️
-
-  ⚠️仍在早期开发阶段，未支持的头发会显示为光头⚠️
-
-- KR特写 | [原帖][sideview-kr]
-
-  ![预览](assets/readme-kr.webp)
-
-  另一个特写版本
-
-  ⚠️已长时间未更新⚠️
-
-  ⚠️仍在早期开发阶段，未支持的头发会显示为光头⚠️
+> 在线版仅使用 `BESC+作弊+HP+BJ特写` 构建，需要其他版本请前往下载本地版
 
 ### 更新日志
 <details>
