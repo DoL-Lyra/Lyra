@@ -1,9 +1,10 @@
-name: Hub Pages
+name: Deploy Hub
 
 on:
   push:
     branches:
-      - main
+      - hub
+  workflow_dispatch:
 
 jobs:
   build-deploy:
@@ -12,10 +13,17 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
+          ref: hub
+          path: hub
           submodules: true
           fetch-depth: 0
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: pairs
+          path: hub/pairs
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -23,7 +31,9 @@ jobs:
           hugo-version: "latest"
 
       - name: Build
-        run: hugo --minify
+        run: |
+          cd hub
+          hugo --minify
 
       - name: Deploy to organization repo
         uses: crazy-max/ghaction-github-pages@v4
@@ -32,6 +42,6 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
         with:
           repo: DOL-CHS-MODS/hub
-          build_dir: ./public
+          build_dir: ./hub/public
           keep_history: true
           target_branch: pages
