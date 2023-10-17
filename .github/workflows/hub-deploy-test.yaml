@@ -52,7 +52,6 @@ jobs:
 
       - name: Build
         run: |
-          cd hub
           hugo --minify
 
       - name: Deploy to organization repo
@@ -62,13 +61,12 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
         with:
           repo: DOL-CHS-MODS/hub
-          build_dir: ./hub/public
+          build_dir: ./public
           keep_history: false
           target_branch: gh-pages
 
       - name: Build netlify
         run: |
-          cd hub
           rm -rf public
           sed -i 's#dol-chs-mods.github.io/hub/#dol-chs-mods-hub.netlify.app/#' config/_default/config.toml
           hugo --minify
@@ -80,6 +78,6 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
         with:
           repo: DOL-CHS-MODS/hub
-          build_dir: ./hub/public
+          build_dir: ./public
           keep_history: false
           target_branch: pages
