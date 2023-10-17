@@ -22,7 +22,7 @@ md_path = "content/posts/downloads"
 release_fontmatter = f"""
 +++
 title = '{release_tag}'
-date = {datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S+00:00")}
+date = {datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%S+00:00")}
 +++
 """
 
