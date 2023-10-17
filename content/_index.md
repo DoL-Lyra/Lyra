@@ -20,7 +20,6 @@ title: "DoL 整合包发布页"
 
 ### 下载
 
-{{< button href="latest/" target="_self" >}}
+{{< latestpost target="_self">}}
 最新版下载
-{{< /button >}}
-
+{{< /latestpost >}}

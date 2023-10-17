@@ -31,11 +31,11 @@ slug = 'downloads/{release_tag}'
 +++
 """
 
-release_fontmatter_latest = f"""
-+++
-title = '{release_tag}'
-+++
-"""
+# release_fontmatter_latest = f"""
+# +++
+# title = '{release_tag}'
+# +++
+# """
 
 class combination:
     binary = 0
@@ -173,12 +173,12 @@ def gentable():
     f.write(writer.dumps())
     f.close()
 
-    md_path_latest = md_path + "/" + "latest.md"
-    f = open(md_path_latest, "w")
-    f.write(release_fontmatter_latest)
-    f.write("\n")
-    f.write(writer.dumps())
-    f.close()
+    # md_path_latest = md_path + "/" + "latest.md"
+    # f = open(md_path_latest, "w")
+    # f.write(release_fontmatter_latest)
+    # f.write("\n")
+    # f.write(writer.dumps())
+    # f.close()
 
 def link_builder(filename):
     global baseurl_github

@@ -1,0 +1,11 @@
+<a
+  class="inline-block !rounded-md bg-primary-600 px-4 py-1 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
+  {{ range ( where .Site.RegularPages "Type" "posts" | first 1 ) }}
+  href="{{ .Permalink }}"
+  {{end}}
+  {{ with .Get "target" }}target="{{ . }}"{{ end }}
+  {{ with .Get "download" }}download="{{ . }}"{{ end }}
+  role="button"
+>
+  {{ .Inner }}
+</a>
