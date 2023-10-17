@@ -33,7 +33,7 @@ slug = 'downloads/{release_tag}'
 
 release_fontmatter_latest = f"""
 +++
-title = 'Latest'
+title = '{release_tag}'
 +++
 """
 
