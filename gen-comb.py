@@ -1,6 +1,6 @@
 from pytablewriter import MarkdownTableWriter
 import sys
-from datetime import datetime
+import datetime
 
 # 功能定义
 functions = ["WAX", "KR特写", "BJ特写", "HP", "作弊", "BESC", "BES"]
