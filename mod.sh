@@ -44,8 +44,12 @@ URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint/-/raw/be9c9a
 
 EXTRACT_DIR=extract # 解压目录
 OUTPUT_DIR=output # 输出目录
+PAIRS_DIR=pairs # 索引输出目录
 if [ ! -d $OUTPUT_DIR ]; then
 	mkdir $OUTPUT_DIR
+fi
+if [ ! -d $PAIRS_DIR ]; then
+	mkdir $PAIRS_DIR
 fi
 
 fun_name() {
@@ -74,7 +78,7 @@ fun_zip() {
     popd
 
     # for generate markdown table
-    echo "$OUTPUT_NAME" > $OUTPUT_DIR/${VERSION}_${MOD_CODE}
+    echo "$OUTPUT_NAME" > $PAIRS_DIR/${VERSION}_${MOD_CODE}
 }
 
 # APK
@@ -102,7 +106,7 @@ fun_apk() {
     mv signed/*.apk $OUTPUT_DIR/$OUTPUT_NAME
 
     # for generate markdown table
-    echo "$OUTPUT_NAME" > $OUTPUT_DIR/${VERSION}_${MOD_CODE}
+    echo "$OUTPUT_NAME" > $PAIRS_DIR/${VERSION}_${MOD_CODE}
 }
 
 # 处理MOD代码
