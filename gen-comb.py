@@ -15,7 +15,7 @@ recommend_dec = [15,31]
 baseurl_github = "https://github.com/sakarie9/DOL-CHS-MODS/releases/download/"
 baseurl_ghproxy = f"https://ghproxy.com/{baseurl_github}"
 #pair_path = str(sys.argv[1])
-pair_path = "paris"
+pair_path = "pairs"
 release_tag = str(sys.argv[1])
 md_path = "content/posts/downloads"
 
