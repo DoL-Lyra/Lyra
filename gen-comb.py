@@ -1,5 +1,6 @@
 from pytablewriter import MarkdownTableWriter
 import sys
+import os
 import datetime
 
 # 功能定义
@@ -17,7 +18,10 @@ baseurl_ghproxy = f"https://ghproxy.com/{baseurl_github}"
 #pair_path = str(sys.argv[1])
 pair_path = "pairs"
 release_tag = str(sys.argv[1])
+
 md_path = "content/posts/downloads"
+if not os.path.exists(md_path):
+    os.mkdir(md_path)
 
 release_fontmatter = f"""
 +++
@@ -28,7 +32,7 @@ date = {datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%S+00:00")}
 
 release_fontmatter_latest = f"""
 +++
-title = '{release_tag}'
+title = 'Latest'
 +++
 """
 
@@ -161,10 +165,19 @@ def gentable():
         
     )
 
-    f = open(md_path + "/" + release_tag + ".md", "w")
+    md_path_now = md_path + "/" + release_tag + ".md"
+    f = open(md_path_now, "w")
     f.write(release_fontmatter)
     f.write("\n")
     f.write(writer.dumps())
+    f.close()
+
+    md_path_latest = md_path + "/" + "latest.md"
+    f = open(md_path_latest, "w")
+    f.write(release_fontmatter_latest)
+    f.write("\n")
+    f.write(writer.dumps())
+    f.close()
 
 def link_builder(filename):
     global baseurl_github
