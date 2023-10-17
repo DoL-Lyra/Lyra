@@ -52,7 +52,7 @@ jobs:
           git add -v content
           git config --global user.name $GIT_USERNAME
           git config --global user.email $GIT_EMAIL
-          git diff-index --quiet HEAD || git commit -m "Update ${{ github.ref_name }}"
+          git commit -m "Update ${{ github.ref_name }}"
           git push
 
       - name: Setup Hugo
