@@ -13,7 +13,7 @@ languageCode = "zh-cn"
 title = "DOL-CHS-MODS"
 hasCJKLanguage = true
 
-googleAnalytics = "G-1NSQ56KN9"
+googleAnalytics = "G-1NSQ56KN9P"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
