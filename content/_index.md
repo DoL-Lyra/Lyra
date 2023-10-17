@@ -2,7 +2,7 @@
 title: "DoL 整合包发布页"
 ---
 
-**此发布页内容由 [Github: sakarie9/DOL-CHS-MODS](https://github.com/sakarie9/DOL-CHS-MODS) 构建，并非 DoL 或汉化组官方发布网站**
+**此发布页由 [Github: sakarie9/DOL-CHS-MODS](https://github.com/sakarie9/DOL-CHS-MODS) 构建，并非 DoL 或汉化组官方发布网站**
 
 ---
 
