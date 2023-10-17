@@ -73,5 +73,5 @@ jobs:
         with:
           repo: DOL-CHS-MODS/hub
           build_dir: ./hub/public
-          keep_history: true
+          keep_history: false
           target_branch: pages
