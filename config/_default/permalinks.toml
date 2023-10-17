@@ -1,0 +1,2 @@
+# Permalinks format of each content section
+posts = "/:slugorfilename/"
