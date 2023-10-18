@@ -83,7 +83,7 @@ jobs:
       - name: Build Github
         run: |
           cd hub
-          m -rf public
+          rm -rf public
           sed -i 's#dol-chs-mods-hub.netlify.app/#dol-chs-mods.github.io/hub/#' config/_default/config.toml
           hugo --minify
 
