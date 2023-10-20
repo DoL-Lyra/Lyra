@@ -64,7 +64,7 @@ jobs:
         with:
           hugo-version: "latest"
 
-      - name: Build netlify
+      - name: Build Pages
         run: |
           cd hub
           hugo --minify
