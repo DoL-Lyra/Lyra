@@ -32,8 +32,6 @@
 
 [下载站](https://dol-chs-mods.github.io/hub/)
 
-[镜像站](https://dol-chs-mods-hub.netlify.app/)
-
 ### 在线
 
 [Github Pages](https://dol-chs-mods.github.io/pages/)
