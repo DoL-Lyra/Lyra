@@ -22,7 +22,7 @@ jobs:
         run: |
           ORIGIN_TAG=$(curl -s https://api.github.com/repos/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/releases/latest | jq -r '.tag_name')
           CHS_VER=$(echo $ORIGIN_TAG | cut -d '-' -f3)
-          MODS_VER=$(git tag --sort=-creatordate | grep -v 'we' | head -n 1 | cut -d '-' -f2)
+          MODS_VER=$(git tag --sort=-v:refname | head -n 1 | cut -d '-' -f2)
 
           if [[ "$CHS_VER" != "$MODS_VER" ]]
           then
