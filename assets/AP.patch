@@ -1,0 +1,16 @@
+
+			&lt;&lt;if $enemyarousal gte $enemyarousalmax&gt;&gt;
+				&lt;span class=&quot;red&quot;&gt;AP: &lt;&lt;= Math.round($enemyarousal) &gt;&gt;/$enemyarousalmax&lt;/span&gt;
+			&lt;&lt;elseif $enemyarousal gte ($enemyarousalmax / 5) * 4&gt;&gt;
+				&lt;span class=&quot;pink&quot;&gt;AP: &lt;&lt;= Math.round($enemyarousal) &gt;&gt;/$enemyarousalmax&lt;/span&gt;
+			&lt;&lt;elseif $enemyarousal gte ($enemyarousalmax / 5) * 3&gt;&gt;
+				&lt;span class=&quot;purple&quot;&gt;AP: &lt;&lt;= Math.round($enemyarousal) &gt;&gt;/$enemyarousalmax&lt;/span&gt;
+			&lt;&lt;elseif $enemyarousal gte ($enemyarousalmax / 5) * 2&gt;&gt;
+				&lt;span class=&quot;blue&quot;&gt;AP: &lt;&lt;= Math.round($enemyarousal) &gt;&gt;/$enemyarousalmax&lt;/span&gt;
+			&lt;&lt;elseif $enemyarousal gte ($enemyarousalmax / 5) * 1&gt;&gt;
+				&lt;span class=&quot;lblue&quot;&gt;AP: &lt;&lt;= Math.round($enemyarousal) &gt;&gt;/$enemyarousalmax&lt;/span&gt;
+			&lt;&lt;elseif $enemyarousal gt 0&gt;&gt;
+				&lt;span class=&quot;teal&quot;&gt;AP: &lt;&lt;= Math.round($enemyarousal) &gt;&gt;/$enemyarousalmax&lt;/span&gt;
+			&lt;&lt;elseif $enemyarousal lte 0&gt;&gt;
+				&lt;span class=&quot;green&quot;&gt;AP: &lt;&lt;= Math.round($enemyarousal) &gt;&gt;/$enemyarousalmax&lt;/span&gt;
+			&lt;&lt;/if&gt;&gt;
