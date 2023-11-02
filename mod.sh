@@ -213,6 +213,10 @@ fun_hp() {
     sed -i "/看起来无法承受更多的痛苦/{n;n;n;n
     ;r assets/HP.patch
     }" "${HTML_PATH}"
+
+    sed -i "/静静地躺着，就这样等待着你/{n;n;n;n;n
+    ;r assets/AP.patch
+    }" "${HTML_PATH}"
 }
 
 # BJ特写
