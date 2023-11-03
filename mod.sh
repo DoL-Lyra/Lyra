@@ -58,7 +58,7 @@ fun_name() {
     BASE_NAME=${FILE_NAME%.*}
     DOL_VER=$(echo $BASE_NAME | cut -d '-' -f 2)
     CHS_VER=$(echo $BASE_NAME | cut -d '-' -f 4)
-    OUTPUT_PREFIX="dol-chs-${CHS_VER}"
+    OUTPUT_PREFIX="dol-${DOL_VER}-chsmods-${CHS_VER}"
     OUTPUT_PREFIX="${OUTPUT_PREFIX//'alpha'/'a'}"
     OUTPUT_PREFIX="${OUTPUT_PREFIX//'beta'/'b'}"
 }
