@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# 128 64     32    16     8    4     2   1
-# N   WAX   KR特写 BJ特写 HP 作弊  BESC BES
+# 128 64     32    16       8      4     2   1
+# N   WAX   KR特写 BJ特写 CSD(HP) 作弊  BESC BES
 
 # 二进制: 0000001, 十进制: 1, 功能: BES+
 # 二进制: 0000011, 十进制: 3, 功能: BES+BESC+
@@ -141,10 +141,10 @@ fun_check_code() {
     fi
     if [ $(( MOD_CODE&8 )) -ne 0 ]
     then
-        echo 8-Start patch HP...
-        fun_hp
-        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-hp
-        echo 8-Complete patch HP!
+        echo 8-Start patch CSD...
+        fun_csd
+        OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-csd
+        echo 8-Complete patch CSD!
     fi
     if [ $(( MOD_CODE&16 )) -ne 0 ]
     then
@@ -208,8 +208,8 @@ fun_cheat() {
     sed -i 's@\.replace(/\\\[/g, &quot;&amp;#91;&quot;)\.replace(/\\\]/g, &quot;&amp;#93;&quot;)@@g' "${HTML_PATH}"
 }
 
-# HP
-fun_hp() {
+# CSD
+fun_csd() {
     sed -i "/看起来无法承受更多的痛苦/{n;n;n;n
     ;r assets/HP.patch
     }" "${HTML_PATH}"
