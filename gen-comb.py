@@ -4,14 +4,14 @@ import os
 import datetime
 
 # 功能定义
-functions = ["WAX", "KR特写", "BJ特写", "HP", "作弊", "BESC", "BES"]
+functions = ["WAX", "KR特写", "BJ特写", "CSD", "作弊", "BESC", "BES"]
 
 # 白名单
-add_dec = [27,91]
+add_dec = [11,27,91]
 # 黑名单
 skip_dec = [0]
 # 推荐
-recommend_dec = [15,31]
+recommend_dec = [11,27]
 
 baseurl_github = "https://github.com/sakarie9/DOL-CHS-MODS/releases/download/"
 baseurl_ghproxy = f"https://ghproxy.com/{baseurl_github}"
