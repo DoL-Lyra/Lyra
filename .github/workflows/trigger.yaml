@@ -2,8 +2,8 @@ name: Trigger
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # every 6 hour
-    - cron: '0 * * * 5' # every hour at friday
+    - cron: '0 */12 * * *' # every 12 hour
+    - cron: '0 */2 * * 5' # every 2 hour at friday
   workflow_dispatch:
 
 env:
