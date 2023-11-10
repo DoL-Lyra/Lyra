@@ -28,7 +28,16 @@ release_fontmatter = f"""
 title = '{release_tag}'
 date = {datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%S+00:00")}
 slug = 'downloads/{release_tag}'
+showTableOfContents = false
 +++
+"""
+
+release_prepend = """
+{{< alert >}}
+下载之前请阅读 [版本说明]({{< ref "docs" >}}) 以选择所需版本
+{{< /alert >}}
+
+## 汉化整合
 """
 
 # release_fontmatter_latest = f"""
@@ -160,7 +169,7 @@ def gentable():
         table_matrix.append([comb.functions,link_builder(linezip),link_builder(lineapk)])
 
     writer = MarkdownTableWriter(
-        table_name="汉化整合",
+        # table_name="汉化整合",
         headers=["版本选择", "ZIP", "APK"],
         value_matrix=table_matrix,
         
@@ -169,6 +178,7 @@ def gentable():
     md_path_now = md_path + "/" + release_tag + ".md"
     f = open(md_path_now, "w")
     f.write(release_fontmatter)
+    f.write(release_prepend)
     f.write("\n")
     f.write(writer.dumps())
     f.close()
