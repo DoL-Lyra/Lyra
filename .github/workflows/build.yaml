@@ -38,7 +38,7 @@ jobs:
       - name: Modify ZIP&APK
         run: |
           dol_basename=$(basename DoL*.zip .zip)
-          
+          mkdir ${{ github.workspace }}/output
           mkdir modify_tmp
           unzip -q *.zip -d modify_tmp/zip
           unzip -q *.apk -d modify_tmp/apk
