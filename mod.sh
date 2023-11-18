@@ -199,7 +199,7 @@ fun_wax() {
 # 作弊
 fun_cheat() {
     # cheat
-    sed -i 's/and \$cheatdisable is &quot;f&quot;//' "${HTML_PATH}"
+    sed -i 's#and \$cheatdisable is \&quot;f\&quot;#or \$cheatdisable is \&quot;f\&quot; or \$cheatdisable is \&quot;t\&quot;#' "${HTML_PATH}"
     # achievement
     sed -i 's/&lt;&lt;set $feats.locked to true&gt;&gt;//g' "${HTML_PATH}"
     # magic
@@ -208,11 +208,11 @@ fun_cheat() {
 
 # CSD
 fun_csd() {
-    sed -i "/看起来无法承受更多的痛苦/{n;n;n;n
+    sed -i "/can take much more pain/{n;n;n;n
     ;r assets/HP.patch
     }" "${HTML_PATH}"
 
-    sed -i "/静静地躺着，就这样等待着你/{n;n;n;n;n
+    sed -i "/lies still, waiting for you/{n;n;n;n;n
     ;r assets/AP.patch
     }" "${HTML_PATH}"
 }
