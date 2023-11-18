@@ -56,11 +56,9 @@ fun_name() {
     OUTPUT_PREFIX='' # 文件名前缀
     OUTPUT_SUFFIX='' # 文件名后缀
     BASE_NAME=${FILE_NAME%.*}
-    DOL_VER=$(echo $BASE_NAME | cut -d '-' -f 2)
+    DOL_VER=$(echo $BASE_NAME | cut -d '-' -f 3)
     CHS_VER=$(echo $BASE_NAME | cut -d '-' -f 4)
-    OUTPUT_PREFIX="dol-${DOL_VER}-chsmods-${CHS_VER}"
-    OUTPUT_PREFIX="${OUTPUT_PREFIX//'alpha'/'a'}"
-    OUTPUT_PREFIX="${OUTPUT_PREFIX//'beta'/'b'}"
+    OUTPUT_PREFIX="DoL-${DOL_VER}-chsmods-${CHS_VER}"
 }
 
 # ZIP
@@ -86,7 +84,7 @@ fun_apk() {
     wget -q -nc -O apktool.jar $URL_APKTOOL
     wget -q -nc -O uber-apk-signer.jar $URL_APKSIGN
 
-    java -jar apktool.jar d dol*.apk -o $EXTRACT_DIR
+    java -jar apktool.jar d $FILE_NAME -o $EXTRACT_DIR
 
     # 修改包名
     sed -i 's/"com.vrelnir.DegreesOfLewdity"/"com.vrelnir.DegreesOfLewdityWE.chsmods"/g' $EXTRACT_DIR/AndroidManifest.xml
@@ -239,14 +237,14 @@ fun_sideview_kr() {
 # 入口
 case "$VERSION" in
     "zip")
-        FILE_NAME=$(basename dol*.zip)
+        FILE_NAME=$(basename DoL*.zip)
         fun_name
         IMG_PATH=$EXTRACT_DIR/img
         HTML_PATH="$EXTRACT_DIR/Degrees of Lewdity.html"
         fun_zip
     ;;
     "apk")
-        FILE_NAME=$(basename dol*.apk)
+        FILE_NAME=$(basename DoL*.apk)
         fun_name
         IMG_PATH=$EXTRACT_DIR/assets/www/img
         HTML_PATH="$EXTRACT_DIR/assets/www/Degrees of Lewdity.html"
