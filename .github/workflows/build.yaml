@@ -54,8 +54,8 @@ jobs:
           dol_basename=$(basename DoL*.apk .apk)
           
           mkdir modify_tmp
-          unzip *.zip -d modify_tmp/zip
-          unzip *.apk -d modify_tmp/apk
+          unzip -q *.zip -d modify_tmp/zip
+          unzip -q *.apk -d modify_tmp/apk
           rm *.apk
           cd modify_tmp
 
@@ -68,12 +68,12 @@ jobs:
 
           # 打包
           cd zip
-          zip -r ${dol_basename}.zip *
+          zip -q -r ${dol_basename}.zip *
           mv ${dol_basename}.zip ../../
           cd ..
 
           cd apk
-          zip -r ${dol_basename}.apk *
+          zip -q -r ${dol_basename}.apk *
           mv ${dol_basename}.apk ../../
           cd ..
 
