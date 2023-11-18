@@ -35,10 +35,10 @@ jobs:
         run: |
           with open("${{ env.RELEASE_FOLDER_PATH }}/index.html", "r+", encoding="utf-8") as index_html_file:
             index_html = index_html_file.read()
-            insert_index = index_html.find("<head>") + 7
+            insert_index = index_html.find('<meta charset="UTF-8" />')
             index_html = index_html[:insert_index] + \
                 "<link rel=\"manifest\" href=\"manifest.json\">\n" + index_html[insert_index:]
-            insert_index = index_html.find("<body>") + 7
+            insert_index = index_html.find('<body>\n\t<div id="init-screen">') + 7
             index_html = index_html[:insert_index] + \
                 "    <script>\n" + \
                 "        if (typeof navigator.serviceWorker !== 'undefined') {\n" + \
@@ -110,7 +110,8 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
         with:
           repo: DOL-CHS-MODS/pages
-          build_dir: ${{ env.RELEASE_FOLDER_PATH }}
+          # https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/blob/e88b5f05a7e1c210edc80e9d6fb32716abd24e60/.github/workflows/main.yml#L120
+          build_dir: ./dol-release
           keep_history: false
           target_branch: pages
 
