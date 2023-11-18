@@ -125,37 +125,6 @@ jobs:
         with:
           name: dol-chs-mods
           path: outputs
-      # - name: Generate release body origin
-      #   id: gen_release_note
-      #   run: |
-      #     cd outputs
-      #     BASEURL=https://github.com/sakarie9/DOL-CHS-MODS/releases/download/${{ github.ref_name }}
-      #     md=$(cat << EOF
-      #     ## 原版汉化整合
-
-      #     | 版本选择                        	| ZIP                             	| APK                             	|
-      #     |---------------------------------	|---------------------------------	|---------------------------------	|
-      #     | BESC                            	| [下载]($BASEURL/$(cat zip_3))   	| [下载]($BASEURL/$(cat apk_3))   	|
-      #     | 作弊+HP                         	| [下载]($BASEURL/$(cat zip_12))  	| [下载]($BASEURL/$(cat apk_12))  	|
-      #     | ***BESC+作弊+HP(推荐)***        	| [下载]($BASEURL/$(cat zip_15))  	| [下载]($BASEURL/$(cat apk_15))  	|
-      #     | BESC+BJ特写                     	| [下载]($BASEURL/$(cat zip_19))  	| [下载]($BASEURL/$(cat apk_19))  	|
-      #     | BESC+HP+BJ特写                  	| [下载]($BASEURL/$(cat zip_27))  	| [下载]($BASEURL/$(cat apk_27))  	|
-      #     | ***BESC+作弊+HP+BJ特写(推荐)*** 	| [下载]($BASEURL/$(cat zip_31))  	| [下载]($BASEURL/$(cat apk_31))  	|
-      #     | BESC+KR特写                     	| [下载]($BASEURL/$(cat zip_35))  	| [下载]($BASEURL/$(cat apk_35))  	|
-      #     | BESC+作弊+HP+KR特写             	| [下载]($BASEURL/$(cat zip_47))  	| [下载]($BASEURL/$(cat apk_47))  	|
-      #     | BESC+WAX                        	| [下载]($BASEURL/$(cat zip_67))  	| [下载]($BASEURL/$(cat apk_67))  	|
-      #     | BESC+作弊+HP+WAX                	| [下载]($BASEURL/$(cat zip_79))  	| [下载]($BASEURL/$(cat apk_79))  	|
-      #     | BESC+BJ特写+WAX                 	| [下载]($BASEURL/$(cat zip_83))  	| [下载]($BASEURL/$(cat apk_83))  	|
-      #     | BESC+HP+BJ特写+WAX              	| [下载]($BASEURL/$(cat zip_91))  	| [下载]($BASEURL/$(cat apk_91))  	|
-      #     | BESC+作弊+HP+BJ特写+WAX         	| [下载]($BASEURL/$(cat zip_95))  	| [下载]($BASEURL/$(cat apk_95))  	|
-      #     | BESC+KR特写+WAX                 	| [下载]($BASEURL/$(cat zip_99))  	| [下载]($BASEURL/$(cat apk_99))  	|
-      #     | BESC+作弊+HP+KR特写+WAX         	| [下载]($BASEURL/$(cat zip_111)) 	| [下载]($BASEURL/$(cat apk_111)) 	|
-      #     EOF
-      #     )
-      #     md="${md//'%'/'%25'}"                               # Multiline escape sequences for %
-      #     md="${md//$'\n'/'%0A'}"                             # Multiline escape sequences for '\n'
-      #     md="${md//$'\r'/'%0D'}"                             # Multiline escape sequences for '\r'
-      #     echo "RELEASE_BODY=$md" >> $GITHUB_OUTPUT
 
       - name: Upload to release
         uses: svenstaro/upload-release-action@v2

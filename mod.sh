@@ -59,6 +59,8 @@ fun_name() {
     DOL_VER=$(echo $BASE_NAME | cut -d '-' -f 3)
     CHS_VER=$(echo $BASE_NAME | cut -d '-' -f 4)
     OUTPUT_PREFIX="DoL-${DOL_VER}-chsmods-${CHS_VER}"
+    OUTPUT_PREFIX="${OUTPUT_PREFIX//'alpha'/'a'}"
+    OUTPUT_PREFIX="${OUTPUT_PREFIX//'beta'/'b'}"
 }
 
 # ZIP
