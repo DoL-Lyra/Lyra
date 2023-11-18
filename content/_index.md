@@ -22,7 +22,7 @@ title: "DoL 整合包发布页"
 
 ## 在线游玩
 
-- [Github Pages](https://dol-chs-mods-hub.netlify.app/)
+- [Github Pages](https://dol-chs-mods.github.io/pages/)
 
 > 在线版仅使用 `BESC+作弊+CSD+BJ特写` 构建，需要其他版本请下载本地版
 
