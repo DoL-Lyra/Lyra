@@ -14,7 +14,68 @@ on:
   workflow_dispatch:
 
 jobs:
+  process_package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # 下载焊入html的i18n
+      - name: Download game files (zip)
+        uses: robinraju/release-downloader@v1.8
+        with:
+          repository: "sakarie9/DoLModLoaderBuild"
+          latest: true
+          fileName: "DoL-ModLoader-*.zip"
+
+      # 下载汉化仓库的apk
+      - name: Download game files (apk)
+        uses: robinraju/release-downloader@v1.8
+        with:
+          repository: "Eltirosto/Degrees-of-Lewdity-Chinese-Localization"
+          latest: true
+          fileName: "DoL-ModLoader-*-v*[^polyfill].apk"
+
+      # 修改内容
+      - name: Modify ZIP&APK
+        run: |
+          dol_basename=$(basename DoL*.zip .zip)
+          
+          mkdir modify_tmp
+          unzip -q *.zip -d modify_tmp/zip
+          unzip -q *.apk -d modify_tmp/apk
+          rm *.apk
+          cd modify_tmp
+
+          # 将zip的html覆盖到apk中
+          cp "zip/Degrees of Lewdity.html" "apk/assets/www/"
+
+          # 将apk中的img覆盖到zip中
+          rm -r "zip/img"
+          cp -r "apk/assets/www/img" "zip/"
+
+          # 打包
+          pushd zip
+          zip -q -r ${dol_basename}.zip *
+          mv ${dol_basename}.zip ${{ github.workspace }}/output/
+          popd
+
+          pushd apk
+          zip -q -r ${dol_basename}.apk *
+          mv ${dol_basename}.apk ${{ github.workspace }}/output/
+          popd
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: gamefile-zip
+          path: ${{ github.workspace }}/output/*.zip
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: gamefile-apk
+          path: ${{ github.workspace }}/output/*.apk
+
   build_matrix:
+    needs: process_package
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
@@ -31,51 +92,11 @@ jobs:
       - name: Install APT packages
         run: sudo apt install -y unrar
 
-      # 下载焊入html的i18n
-      - name: Download game files (zip)
-        uses: robinraju/release-downloader@v1.8
+      # 下载处理过的游戏文件
+      - uses: actions/download-artifact@v3
         with:
-          repository: "sakarie9/DoLModLoaderBuild"
-          latest: true
-          fileName: "DoL-ModLoader-CHS.zip"
-
-      # 下载汉化仓库的apk
-      - name: Download game files (apk)
-        if: ${{ matrix.pack }} == 'apk'
-        uses: robinraju/release-downloader@v1.8
-        with:
-          repository: "Eltirosto/Degrees-of-Lewdity-Chinese-Localization"
-          latest: true
-          fileName: "DoL-ModLoader-*-v*[^polyfill].apk"
-
-      # 修改内容
-      - name: Modify ZIP&APK
-        run: |
-          dol_basename=$(basename DoL*.apk .apk)
-          
-          mkdir modify_tmp
-          unzip -q *.zip -d modify_tmp/zip
-          unzip -q *.apk -d modify_tmp/apk
-          rm *.apk
-          cd modify_tmp
-
-          # 将zip的html覆盖到apk中
-          cp "zip/Degrees of Lewdity.html" "apk/assets/www/"
-
-          # 将apk中的img覆盖到zip中
-          rm -r "zip/img"
-          cp -r "apk/assets/www/img" "zip/"
-
-          # 打包
-          cd zip
-          zip -q -r ${dol_basename}.zip *
-          mv ${dol_basename}.zip ../../
-          cd ..
-
-          cd apk
-          zip -q -r ${dol_basename}.apk *
-          mv ${dol_basename}.apk ../../
-          cd ..
+          name: gamefile-${{ matrix.pack }}
+          path: ${{ github.workspace }}
 
       - name: Run mod script
         run: |
