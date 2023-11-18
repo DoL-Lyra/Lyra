@@ -14,7 +14,7 @@ skip_dec = [0]
 recommend_dec = [11,27]
 
 baseurl_github = "https://github.com/sakarie9/DOL-CHS-MODS/releases/download/"
-baseurl_ghproxy = f"https://ghproxy.com/{baseurl_github}"
+baseurl_ghproxy = f"https://mirror.ghproxy.com/{baseurl_github}"
 #pair_path = str(sys.argv[1])
 pair_path = "pairs"
 release_tag = str(sys.argv[1])
