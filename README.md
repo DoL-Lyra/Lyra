@@ -55,6 +55,10 @@
 <details>
 <summary>点击展开</summary>
 
+- 1118
+
+  使用 ModLoader 打包
+
 - 1110
 
   HP 重命名为 CSD
