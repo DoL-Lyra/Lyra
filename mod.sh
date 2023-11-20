@@ -135,14 +135,14 @@ fun_check_code() {
     if [ $(( MOD_CODE&4 )) -ne 0 ]
     then
         echo 4-Start patch cheat...
-        fun_cheat
+        # fun_cheat
         OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-cheat
         echo 4-Complete patch cheat!
     fi
     if [ $(( MOD_CODE&8 )) -ne 0 ]
     then
         echo 8-Start patch CSD...
-        fun_csd
+        # fun_csd
         OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-csd
         echo 8-Complete patch CSD!
     fi
@@ -196,27 +196,6 @@ fun_wax() {
     
     popd
     cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
-}
-
-# 作弊
-fun_cheat() {
-    # cheat
-    sed -i 's#and \$cheatdisable is \&quot;f\&quot;#or \$cheatdisable is \&quot;f\&quot; or \$cheatdisable is \&quot;t\&quot;#' "${HTML_PATH}"
-    # achievement
-    sed -i 's/set \$feats.locked to true/set \$feats.locked to false/g' "${HTML_PATH}"
-    # magic
-    sed -i 's@\.replace(/\\\[/g, &quot;&amp;#91;&quot;)\.replace(/\\\]/g, &quot;&amp;#93;&quot;)@@g' "${HTML_PATH}"
-}
-
-# CSD
-fun_csd() {
-    sed -i "/can take much more pain/{n;n;n;n
-    ;r assets/HP.patch
-    }" "${HTML_PATH}"
-
-    sed -i "/lies still, waiting for you/{n;n;n;n;n
-    ;r assets/AP.patch
-    }" "${HTML_PATH}"
 }
 
 # BJ特写
