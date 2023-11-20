@@ -216,18 +216,18 @@ fun_sideview_kr() {
 }
 
 # 入口
-if [ $(( MOD_CODE&4 )) -eq 4 ]
+if [ $(( MOD_CODE&12 )) -eq 12 ]
 then
-    echo 4-Use cheat base
-    FILE_NAME=$(basename DoL*-4.$VERSION)
+    echo 12-Use cheat csd base
+    FILE_NAME=$(basename DoL*-12.$VERSION)
 elif [ $(( MOD_CODE&8 )) -eq 8 ]
 then
     echo 8-Use csd base
     FILE_NAME=$(basename DoL*-8.$VERSION)
-elif [ $(( MOD_CODE&12 )) -eq 12 ]
+elif [ $(( MOD_CODE&4 )) -eq 4 ]
 then
-    echo 12-Use cheat csd base
-    FILE_NAME=$(basename DoL*-12.$VERSION)
+    echo 4-Use cheat base
+    FILE_NAME=$(basename DoL*-4.$VERSION)
 else
     echo 0-Use i18n only
     FILE_NAME=$(basename DoL*-0.$VERSION)
