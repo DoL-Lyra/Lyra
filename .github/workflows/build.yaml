@@ -61,7 +61,7 @@ jobs:
             zip -q -r ${dol_basename}.apk *
             mv ${dol_basename}.apk ${{ github.workspace }}/output/
             popd
-            rm -rf modify_tmp/*
+            rm -rf modify_tmp/zip
           done
 
       - name: Upload artifacts
