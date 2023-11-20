@@ -216,15 +216,15 @@ fun_sideview_kr() {
 }
 
 # 入口
-if [ $(( MOD_CODE&4 )) -ne 0 ]
+if [ $(( MOD_CODE&4 )) -eq 4 ]
 then
     echo 4-Use cheat base
     FILE_NAME=$(basename DoL*-4.$VERSION)
-elif [ $(( MOD_CODE&8 )) -ne 0 ]
+elif [ $(( MOD_CODE&8 )) -eq 8 ]
 then
     echo 8-Use csd base
     FILE_NAME=$(basename DoL*-8.$VERSION)
-elif [ $(( MOD_CODE&12 )) -ne 0 ]
+elif [ $(( MOD_CODE&12 )) -eq 12 ]
 then
     echo 12-Use cheat csd base
     FILE_NAME=$(basename DoL*-12.$VERSION)
@@ -237,13 +237,11 @@ case "$VERSION" in
     "zip")
         fun_name
         IMG_PATH=$EXTRACT_DIR/img
-        HTML_PATH="$EXTRACT_DIR/Degrees of Lewdity.html"
         fun_zip
     ;;
     "apk")
         fun_name
         IMG_PATH=$EXTRACT_DIR/assets/www/img
-        HTML_PATH="$EXTRACT_DIR/assets/www/Degrees of Lewdity.html"
         fun_apk
     ;;
 esac
