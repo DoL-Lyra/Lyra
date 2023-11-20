@@ -37,31 +37,33 @@ jobs:
       # 修改内容
       - name: Modify ZIP&APK
         run: |
-          dol_basename=$(basename DoL*.zip .zip)
           mkdir ${{ github.workspace }}/output
           mkdir modify_tmp
-          unzip -q *.zip -d modify_tmp/zip
+          # 解压apk
           unzip -q *.apk -d modify_tmp/apk
-          rm *.apk
-          cd modify_tmp
 
-          # 将zip的html覆盖到apk中
-          cp "zip/Degrees of Lewdity.html" "apk/assets/www/"
-
-          # 将apk中的img覆盖到zip中
-          rm -r "zip/img"
-          cp -r "apk/assets/www/img" "zip/"
-
-          # 打包
-          pushd zip
-          zip -q -r ${dol_basename}.zip *
-          mv ${dol_basename}.zip ${{ github.workspace }}/output/
-          popd
-
-          pushd apk
-          zip -q -r ${dol_basename}.apk *
-          mv ${dol_basename}.apk ${{ github.workspace }}/output/
-          popd
+          ver=( 0 4 8 12 )
+          for v in "${ver[@]}"
+          do
+            mkdir modify_tmp
+            dol_basename=$(basename DoL*-${v}.zip .zip)
+            unzip -q ${dol_basename}.zip -d modify_tmp/zip
+            # 将apk中的img覆盖到zip中
+            rm -r "modify_tmp/zip/img"
+            cp -r "modify_tmp/apk/assets/www/img" "modify_tmp/zip/"
+            # 将zip的html覆盖到apk中
+            cp "modify_tmp/zip/Degrees of Lewdity.html" "modify_tmp/apk/assets/www/"
+            # 打包
+            pushd modify_tmp/zip
+            zip -q -r ${dol_basename}.zip *
+            mv ${dol_basename}.zip ${{ github.workspace }}/output/
+            popd
+            pushd modify_tmp/apk
+            zip -q -r ${dol_basename}.apk *
+            mv ${dol_basename}.apk ${{ github.workspace }}/output/
+            popd
+            rm -rf modify_tmp/*
+          done
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3

@@ -237,16 +237,31 @@ fun_sideview_kr() {
 }
 
 # 入口
+if [ $(( MOD_CODE&4 )) -ne 0 ]
+then
+    echo 4-Use cheat base
+    FILE_NAME=$(basename DoL*-4.$VERSION)
+elif [ $(( MOD_CODE&8 )) -ne 0 ]
+then
+    echo 8-Use csd base
+    FILE_NAME=$(basename DoL*-8.$VERSION)
+elif [ $(( MOD_CODE&12 )) -ne 0 ]
+then
+    echo 12-Use cheat csd base
+    FILE_NAME=$(basename DoL*-12.$VERSION)
+else
+    echo 0-Use i18n only
+    FILE_NAME=$(basename DoL*-0.$VERSION)
+fi
+
 case "$VERSION" in
     "zip")
-        FILE_NAME=$(basename DoL*.zip)
         fun_name
         IMG_PATH=$EXTRACT_DIR/img
         HTML_PATH="$EXTRACT_DIR/Degrees of Lewdity.html"
         fun_zip
     ;;
     "apk")
-        FILE_NAME=$(basename DoL*.apk)
         fun_name
         IMG_PATH=$EXTRACT_DIR/assets/www/img
         HTML_PATH="$EXTRACT_DIR/assets/www/Degrees of Lewdity.html"
