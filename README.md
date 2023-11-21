@@ -8,6 +8,7 @@
 - [各版本说明](#各版本说明)
 - [下载](#下载)
 - [在线](#在线)
+- [疑难解答](#疑难解答)
 - [更新日志](#更新日志)
 - [整合包使用须知](#整合包使用须知)
 
@@ -49,7 +50,11 @@
 
 [Github Pages](https://dol-chs-mods.github.io/pages/)
 
-> 在线版仅使用 `BESC+作弊+HP+BJ特写` 构建，需要其他版本请前往下载本地版
+> 在线版仅使用 `BESC+作弊+CSD+BJ特写` 构建，需要其他版本请前往下载本地版
+
+## 疑难解答
+
+**使用本整合出现各种问题时请先前往 [汉化仓库][github-chs] 下载并测试是否同样出现问题，参考 [发布下载版](https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/blob/main/README.md#%E5%8F%91%E5%B8%83%E4%B8%8B%E8%BD%BD%E7%89%88)。如问题同样能够复现请前往汉化仓库反馈；如问题只在本整合内出现请向本仓库反馈**
 
 ## 更新日志
 <details>
