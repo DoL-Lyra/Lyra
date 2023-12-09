@@ -47,9 +47,11 @@ jobs:
           do
             dol_basename=$(basename DoL*-${v}.zip .zip)
             unzip -q ${dol_basename}.zip -d modify_tmp/zip
-            # 将apk中的img覆盖到zip中
-            rm -r "modify_tmp/zip/img"
-            cp -r "modify_tmp/apk/assets/www/img" "modify_tmp/zip/"
+            # # 将apk中的img覆盖到zip中
+            # rm -r "modify_tmp/zip/img"
+            # cp -r "modify_tmp/apk/assets/www/img" "modify_tmp/zip/"
+            # 将zip中的img覆盖到apk中
+            cp -r  "modify_tmp/zip/img" "modify_tmp/apk/assets/www/"
             # 将zip的html覆盖到apk中
             cp "modify_tmp/zip/Degrees of Lewdity.html" "modify_tmp/apk/assets/www/"
             # 打包
