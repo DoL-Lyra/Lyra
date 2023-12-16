@@ -1,8 +1,8 @@
 name: Trigger
 
 on:
-  schedule:
-    - cron: "0 0 * * *" # every day at 8am
+  # schedule:
+  #   - cron: "0 0 * * *" # every day at 8am
   workflow_dispatch:
 
 env:
