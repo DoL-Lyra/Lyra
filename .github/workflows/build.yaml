@@ -45,13 +45,9 @@ jobs:
           ver=( 0 4 8 12 )
           for v in "${ver[@]}"
           do
-            dol_basename=$(basename DoL*-${v}.zip .zip)
+            dol_basename=$(basename DoL*[^polyfill]-${v}.zip .zip)
             unzip -q ${dol_basename}.zip -d modify_tmp/zip
-            # # 将apk中的img覆盖到zip中
-            # rm -r "modify_tmp/zip/img"
-            # cp -r "modify_tmp/apk/assets/www/img" "modify_tmp/zip/"
-            # 将zip中的img覆盖到apk中
-            cp -r  "modify_tmp/zip/img" "modify_tmp/apk/assets/www/"
+            #cp -r  "modify_tmp/zip/img" "modify_tmp/apk/assets/www/"
             # 将zip的html覆盖到apk中
             cp "modify_tmp/zip/Degrees of Lewdity.html" "modify_tmp/apk/assets/www/"
             # 打包
@@ -65,6 +61,23 @@ jobs:
             popd
             rm -rf modify_tmp/zip
           done
+
+          # polyfill
+          dol_basename=$(basename DoL*polyfill-12.zip .zip)
+          unzip -q ${dol_basename}.zip -d modify_tmp/zip
+          #cp -r  "modify_tmp/zip/img" "modify_tmp/apk/assets/www/"
+          # 将zip的html覆盖到apk中
+          cp "modify_tmp/zip/Degrees of Lewdity.html" "modify_tmp/apk/assets/www/"
+          # 打包
+          pushd modify_tmp/zip
+          zip -q -r ${dol_basename}.zip *
+          mv ${dol_basename}.zip ${{ github.workspace }}/output/
+          popd
+          pushd modify_tmp/apk
+          zip -q -r ${dol_basename}.apk *
+          mv ${dol_basename}.apk ${{ github.workspace }}/output/
+          popd
+          rm -rf modify_tmp/zip
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
@@ -84,7 +97,7 @@ jobs:
       fail-fast: true
       matrix:
         pack: [zip, apk]
-        code: [3,11,12,15,19,27,31,35,47,67,79,83,91,95,99,111]
+        code: [3,11,12,15,19,27,31,35,47,67,79,83,91,95,99,111,polyfill-31]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v3

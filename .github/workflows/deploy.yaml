@@ -7,120 +7,136 @@ on:
   workflow_call:
 
 env:
-  RELEASE_ARTIFACT_NAME: dol-release-package
-  RELEASE_ARTIFACT_PATH: ./dol-release.zip
-  RELEASE_FOLDER_PATH: ./dol-release
+  DOWNLOAD_RELEASE_TEMP_PATH: ${{ github.workspace }}/modloader-temp  
+
+  MODLOADER_HTML_NORMAL_FILENAME: "dol.html"
+  MODLOADER_HTML_POLYFILL_FILENAME: "dol-polyfill.html"
+
+  MANIFEST_JSON_NORMAL_FILENAME: "manifest-normal.json"
+  MANIFEST_JSON_POLYFILL_FILENAME: "manifest-polyfill.json"
+
+  UPLOAD_ARTIFACT_NAME: "ModLoader-Artifact"
+  UPLOAD_ARTIFACT_FILEPATH: ${{ github.workspace }}/Modloader-Artifact.zip
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
+      - name: Make Directories
+        run: |
+          mkdir -p "${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}"
+
       - id: getRelease
         name: release-downloader
         uses: robinraju/release-downloader@v1.8
         with:
           latest: true
           fileName: "DoL-*-chsmods-*-besc-cheat-csd-sideviewbj-*.zip"
+      - id: getRelease-polyfill
+        name: release-downloader
+        uses: robinraju/release-downloader@v1.8
+        with:
+          latest: true
+          fileName: "DoL-*-chsmods-*-polyfill-besc-cheat-csd-sideviewbj-*.zip"
+
       - name: Extract downloaded file
         run: |
-          echo "Downloaded Chinese version DOL: ${{ steps.getRelease.outputs.tag_name }}"
-          unzip -q ${{ fromJson(steps.getRelease.outputs.downloaded_files)[0] }} -d ${{ env.RELEASE_FOLDER_PATH }}
+          echo "Downloaded DoL: ${{ steps.getRelease.outputs.tag_name }}"
+          unzip -q ${{ fromJson(steps.getRelease.outputs.downloaded_files)[0] }} -d ${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}
+          mv "${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}/Degrees of Lewdity.html" "${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}/dol.html"
+
+          echo "Downloaded DoL Polyfill: ${{ steps.getRelease-polyfill.outputs.tag_name }}"
+          unzip -q ${{ fromJson(steps.getRelease-polyfill.outputs.downloaded_files)[0] }} -d ${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}
+          mv "${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}/Degrees of Lewdity.html" "${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}/dol-polyfill.html"
+
       - name: Construct PWA
         run: |
-          cp -r .github/pwa/* ${{ env.RELEASE_FOLDER_PATH }}
-          mv "${{ env.RELEASE_FOLDER_PATH }}/Degrees of Lewdity.html" ${{ env.RELEASE_FOLDER_PATH }}/index.html
+          cp -r .github/pwa/* ${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}
       - name: Modify HTML
         shell: python3 {0}
         run: |
-          with open("${{ env.RELEASE_FOLDER_PATH }}/index.html", "r+", encoding="utf-8") as index_html_file:
-            index_html = index_html_file.read()
-            insert_index = index_html.find('<meta charset="UTF-8" />')
-            index_html = index_html[:insert_index] + \
-                "<link rel=\"manifest\" href=\"manifest.json\">\n" + index_html[insert_index:]
-            insert_index = index_html.find('<body>\n\t<div id="init-screen">') + 7
-            index_html = index_html[:insert_index] + \
-                "    <script>\n" + \
-                "        if (typeof navigator.serviceWorker !== 'undefined') {\n" + \
-                "            navigator.serviceWorker.register('sw.js')\n" + \
-                "        }\n" + \
-                "    </script>\n" + index_html[insert_index:]
-            index_html_file.seek(0)
-            index_html_file.truncate()
-            index_html_file.write(index_html)
-      - name: Pack release artifact
+          for html_name, manifest_name in zip(
+            ["${{ env.MODLOADER_HTML_NORMAL_FILENAME }}", "${{ env.MODLOADER_HTML_POLYFILL_FILENAME }}"],
+            ["${{ env.MANIFEST_JSON_NORMAL_FILENAME }}", "${{ env.MANIFEST_JSON_POLYFILL_FILENAME }}"]
+          ):
+            with open(f"${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}/{html_name}", "r+", encoding="utf-8") as index_html_file:
+              index_html = index_html_file.read()
+              insert_index = index_html.find('<meta charset="UTF-8" />')
+              index_html = index_html[:insert_index] + \
+                  f"<link rel=\"manifest\" href=\"{manifest_name}\">\n" + index_html[insert_index:]
+              insert_index = index_html.find('<body>\n\t<div id="init-screen">') + 7
+              index_html = index_html[:insert_index] + \
+                  "    <script>\n" + \
+                  "        if (typeof navigator.serviceWorker !== 'undefined') {\n" + \
+                  "            navigator.serviceWorker.register('sw.js')\n" + \
+                  "        }\n" + \
+                  "    </script>\n" + index_html[insert_index:]
+              index_html_file.seek(0)
+              index_html_file.truncate()
+              index_html_file.write(index_html)
+
+      - name: Pack Artifact
         run: |
-          7z a ${{ env.RELEASE_ARTIFACT_PATH }} ${{ env.RELEASE_FOLDER_PATH }}/*
-      - name: Upload release artifact
+          7z a ${{ env.UPLOAD_ARTIFACT_FILEPATH }} ${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}/*
+
+      - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.RELEASE_ARTIFACT_NAME }}
-          path: ${{ env.RELEASE_ARTIFACT_PATH }}
+          name: ${{ env.UPLOAD_ARTIFACT_NAME }}
+          path: ${{ env.UPLOAD_ARTIFACT_FILEPATH }}
 
-  deploy:
+  deploy-github:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: actions/checkout@v3
-      - name: Download release artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: ${{ env.RELEASE_ARTIFACT_NAME }}
-      - name: Unzip release artifact
-        run: |
-          unzip -q ${{ env.RELEASE_ARTIFACT_PATH }} -d ${{ env.RELEASE_FOLDER_PATH }}
-      - name: Deploy to main repo
-        uses: crazy-max/ghaction-github-pages@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          build_dir: ${{ env.RELEASE_FOLDER_PATH }}
-          keep_history: false
-          target_branch: pages
+      - uses: actions/checkout@v4
 
-  deploy-github-pages:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v3
-      - name: Download release artifact
+      - name: Download Artifact
         uses: actions/download-artifact@v3
         with:
-          name: ${{ env.RELEASE_ARTIFACT_NAME }}
-      - name: Unzip release artifact
+          name: ${{ env.UPLOAD_ARTIFACT_NAME }}
+
+      - name: Extract Artifact
+        working-directory: ${{ github.workspace }}
         run: |
-          unzip -q ${{ env.RELEASE_ARTIFACT_PATH }} -d ${{ env.RELEASE_FOLDER_PATH }}
+          unzip -q ${{ env.UPLOAD_ARTIFACT_FILEPATH }} -d ./modloader-temp
+
       - name: Modify manifest.json
         shell: python3 {0}
         run: |
           import json
-          with open("${{ env.RELEASE_FOLDER_PATH }}/manifest.json", "r+", encoding="utf-8") as manifest_file:
-            manifest_json = json.loads(manifest_file.read())
-            manifest_json["scope"] = "/${{ github.event.repository.name }}/"
-            manifest_json["start_url"] = "/${{ github.event.repository.name }}/"
-            manifest_json["shortcuts"][0]["url"] = "/${{ github.event.repository.name }}/"
-            manifest_json["icons"][0]["src"] = "/${{ github.event.repository.name }}/icon.png"
-            manifest_file.seek(0)
-            manifest_file.truncate()
-            manifest_file.write(json.dumps(manifest_json, indent=2))
+            
+          for manifest_name in ["${{ env.MANIFEST_JSON_NORMAL_FILENAME }}", "${{ env.MANIFEST_JSON_POLYFILL_FILENAME }}"]:
+            with open(f"${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}/{manifest_name}", "r+", encoding="utf-8") as manifest_file:
+              manifest_json = json.loads(manifest_file.read())
+              manifest_json["scope"] = "/${{ github.event.repository.name }}/"
+              manifest_json["start_url"] = "/${{ github.event.repository.name }}/"
+              manifest_json["shortcuts"][0]["url"] = "/${{ github.event.repository.name }}/"
+              manifest_json["icons"][0]["src"] = "/${{ github.event.repository.name }}/icon.png"
+              manifest_file.seek(0)
+              manifest_file.truncate()
+              manifest_file.write(json.dumps(manifest_json, indent=2))
+
       - name: Deploy to organization repo
         uses: crazy-max/ghaction-github-pages@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_PAT: ${{ secrets.GH_PAT }}
+          GH_PAT: ${{ secrets.GH_PAT_LYRA }}
         with:
-          repo: DOL-CHS-MODS/pages
+          repo: DoL-Lyra/dol-lyra.github.io
           # https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/blob/e88b5f05a7e1c210edc80e9d6fb32716abd24e60/.github/workflows/main.yml#L120
-          build_dir: ./dol-release
+          build_dir: ./modloader-temp
           keep_history: false
           target_branch: pages
 
   post-build:
     runs-on: ubuntu-latest
     if: ${{ always() }}
-    needs: [build, deploy, deploy-github-pages]
+    needs: [build, deploy-github]
     steps:
       - name: Cleanup
         uses: geekyeggo/delete-artifact@v2
         with:
-          name: ${{ env.RELEASE_ARTIFACT_NAME }}
+          name: ${{ env.UPLOAD_ARTIFACT_NAME }}

@@ -31,6 +31,8 @@ else
     DATE_NOW=$(date -d "+8 hours" +%m%d)
 fi
 
+IS_POLYFILL=0
+
 # 资源地址
 # 工具
 URL_APKTOOL=https://github.com/iBotPeaches/Apktool/releases/download/v2.8.1/apktool_2.8.1.jar
@@ -61,6 +63,19 @@ fun_name() {
     OUTPUT_PREFIX="DoL-${DOL_VER}-chsmods-${CHS_VER}"
     OUTPUT_PREFIX="${OUTPUT_PREFIX//'alpha'/'a'}"
     OUTPUT_PREFIX="${OUTPUT_PREFIX//'beta'/'b'}"
+    if [ $IS_POLYFILL -ne 0 ]
+    then
+        OUTPUT_PREFIX=${OUTPUT_PREFIX}"-polyfill"
+    fi
+}
+
+fun_gen_pairs() {
+    if [ $IS_POLYFILL -eq 0 ]
+    then
+        echo "$OUTPUT_NAME" > $PAIRS_DIR/${VERSION}_${MOD_CODE}
+    else
+        echo "$OUTPUT_NAME" > $PAIRS_DIR/${VERSION}_polyfill_${MOD_CODE}
+    fi
 }
 
 # ZIP
@@ -78,7 +93,7 @@ fun_zip() {
     popd
 
     # for generate markdown table
-    echo "$OUTPUT_NAME" > $PAIRS_DIR/${VERSION}_${MOD_CODE}
+    fun_gen_pairs
 }
 
 # APK
@@ -106,7 +121,7 @@ fun_apk() {
     mv signed/*.apk $OUTPUT_DIR/$OUTPUT_NAME
 
     # for generate markdown table
-    echo "$OUTPUT_NAME" > $PAIRS_DIR/${VERSION}_${MOD_CODE}
+    fun_gen_pairs
 }
 
 # 处理MOD代码
@@ -216,10 +231,16 @@ fun_sideview_kr() {
 }
 
 # 入口
-if [ $(( MOD_CODE&12 )) -eq 12 ]
+if [[ ${MOD_CODE} = polyfill-* ]]
+then
+    echo polyfill-12-Use cheat csd base
+    FILE_NAME=$(basename DoL*polyfill-12.$VERSION)
+    IS_POLYFILL=1
+    MOD_CODE=$(echo $MOD_CODE | cut -d '-' -f 2)
+elif [ $(( MOD_CODE&12 )) -eq 12 ]
 then
     echo 12-Use cheat csd base
-    FILE_NAME=$(basename DoL*-12.$VERSION)
+    FILE_NAME=$(basename DoL*[^polyfill]-12.$VERSION)
 elif [ $(( MOD_CODE&8 )) -eq 8 ]
 then
     echo 8-Use csd base
