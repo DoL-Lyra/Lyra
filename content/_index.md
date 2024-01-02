@@ -1,8 +1,8 @@
 ---
-title: "DoL 整合包发布页"
+title: "DoL-Lyra 整合包发布站"
 ---
 
-**此发布页由 [Github: sakarie9/DOL-CHS-MODS](https://github.com/sakarie9/DOL-CHS-MODS) 构建，并非 DoL 或汉化组官方发布网站**
+**此发布页由 [Github: sakarie9/DoL-Lyra](https://github.com/sakarie9/DoL-Lyra) 构建，并非 DoL 或汉化组官方发布网站**
 
 ---
 
@@ -22,7 +22,7 @@ title: "DoL 整合包发布页"
 
 ## 在线游玩
 
-- [Github Pages](https://dol-chs-mods.github.io/pages/)
+- [Github Pages](https://dol-lyra.github.io/)
 
 > 在线版仅使用 `BESC+作弊+CSD+BJ特写` 构建，需要其他版本请下载本地版
 

@@ -15,7 +15,7 @@ recommend_dec = [11,27]
 # polyfill
 polyfill_comb = "polyfill_31"
 
-baseurl_github = "https://github.com/sakarie9/DOL-CHS-MODS/releases/download/"
+baseurl_github = "https://github.com/sakarie9/DoL-Lyra/releases/download/"
 baseurl_ghproxy = f"https://mirror.ghproxy.com/{baseurl_github}"
 #pair_path = str(sys.argv[1])
 pair_path = "pairs"
