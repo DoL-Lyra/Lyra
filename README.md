@@ -1,4 +1,4 @@
-# Degrees of Lewdity 整合包发布仓库
+# DoL-Lyra 整合包发布仓库
 
 ## 目录
 - [目录](#目录)
@@ -23,6 +23,9 @@
   - [官方 Discord][discord]
   - [游戏源码仓库][gitgud]
 - [原版汉化仓库][github-chs]
+- Mod
+  - [Lyra-CombatStatusDisplay][lyra-csd]
+  - [Lyra-Cheat][lyra-cheat]
 - 美化
   - [Degrees of Lewdity Graphics Mod][beeesss]
   - [BEEESSS Community Sprite Compilation][beeesss-ext]
@@ -36,7 +39,7 @@
 
 本仓库是基于 [汉化仓库][github-chs] 制作的自动化打包仓库，使用 Github Actions 提供多种 Mod 组合可供选择，跟随汉化仓库更新
 
-该仓库并非 DoL 或汉化组官方发布渠道
+**该仓库并非 DoL 或汉化组官方发布渠道**
 
 ## 各版本说明
 
@@ -65,6 +68,8 @@
 - 20240102
   
   添加 polyfill 版本
+
+  重命名仓库
 
 - 1118
 
@@ -150,3 +155,6 @@
 [beeesss-wax]: https://gitgud.io/GTXMEGADUDE/beeesss-wax
 [sideview-bj]: https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint
 [sideview-kr]: https://arca.live/b/textgame/83875947
+
+[lyra-csd]: https://github.com/DoL-Lyra/CombatStatusDisplay
+[lyra-cheat]: https://github.com/DoL-Lyra/Cheat

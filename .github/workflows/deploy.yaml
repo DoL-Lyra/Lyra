@@ -33,13 +33,13 @@ jobs:
         uses: robinraju/release-downloader@v1.8
         with:
           latest: true
-          fileName: "DoL-*-chsmods-*-besc-cheat-csd-sideviewbj-*.zip"
+          fileName: "DoL-*-Lyra-*-besc-cheat-csd-sideviewbj-*.zip"
       - id: getRelease-polyfill
         name: release-downloader
         uses: robinraju/release-downloader@v1.8
         with:
           latest: true
-          fileName: "DoL-*-chsmods-*-polyfill-besc-cheat-csd-sideviewbj-*.zip"
+          fileName: "DoL-*-Lyra-*-polyfill-besc-cheat-csd-sideviewbj-*.zip"
 
       - name: Extract downloaded file
         run: |

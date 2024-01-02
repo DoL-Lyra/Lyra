@@ -60,7 +60,7 @@ fun_name() {
     BASE_NAME=${FILE_NAME%.*}
     DOL_VER=$(echo $BASE_NAME | cut -d '-' -f 3)
     CHS_VER=$(echo $BASE_NAME | cut -d '-' -f 4)
-    OUTPUT_PREFIX="DoL-${DOL_VER}-chsmods-${CHS_VER}"
+    OUTPUT_PREFIX="DoL-${DOL_VER}-Lyra-${CHS_VER}"
     OUTPUT_PREFIX="${OUTPUT_PREFIX//'alpha'/'a'}"
     OUTPUT_PREFIX="${OUTPUT_PREFIX//'beta'/'b'}"
     if [ $IS_POLYFILL -ne 0 ]
@@ -104,11 +104,11 @@ fun_apk() {
     java -jar apktool.jar d $FILE_NAME -o $EXTRACT_DIR
 
     # 修改包名
-    sed -i 's/"com.vrelnir.DegreesOfLewdity"/"com.vrelnir.DegreesOfLewdityWE.chsmods"/g' $EXTRACT_DIR/AndroidManifest.xml
+    sed -i 's/"com.vrelnir.DegreesOfLewdity"/"com.vrelnir.DegreesOfLewdity.lyra"/g' $EXTRACT_DIR/AndroidManifest.xml
 
     # 修改应用名
-    sed -i 's/Degrees of Lewdity/DOL CHS MODS/g' $EXTRACT_DIR/res/values/strings.xml
-    sed -i 's/DoL/DOL CHS MODS/g' $EXTRACT_DIR/res/values/strings.xml
+    sed -i 's/Degrees of Lewdity/DoL Lyra/g' $EXTRACT_DIR/res/values/strings.xml
+    sed -i 's/DoL/DoL Lyra/g' $EXTRACT_DIR/res/values/strings.xml
 
     fun_check_code
 
