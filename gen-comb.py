@@ -12,6 +12,8 @@ add_dec = [11,27,91]
 skip_dec = [0]
 # 推荐
 recommend_dec = [11,27]
+# polyfill
+polyfill_comb = "polyfill_31"
 
 baseurl_github = "https://github.com/sakarie9/DOL-CHS-MODS/releases/download/"
 baseurl_ghproxy = f"https://mirror.ghproxy.com/{baseurl_github}"
@@ -35,6 +37,10 @@ showTableOfContents = false
 release_prepend = """
 {{< alert >}}
 下载之前请阅读 [版本说明]({{< ref "docs" >}}) 以选择所需版本
+{{< /alert >}}
+
+{{< alert >}}
+如打开后 modloader 未加载，请下载`兼容版`。正常情况下请勿使用兼容版
 {{< /alert >}}
 
 ## 汉化整合
@@ -146,6 +152,7 @@ def gentable():
     global pair_path
     global release_fontmatter
     global release_fontmatter_latest
+    global polyfill_comb
 
     class comb_table:
         functions = ""
@@ -156,6 +163,18 @@ def gentable():
             self.decimal = decimal
         
     table_matrix = []
+
+    # 添加 polyfill
+    fzip = open(f"{pair_path}/zip_{polyfill_comb}")
+    linezip = fzip.readline()
+    fzip.close()
+
+    fapk = open(f"{pair_path}/apk_{polyfill_comb}")
+    lineapk = fapk.readline()
+    fapk.close()
+
+    table_matrix.append(["BESC+CSD+BJ特写(兼容版)",link_builder(linezip),link_builder(lineapk)])
+    # 添加 polyfill 结束
 
     for comb in combinations:
         fzip = open(f"{pair_path}/zip_{comb.decimal}")
