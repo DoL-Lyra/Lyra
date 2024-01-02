@@ -107,8 +107,8 @@ fun_apk() {
     sed -i 's/"com.vrelnir.DegreesOfLewdity"/"com.vrelnir.DegreesOfLewdity.lyra"/g' $EXTRACT_DIR/AndroidManifest.xml
 
     # 修改应用名
-    sed -i 's/Degrees of Lewdity/DoL Lyra/g' $EXTRACT_DIR/res/values/strings.xml
     sed -i 's/DoL/DoL Lyra/g' $EXTRACT_DIR/res/values/strings.xml
+    sed -i 's/Degrees of Lewdity/DoL Lyra/g' $EXTRACT_DIR/res/values/strings.xml
 
     fun_check_code
 
