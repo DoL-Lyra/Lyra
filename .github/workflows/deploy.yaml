@@ -48,7 +48,8 @@ jobs:
           mv "${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}/Degrees of Lewdity.html" "${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}/dol.html"
 
           echo "Downloaded DoL Polyfill: ${{ steps.getRelease-polyfill.outputs.tag_name }}"
-          unzip -q ${{ fromJson(steps.getRelease-polyfill.outputs.downloaded_files)[0] }} -d ${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}
+          # unzip with overwrite
+          unzip -qo ${{ fromJson(steps.getRelease-polyfill.outputs.downloaded_files)[0] }} -d ${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}
           mv "${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}/Degrees of Lewdity.html" "${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}/dol-polyfill.html"
 
       - name: Construct PWA
