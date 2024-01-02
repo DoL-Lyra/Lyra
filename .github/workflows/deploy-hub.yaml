@@ -73,7 +73,7 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_PAT: ${{ secrets.GH_PAT }}
+          GH_PAT: ${{ secrets.GH_PAT_LYRA }}
         with:
           repo: DoL-Lyra/hub
           build_dir: ./hub/public
