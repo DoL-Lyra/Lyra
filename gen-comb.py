@@ -39,6 +39,7 @@ release_prepend = """
 下载之前请阅读 [版本说明]({{< ref "docs" >}}) 以选择所需版本
 {{< /alert >}}
 
+
 {{< alert >}}
 如打开后 modloader 未加载，请下载`兼容版`。正常情况下请勿使用兼容版
 {{< /alert >}}
