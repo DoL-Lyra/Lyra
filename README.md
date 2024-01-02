@@ -135,7 +135,9 @@
   - tag 格式
     - `{原版版本号}-{汉化版本号}-{日期}[.{修订号}]`
 
-- 本整合包中 Android 端应用名称修改为 `DOL CHS MODS` 且与原版及汉化版共存，请使用导出存档功能转移存档
+- 本整合包为完整游戏本体，请勿将压缩包作为 mod 在 modloader 内加载
+
+- 本整合包中 Android 端应用名称修改为 `DoL Lyra` 且与原版及汉化版共存，请使用导出存档功能转移存档
 
 - 根据汉化仓库中的 [免责声明](https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/blob/main/README.md#%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E)
 
