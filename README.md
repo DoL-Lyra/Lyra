@@ -40,17 +40,19 @@
 
 ## 各版本说明
 
-->->-> [【版本说明】](https://dol-chs-mods.github.io/hub/docs/) <-<-<-
+->->-> [【版本说明】](https://dol-lyra.github.io/hub/docs/) <-<-<-
 
 ## 下载
 
-->->-> [【下载站】](https://dol-chs-mods.github.io/hub/) <-<-<-
+->->-> [【下载站】](https://dol-lyra.github.io/hub/) <-<-<-
 
 ## 在线
 
-[Github Pages](https://dol-chs-mods.github.io/pages/)
+[【DoL-Lyra Github Pages】](https://dol-lyra.github.io)
 
 > 在线版仅使用 `BESC+作弊+CSD+BJ特写` 构建，需要其他版本请前往下载本地版
+
+~~[Github Pages](https://dol-chs-mods.github.io/pages/) 停更，更换域名，请及时迁移存档~~
 
 ## 疑难解答
 
@@ -59,6 +61,10 @@
 ## 更新日志
 <details>
 <summary>点击展开</summary>
+
+- 20240102
+  
+  添加 polyfill 版本
 
 - 1118
 
