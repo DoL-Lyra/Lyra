@@ -47,7 +47,8 @@ jobs:
           do
             dol_basename=$(basename DoL*[^polyfill]-${v}.zip .zip)
             unzip -q ${dol_basename}.zip -d modify_tmp/zip
-            #cp -r  "modify_tmp/zip/img" "modify_tmp/apk/assets/www/"
+            # 将zip的img覆盖到apk中
+            cp -r "modify_tmp/zip/img" "modify_tmp/apk/assets/www/"
             # 将zip的html覆盖到apk中
             cp "modify_tmp/zip/Degrees of Lewdity.html" "modify_tmp/apk/assets/www/"
             # 打包
@@ -65,7 +66,8 @@ jobs:
           # polyfill
           dol_basename=$(basename DoL*polyfill-12.zip .zip)
           unzip -q ${dol_basename}.zip -d modify_tmp/zip
-          #cp -r  "modify_tmp/zip/img" "modify_tmp/apk/assets/www/"
+          # 将zip的img覆盖到apk中
+          cp -r "modify_tmp/zip/img" "modify_tmp/apk/assets/www/"
           # 将zip的html覆盖到apk中
           cp "modify_tmp/zip/Degrees of Lewdity.html" "modify_tmp/apk/assets/www/"
           # 打包
