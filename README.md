@@ -1,6 +1,7 @@
 # DoL-Lyra 整合包发布仓库
 
 ## 目录
+
 - [目录](#目录)
 - [简介](#简介)
   - [写在最前...](#写在最前)
@@ -15,7 +16,9 @@
 ---
 
 ## 简介
+
 ### 写在最前...
+
 - <img decoding="async" src="https://gitgud.io/uploads/-/system/user/avatar/9096/avatar.png" width="24"> <b>游戏作者</b> $\color{purple} {Vrelnir}$
   - [Vrelnir 的博客][blog]
   - [英文游戏维基][wiki-en]
@@ -23,6 +26,7 @@
   - [官方 Discord][discord]
   - [游戏源码仓库][gitgud]
 - [原版汉化仓库][github-chs]
+- [DoL-Lyra][github-lyra]
 - Mod
   - [Lyra-CombatStatusDisplay][lyra-csd]
   - [Lyra-Cheat][lyra-cheat]
@@ -33,7 +37,6 @@
 - 特写
   - [Papa Paril BEEESSS Burger Joint][sideview-bj]
   - [韩站特写][sideview-kr]
-
 
 ### 关于本仓库
 
@@ -62,11 +65,12 @@
 **使用本整合出现各种问题时请先前往 [汉化仓库][github-chs] 下载并测试是否同样出现问题，参考 [发布下载版](https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/blob/main/README.md#%E5%8F%91%E5%B8%83%E4%B8%8B%E8%BD%BD%E7%89%88)。如问题同样能够复现请前往汉化仓库反馈；如问题只在本整合内出现请向本仓库反馈**
 
 ## 更新日志
+
 <details>
 <summary>点击展开</summary>
 
 - 20240102
-  
+
   添加 polyfill 版本
 
   重命名仓库
@@ -122,7 +126,7 @@
   添加特写1和特写2及HP显示
 
 - v1.3.0-0902
-  
+
   首次更新
 
 </details>
@@ -130,6 +134,7 @@
 ## 整合包使用须知
 
 - 版本格式
+
   - 文件名格式
     - `dol-{原版版本号}-chsmods-{汉化版本号}-{MODS}-{日期}[.{修订号}].{zip,apk}`
   - tag 格式
@@ -141,9 +146,9 @@
 
 - 根据汉化仓库中的 [免责声明](https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/blob/main/README.md#%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E)
 
-    > 汉化组不对任何修改后的汉化版本负责，包括但不限于修改游戏本体 html 文件，使用可能改变游戏内容的模组，使用他人发布的整合包等；汉化组也不会为任何第三方发布的模组版/修改版/魔改版/整合包等背书或担保。请在反馈问题前检查游戏是否已被修改，若被修改请勿提交，我们可能不会接受使用修改版本的内容反馈。
+  > 汉化组不对任何修改后的汉化版本负责，包括但不限于修改游戏本体 html 文件，使用可能改变游戏内容的模组，使用他人发布的整合包等；汉化组也不会为任何第三方发布的模组版/修改版/魔改版/整合包等背书或担保。请在反馈问题前检查游戏是否已被修改，若被修改请勿提交，我们可能不会接受使用修改版本的内容反馈。
 
-    在使用本整合包出现问题时在未判断问题是否由本整合包引入之前请勿向汉化仓库反馈
+  在使用本整合包出现问题时在未判断问题是否由本整合包引入之前请勿向汉化仓库反馈
 
 [blog]: https://vrelnir.blogspot.com
 [wiki-en]: https://degreesoflewdity.miraheze.org/wiki
@@ -151,12 +156,11 @@
 [gitgud]: https://gitgud.io/Vrelnir/degrees-of-lewdity/-/tree/master
 [discord]: https://discord.gg/VznUtEh
 [github-chs]: https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization
-
 [beeesss]: https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod
 [beeesss-ext]: https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation
 [beeesss-wax]: https://gitgud.io/GTXMEGADUDE/beeesss-wax
 [sideview-bj]: https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint
 [sideview-kr]: https://arca.live/b/textgame/83875947
-
+[github-lyra]: https://github.com/DoL-Lyra
 [lyra-csd]: https://github.com/DoL-Lyra/CombatStatusDisplay
 [lyra-cheat]: https://github.com/DoL-Lyra/Cheat
