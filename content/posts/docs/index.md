@@ -65,6 +65,10 @@ date = 2023-10-16T18:38:12+08:00
   已长时间未更新，可能无后续更新；未支持的头发和帽子会显示为光头
   {{< /alert >}}
 
+- ### 兼容版
+
+  名称中含有 `兼容版` 的游戏本体意味着针对较旧版本的浏览器内核进行了一定程度的兼容，因此请优先下载名称中不含 `兼容版` 的游戏文件，如果无法正常运行，再下载名称中含 `兼容版` 的游戏文件尝试运行。
+
 
 [beeesss]: https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod
 [beeesss-ext]: https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation
