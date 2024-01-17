@@ -180,9 +180,7 @@
 - [BEEESSS Wax][beeesss-wax]
   - Paril, b333sss
 - [Paril Double Cheeseburger][sideview-dc]
-  - b333sss for the original image mod.
-  - Zubonko for the Hair Extension Addon.
-  - Blaine for various close up fringes and clothings.
+  - Paril, b333sss, Zubonko, Blaine
 - [韩站特写][sideview-kr]
   - G259M
 
