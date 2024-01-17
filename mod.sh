@@ -41,8 +41,8 @@ URL_APKSIGN=https://github.com/patrickfav/uber-apk-signer/releases/download/v1.3
 URL_BES=https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod/-/raw/master/img.zip
 URL_BESC=https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation/-/archive/master/kaervek-beeesss-community-sprite-compilation-master.tar.gz
 URL_BESC_WAX=https://gitgud.io/GTXMEGADUDE/beeesss-wax/-/raw/master/BEEESSS_WAX.rar
-#URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint/-/raw/master/Paril_BJ_BEEESSS_Addon.rar
-URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint/-/raw/be9c9af63349beb811775f7802f06915dede290a/Paril_BJ_BEEESSS_Addon.rar
+URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/double-cheeseburger/-/blob/master/Paril_BJ_BEEESSS_Addon.rar
+#URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint/-/raw/be9c9af63349beb811775f7802f06915dede290a/Paril_BJ_BEEESSS_Addon.rar
 
 EXTRACT_DIR=extract # 解压目录
 OUTPUT_DIR=output # 输出目录
