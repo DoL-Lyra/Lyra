@@ -12,6 +12,7 @@
 - [疑难解答](#疑难解答)
 - [更新日志](#更新日志)
 - [整合包使用须知](#整合包使用须知)
+- [Credits](#credits)
 
 ---
 
@@ -35,7 +36,7 @@
   - [BEEESSS Community Sprite Compilation][beeesss-ext]
   - [BEEESSS Wax][beeesss-wax]
 - 特写
-  - [Papa Paril BEEESSS Burger Joint][sideview-bj]
+  - [Paril Double Cheeseburger][sideview-dc]
   - [韩站特写][sideview-kr]
 
 ### 关于本仓库
@@ -164,17 +165,39 @@
 
   在使用本整合包出现问题时在未判断问题是否由本整合包引入之前请勿向汉化仓库反馈
 
+## Credits
+
+- <img decoding="async" src="https://gitgud.io/uploads/-/system/user/avatar/9096/avatar.png" width="24"> $\color{purple} {Vrelnir}$
+  - [Vrelnir 的博客][blog]
+  - [游戏源码仓库][gitgud]
+- [原版汉化仓库][github-chs]
+  - [为汉化仓库做出过贡献的诸位][github-chs-credits]
+- [DoL-Lyra][github-lyra]
+- [Degrees of Lewdity Graphics Mod][beeesss]
+  - BEEESSS
+- [BEEESSS Community Sprite Compilation][beeesss-ext]
+  - BEEESSS, ethanatortx, MatchaCrepeCakes, LedhaKuromi, Tommohas, Jessplayin690, SkyFall669/SomethingIsHuntingYou, AvinsXD, okbd321, cloversnipe, Elegant_Dress_5771, doseonseng, G259M, VanityDecay, Hikari, luoyin mengling, Tieba user_5CU79bt, Xiaochien, cheese shredded cake, artiste (the gayest man alive), Suqi eggplant stew, Paril, La Maritza, AD calcium, Isari, 森谷華子, aqua, superhydroxide, 再3棘, 567600, ToumanLin, Isopod, ◌/あきやま, Poop, SydNekoKawaii, Bunnyberry<3, Mizzy, 長門有栖☆, 七玳, 墮天使
+- [BEEESSS Wax][beeesss-wax]
+  - Paril, b333sss
+- [Paril Double Cheeseburger][sideview-dc]
+  - b333sss for the original image mod.
+  - Zubonko for the Hair Extension Addon.
+  - Blaine for various close up fringes and clothings.
+- [韩站特写][sideview-kr]
+  - G259M
+
 [blog]: https://vrelnir.blogspot.com
 [wiki-en]: https://degreesoflewdity.miraheze.org/wiki
 [wiki-cn]: https://degreesoflewditycn.miraheze.org/wiki
 [gitgud]: https://gitgud.io/Vrelnir/degrees-of-lewdity/-/tree/master
 [discord]: https://discord.gg/VznUtEh
 [github-chs]: https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization
+[github-chs-credits]: https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/blob/main/CREDITS.md
 [github-chs-pages]: https://eltirosto.github.io/Degrees-of-Lewdity-Chinese-Localization/
 [beeesss]: https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod
 [beeesss-ext]: https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation
 [beeesss-wax]: https://gitgud.io/GTXMEGADUDE/beeesss-wax
-[sideview-bj]: https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint
+[sideview-dc]: https://gitgud.io/GTXMEGADUDE/double-cheeseburger
 [sideview-kr]: https://arca.live/b/textgame/83875947
 [github-lyra]: https://github.com/DoL-Lyra
 [lyra-csd]: https://github.com/DoL-Lyra/CombatStatusDisplay
