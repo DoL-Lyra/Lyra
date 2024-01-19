@@ -1,0 +1,41 @@
+name: Deploy Hub (Update)
+
+on:
+  workflow_dispatch:
+  workflow_call:
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - uses: actions/setup-go@v4
+        with:
+          go-version: '^1.21.3'
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "latest"
+
+      - name: Build Github
+        run: |
+          hugo --minify
+
+      - name: Deploy to organization repo
+        uses: crazy-max/ghaction-github-pages@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT_LYRA }}
+        with:
+          repo: DoL-Lyra/hub
+          build_dir: ./public
+          keep_history: false
+          target_branch: pages
+
