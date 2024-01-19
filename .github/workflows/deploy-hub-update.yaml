@@ -12,6 +12,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: hub
+          path: hub
           submodules: true
           fetch-depth: 0
 
@@ -26,6 +28,7 @@ jobs:
 
       - name: Build Github
         run: |
+          cd hub
           hugo --minify
 
       - name: Deploy to organization repo
@@ -35,7 +38,7 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT_LYRA }}
         with:
           repo: DoL-Lyra/hub
-          build_dir: ./public
+          build_dir: ./hub/public
           keep_history: false
           target_branch: pages
 
