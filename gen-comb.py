@@ -38,7 +38,7 @@ release_prepend = """
 {{< alert >}}
 下载之前请阅读 [版本说明]({{< ref "docs" >}}) 以选择所需版本
 {{< /alert >}}
-
+<br>
 {{< alert >}}
 如出现各种问题请参考 [疑难解答]({{< ref "troubleshoot" >}})
 {{< /alert >}}
