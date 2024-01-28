@@ -83,7 +83,7 @@ jobs:
           7z a ${{ env.UPLOAD_ARTIFACT_FILEPATH }} ${{ env.DOWNLOAD_RELEASE_TEMP_PATH }}/*
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ env.UPLOAD_ARTIFACT_NAME }}
           path: ${{ env.UPLOAD_ARTIFACT_FILEPATH }}
@@ -95,7 +95,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: ${{ env.UPLOAD_ARTIFACT_NAME }}
 
@@ -138,6 +138,6 @@ jobs:
     needs: [build, deploy-github]
     steps:
       - name: Cleanup
-        uses: geekyeggo/delete-artifact@v2
+        uses: geekyeggo/delete-artifact@v4
         with:
           name: ${{ env.UPLOAD_ARTIFACT_NAME }}
