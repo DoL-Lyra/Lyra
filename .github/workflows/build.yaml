@@ -144,12 +144,12 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: dol-${ matrix.pack }-${ matrix.code }
+          name: dol-${{ matrix.pack }}-${{ matrix.code }}
           path: output/*
       - name: Upload artifacts pairs
         uses: actions/upload-artifact@v4
         with:
-          name: pair-${ matrix.pack }-${ matrix.code }
+          name: pair-${{ matrix.pack }}-${{ matrix.code }}
           path: pairs/*
 
   release:
