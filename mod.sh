@@ -224,8 +224,7 @@ fun_sideview_bj() {
 
     # PATCH blunt locks
     # https://github.com/sakarie9/DoL-Lyra/issues/25
-    mv $AVATARBJ_DIR/'Paril BJ BEEESSS Addon'/img/hair/fringe/'blunt sidelocks'/* $AVATARBJ_DIR/'Paril BJ BEEESSS Addon'/img/hair/fringe/'blunt locks'/
-    rmdir $AVATARBJ_DIR/'Paril BJ BEEESSS Addon'/img/hair/fringe/'blunt sidelocks'
+    mv $AVATARBJ_DIR/'Paril BJ BEEESSS Addon'/img/hair/fringe/'blunt sidelocks' $AVATARBJ_DIR/'Paril BJ BEEESSS Addon'/img/hair/fringe/'blunt locks'
 
     cp -r $AVATARBJ_DIR/'Paril BJ BEEESSS Addon'/img/* $IMG_PATH/
 }
