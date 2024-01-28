@@ -82,12 +82,12 @@ jobs:
           rm -rf modify_tmp/zip
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: gamefile-zip
           path: ${{ github.workspace }}/output/*.zip
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: gamefile-apk
           path: ${{ github.workspace }}/output/*.apk
@@ -121,7 +121,7 @@ jobs:
           ]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-java@v3
+      - uses: actions/setup-java@v4
         with:
           distribution: "adopt"
           java-version: "8"
@@ -130,7 +130,7 @@ jobs:
         run: sudo apt install -y unrar
 
       # 下载处理过的游戏文件
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: gamefile-${{ matrix.pack }}
           path: ${{ github.workspace }}
@@ -142,14 +142,14 @@ jobs:
           ./mod.sh ${{ matrix.pack }} ${{ matrix.code }} ${{ github.ref_name }}
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: dol-chs-mods
+          name: dol-${ matrix.pack }-${ matrix.code }
           path: output/*
       - name: Upload artifacts pairs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: pairs
+          name: pair-${ matrix.pack }-${ matrix.code }
           path: pairs/*
 
   release:
@@ -157,11 +157,12 @@ jobs:
     needs: build-matrix
     if: github.ref_type == 'tag'
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v3
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
         with:
-          name: dol-chs-mods
+          pattern: dol-*
           path: outputs
+          merge-multiple: true
 
       - name: Upload to release
         uses: svenstaro/upload-release-action@v2
