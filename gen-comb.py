@@ -40,7 +40,7 @@ release_prepend = """
 {{< /alert >}}
 <br>
 {{< alert >}}
-如出现各种问题请参考 [疑难解答]({{< ref "troubleshoot" >}})
+如出现各种问题请参考 [⚠疑难解答⚠]({{< ref "troubleshoot" >}})
 {{< /alert >}}
 
 ## 汉化整合

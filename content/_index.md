@@ -6,6 +6,10 @@ title: "DoL-Lyra 整合包发布站"
 
 ---
 
+{{< alert >}}
+如出现各种问题请先参考 [⚠疑难解答⚠]({{< relref "troubleshoot" >}})
+{{< /alert >}}
+
 ## 版本说明
 
 {{< button href="docs/" target="_self" >}}
@@ -29,7 +33,3 @@ title: "DoL-Lyra 整合包发布站"
 {{< alert >}}
 若在线版因为各种原因停止服务，存档将无法导出，请及时备份存档或下载到本地游玩
 {{< /alert >}}
-
-## 疑难解答
-
-如出现各种问题请参考 [疑难解答]({{< relref "troubleshoot" >}})
