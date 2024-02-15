@@ -37,7 +37,7 @@
   - [BEEESSS Wax][beeesss-wax]
 - 特写
   - [Paril Double Cheeseburger][sideview-dc]
-  - [DOL_BJ_hair_extend][sideview-bj-extend]
+  - [DOL BJ hair extend][sideview-bj-extend]
   - [韩站特写][sideview-kr]
 
 ### 关于本仓库
@@ -186,6 +186,8 @@
   - Paril, b333sss
 - [Paril Double Cheeseburger][sideview-dc]
   - Paril, b333sss, Zubonko, Blaine
+- [DOL BJ hair extend][sideview-bj-extend]
+  - Zubonko
 - [韩站特写][sideview-kr]
   - G259M
 
