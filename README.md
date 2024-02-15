@@ -37,6 +37,7 @@
   - [BEEESSS Wax][beeesss-wax]
 - 特写
   - [Paril Double Cheeseburger][sideview-dc]
+  - [DOL_BJ_hair_extend][sideview-bj-extend]
   - [韩站特写][sideview-kr]
 
 ### 关于本仓库
@@ -83,6 +84,10 @@
 
 <details>
 <summary>点击展开</summary>
+
+- 20240215
+
+  添加 `DOL_BJ_hair_extend`
 
 - 20240102
 
@@ -196,6 +201,7 @@
 [beeesss-ext]: https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation
 [beeesss-wax]: https://gitgud.io/GTXMEGADUDE/beeesss-wax
 [sideview-dc]: https://gitgud.io/GTXMEGADUDE/double-cheeseburger
+[sideview-bj-extend]: https://github.com/zubonko/DOL_BJ_hair_extend
 [sideview-kr]: https://arca.live/b/textgame/83875947
 [github-lyra]: https://github.com/DoL-Lyra
 [lyra-csd]: https://github.com/DoL-Lyra/CombatStatusDisplay

@@ -41,8 +41,7 @@ URL_APKSIGN=https://github.com/patrickfav/uber-apk-signer/releases/download/v1.3
 URL_BES=https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod/-/raw/master/img.zip
 URL_BESC=https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation/-/archive/master/kaervek-beeesss-community-sprite-compilation-master.tar.gz
 URL_BESC_WAX=https://gitgud.io/GTXMEGADUDE/beeesss-wax/-/raw/master/BEEESSS_WAX.rar
-URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/double-cheeseburger/-/raw/master/Paril_BJ_BEEESSS_Addon.rar
-#URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint/-/raw/be9c9af63349beb811775f7802f06915dede290a/Paril_BJ_BEEESSS_Addon.rar
+# URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/double-cheeseburger/-/raw/master/Paril_BJ_BEEESSS_Addon.rar
 
 EXTRACT_DIR=extract # 解压目录
 OUTPUT_DIR=output   # 输出目录
@@ -206,24 +205,16 @@ fun_wax() {
 
 # BJ特写
 fun_sideview_bj() {
-  AVATARBJ_DIR="avatarbj"
-  mkdir $AVATARBJ_DIR
-  pushd $AVATARBJ_DIR
-  wget -q -nc -O avatar.rar $URL_AVATAR_BJ
-  unrar x avatar.rar -idq
-  popd
-
-  # PATCH blunt locks
-  # https://github.com/sakarie9/DoL-Lyra/issues/25
-  mv $AVATARBJ_DIR/'Paril BJ BEEESSS Addon'/img/hair/fringe/'blunt sidelocks' $AVATARBJ_DIR/'Paril BJ BEEESSS Addon'/img/hair/fringe/'blunt locks'
-
-  cp -r $AVATARBJ_DIR/'Paril BJ BEEESSS Addon'/img/* $IMG_PATH/
+  DIR_SIDEVIEWBJ="sideview_bj"
+  unzip -q assets/BJ_Extend.zip -d $DIR_SIDEVIEWBJ
+  cp -r $DIR_SIDEVIEWBJ/BJ_Extend/img/* $IMG_PATH/
 }
 
 # KR特写
 fun_sideview_kr() {
-  unzip -q assets/얼굴추가.zip
-  cp -r 얼굴추가/img/* $IMG_PATH/
+  DIR_SIDEVIEWKR="sideview_kr"
+  unzip -q assets/KR_G259M.zip -d $DIR_SIDEVIEWKR
+  cp -r $DIR_SIDEVIEWKR/얼굴추가/img/* $IMG_PATH/
 }
 
 # 入口
