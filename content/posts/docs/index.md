@@ -43,14 +43,16 @@ date = 2023-10-16T18:38:12+08:00
 
 - ### BJ特写
 
-  [Papa Paril BEEESSS Burger Joint][sideview-bj]
+  [Paril Double Cheeseburger][sideview-dc]
 
   在立绘旁显示特写头像
 
   ![预览](readme-bj.webp)
 
+  已包含 [庫褲子BJ美化包髮型擴充][sideview-bj-extend]，更多预览请前往此仓库查看
+
   {{< alert >}}
-  目前作者已归档此包，可能无后续更新；未支持的头发和帽子会显示为光头
+  尚未支持的头发和帽子会显示为光头
   {{< /alert >}}
 
 - ### KR特写
@@ -73,5 +75,6 @@ date = 2023-10-16T18:38:12+08:00
 [beeesss]: https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod
 [beeesss-ext]: https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation
 [beeesss-wax]: https://gitgud.io/GTXMEGADUDE/beeesss-wax
-[sideview-bj]: https://gitgud.io/GTXMEGADUDE/papa-paril-burger-joint
+[sideview-dc]: https://gitgud.io/GTXMEGADUDE/double-cheeseburger
+[sideview-bj-extend]: https://github.com/zubonko/DOL_BJ_hair_extend
 [sideview-kr]: https://arca.live/b/textgame/83875947
