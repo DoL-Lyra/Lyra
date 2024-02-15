@@ -198,7 +198,7 @@ fun_wax() {
 
   wget -q -nc -O B-3.rar $URL_BESC_WAX
   unrar x B-3.rar -idq
-  cp -r 'BEEESSS WAX/chubby/img' .
+  cp -r 'BEEESSS WAX/img' .
 
   popd
   cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
