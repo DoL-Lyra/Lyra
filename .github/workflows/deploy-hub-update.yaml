@@ -17,14 +17,16 @@ jobs:
           submodules: true
           fetch-depth: 0
 
-      - uses: actions/setup-go@v4
+      - uses: actions/setup-go@v5
         with:
-          go-version: '^1.21.3'
+          go-version: "^1.22.0"
+          cache-dependency-path: |
+            hub/go.sum
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "latest"
+          hugo-version: "0.112.0"
 
       - name: Build Github
         run: |
