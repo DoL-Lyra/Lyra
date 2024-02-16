@@ -1,3 +1,27 @@
+### Node ###
+# Dependency directories
+node_modules/
+
+### Hugo ###
+# Generated files by hugo
+**/public/
+**/resources/_gen/
+
+# Executable may be added to repository
+hugo.exe
+hugo.darwin
+hugo.linux
+
+# Temporary lock file while building
+.hugo_build.lock
+
+### Congo ###
+# Lighthouse generated output
+.lighthouseci
+
+# Project specific files
+TODO
+
 my.secrets
 .vscode
 comb.py
