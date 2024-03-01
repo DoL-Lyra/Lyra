@@ -1,8 +1,6 @@
 name: Trigger
 
 on:
-  # schedule:
-  #   - cron: "0 0 * * *" # every day at 8am
   workflow_dispatch:
 
 env:
@@ -39,17 +37,28 @@ jobs:
             echo "NEED_UPDATE=false" >> "$GITHUB_ENV"
           fi
 
-      # - name: create empty commit
-      #   if: env.NEED_UPDATE == 'true'
-      #   run: |
-      #     git config --global user.name $GIT_USERNAME
-      #     git config --global user.email $GIT_EMAIL
-      #     git commit --allow-empty -m "CI: new update"
-      #     git push
+      - name: Trigger DoL-Lyra/DoLModLoaderBuild/Update-Submodules.yaml
+        uses: convictional/trigger-workflow-and-wait@v1.6.5
+        if: env.NEED_UPDATE == 'true'
+        with:
+          owner: DoL-Lyra
+          repo: DoLModLoaderBuild
+          ref: master
+          workflow_file_name: Update-Submodules.yaml
+          github_token: ${{ secrets.GH_PAT_LYRA }}
 
-      - name: create tag
+      - name: Trigger DoL-Lyra/DoLModLoaderBuild/Build-Html-Package.yml
+        uses: convictional/trigger-workflow-and-wait@v1.6.5
+        if: env.NEED_UPDATE == 'true'
+        with:
+          owner: DoL-Lyra
+          repo: DoLModLoaderBuild
+          ref: master
+          workflow_file_name: Build-Html-Package.yml
+          github_token: ${{ secrets.GH_PAT_LYRA }}
+
+      - name: Create tag
         if: env.NEED_UPDATE == 'true'
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ env.NEW_TAG }}
-          draft: true
