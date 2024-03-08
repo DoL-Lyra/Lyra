@@ -66,5 +66,5 @@ jobs:
         run: |
           git config --global user.name $GIT_USERNAME
           git config --global user.email $GIT_EMAIL
-          git tag ${{ github.ref_name }}
-          git push origin ${{ github.ref_name }}
+          git tag ${{ env.NEW_TAG }}
+          git push origin ${{ env.NEW_TAG }}
