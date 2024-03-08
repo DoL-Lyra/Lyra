@@ -6,6 +6,8 @@ on:
 env:
   GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
   GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+  NEED_UPDATE: false
+  NEW_TAG:
 
 jobs:
   check_update:
@@ -57,8 +59,16 @@ jobs:
           workflow_file_name: Build-Html-Package.yml
           github_token: ${{ secrets.GH_PAT_LYRA }}
 
-      - name: Create tag
-        if: env.NEED_UPDATE == 'true'
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ env.NEW_TAG }}
+      # - name: Create tag
+      #   if: env.NEED_UPDATE == 'true'
+      #   uses: softprops/action-gh-release@v1
+      #   with:
+      #     tag_name: ${{ env.NEW_TAG }}
+
+  call-deploy:
+    uses: ./.github/workflows/build.yaml
+    needs: check_update
+    secrets: inherit
+    if: ${{ github.env.NEW_TAG }}
+    with:
+      tag: ${{ github.env.NEW_TAG }}
