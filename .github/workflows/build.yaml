@@ -12,10 +12,11 @@ on:
       - ".github/workflows/trigger.yaml"
       - ".github/workflows/deploy-hub.yaml"
   workflow_dispatch:
+  workflow_call:
     inputs:
       tag:
-        description: 'Release tag'
         required: false
+        type: string
 
 jobs:
   process-package:
