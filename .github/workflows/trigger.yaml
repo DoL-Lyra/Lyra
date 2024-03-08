@@ -63,8 +63,6 @@ jobs:
 
       - name: Create tag
         if: env.NEED_UPDATE == 'true'
-        run: |
-          git config --global user.name $GIT_USERNAME
-          git config --global user.email $GIT_EMAIL
-          git tag ${{ env.NEW_TAG }}
-          git push origin ${{ env.NEW_TAG }}
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.NEW_TAG }}
