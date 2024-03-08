@@ -2,6 +2,10 @@ name: Trigger
 
 on:
   workflow_dispatch:
+    inputs:
+      skip_DoLModLoaderBuild:
+        description: "yes to skip DoLModLoaderBuild"
+        required: false
 
 env:
   GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
@@ -39,7 +43,7 @@ jobs:
 
       - name: Trigger DoL-Lyra/DoLModLoaderBuild/Update-Submodules.yaml
         uses: convictional/trigger-workflow-and-wait@v1.6.5
-        if: env.NEED_UPDATE == 'true'
+        if: env.NEED_UPDATE == 'true' && inputs.skip_DoLModLoaderBuild != 'yes'
         with:
           owner: DoL-Lyra
           repo: DoLModLoaderBuild
@@ -49,7 +53,7 @@ jobs:
 
       - name: Trigger DoL-Lyra/DoLModLoaderBuild/Build-Html-Package.yml
         uses: convictional/trigger-workflow-and-wait@v1.6.5
-        if: env.NEED_UPDATE == 'true'
+        if: env.NEED_UPDATE == 'true' && inputs.skip_DoLModLoaderBuild != 'yes'
         with:
           owner: DoL-Lyra
           repo: DoLModLoaderBuild
@@ -59,6 +63,8 @@ jobs:
 
       - name: Create tag
         if: env.NEED_UPDATE == 'true'
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ env.NEW_TAG }}
+        run: |
+          git config --global user.name $GIT_USERNAME
+          git config --global user.email $GIT_EMAIL
+          git tag ${{ github.ref_name }}
+          git push origin ${{ github.ref_name }}
