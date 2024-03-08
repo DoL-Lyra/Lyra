@@ -184,12 +184,12 @@ jobs:
   call-deploy:
     uses: ./.github/workflows/deploy.yaml
     needs: release
-    if: github.ref_type == 'tag'
+    if: inputs.tag || github.ref_type == 'tag'
     secrets: inherit
 
   call-deploy-hub:
     uses: ./.github/workflows/deploy-hub.yaml
     needs: release
-    if: github.ref_type == 'tag'
+    if: inputs.tag || github.ref_type == 'tag'
     secrets: inherit
 
