@@ -40,6 +40,7 @@ jobs:
 
             echo $NEW_TAG
             echo "NEW_TAG=$NEW_TAG" >> "$GITHUB_ENV"
+            echo "NEW_TAG=$NEW_TAG" >> "$GITHUB_OUTPUT"
           else
             echo "Already updated"
             echo "NEED_UPDATE=false" >> "$GITHUB_ENV"
