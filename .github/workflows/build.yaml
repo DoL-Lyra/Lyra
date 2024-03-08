@@ -179,7 +179,7 @@ jobs:
           file_glob: true
           make_latest: true
           # prerelease: true
-          release_name: ${{ github.ref_name }}
+          release_name: ${{ inputs.tag || github.ref_name }}
 
   call-deploy:
     uses: ./.github/workflows/deploy.yaml
