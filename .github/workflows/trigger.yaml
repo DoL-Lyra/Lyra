@@ -2,28 +2,20 @@ name: Trigger
 
 on:
   workflow_dispatch:
-    inputs:
-      skip_DoLModLoaderBuild:
-        description: "yes to skip DoLModLoaderBuild"
-        required: false
 
 env:
   GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
   GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
 
-
 jobs:
   check_update:
     runs-on: ubuntu-latest
-    outputs:
-      tag: ${{ steps.check_updates.outputs.NEW_TAG }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           fetch-tags: true
       - name: run script
-        id: check_updates
         run: |
           ORIGIN_TAG=$(curl -s https://api.github.com/repos/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/releases/latest | jq -r '.tag_name')
           CHS_VER=$(echo $ORIGIN_TAG | cut -d '-' -f3)
@@ -40,7 +32,6 @@ jobs:
 
             echo $NEW_TAG
             echo "NEW_TAG=$NEW_TAG" >> "$GITHUB_ENV"
-            echo "NEW_TAG=$NEW_TAG" >> "$GITHUB_OUTPUT"
           else
             echo "Already updated"
             echo "NEED_UPDATE=false" >> "$GITHUB_ENV"
@@ -48,7 +39,7 @@ jobs:
 
       - name: Trigger DoL-Lyra/DoLModLoaderBuild/Update-Submodules.yaml
         uses: convictional/trigger-workflow-and-wait@v1.6.5
-        if: env.NEED_UPDATE == 'true' && inputs.skip_DoLModLoaderBuild != 'yes'
+        if: env.NEED_UPDATE == 'true'
         with:
           owner: DoL-Lyra
           repo: DoLModLoaderBuild
@@ -58,7 +49,7 @@ jobs:
 
       - name: Trigger DoL-Lyra/DoLModLoaderBuild/Build-Html-Package.yml
         uses: convictional/trigger-workflow-and-wait@v1.6.5
-        if: env.NEED_UPDATE == 'true' && inputs.skip_DoLModLoaderBuild != 'yes'
+        if: env.NEED_UPDATE == 'true'
         with:
           owner: DoL-Lyra
           repo: DoLModLoaderBuild
@@ -66,16 +57,8 @@ jobs:
           workflow_file_name: Build-Html-Package.yml
           github_token: ${{ secrets.GH_PAT_LYRA }}
 
-      # - name: Create tag
-      #   if: env.NEED_UPDATE == 'true'
-      #   uses: softprops/action-gh-release@v1
-      #   with:
-      #     tag_name: ${{ env.NEW_TAG }}
-
-  call-build:
-    uses: ./.github/workflows/build.yaml
-    needs: check_update
-    secrets: inherit
-    if: ${{ needs.check_update.outputs.tag }}
-    with:
-      tag: ${{ needs.check_update.outputs.tag }}
+      - name: Create tag
+        if: env.NEED_UPDATE == 'true'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.NEW_TAG }}
