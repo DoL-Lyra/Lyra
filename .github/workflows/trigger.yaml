@@ -16,14 +16,14 @@ jobs:
   check_update:
     runs-on: ubuntu-latest
     outputs:
-      tag: ${{ steps.check_update.outputs.NEW_TAG }}
+      tag: ${{ steps.check_updates.outputs.NEW_TAG }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           fetch-tags: true
       - name: run script
-        id: check_update
+        id: check_updates
         run: |
           ORIGIN_TAG=$(curl -s https://api.github.com/repos/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/releases/latest | jq -r '.tag_name')
           CHS_VER=$(echo $ORIGIN_TAG | cut -d '-' -f3)
@@ -72,7 +72,7 @@ jobs:
       #   with:
       #     tag_name: ${{ env.NEW_TAG }}
 
-  call-deploy:
+  call-build:
     uses: ./.github/workflows/build.yaml
     needs: check_update
     secrets: inherit
