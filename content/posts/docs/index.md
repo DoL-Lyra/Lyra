@@ -29,6 +29,14 @@ date = 2023-10-16T18:38:12+08:00
   过大的胸部可能会出现贴图错位问题
   {{< /alert >}}
 
+- ### SUSATO
+
+  [Susato Model][susato-discord]
+
+  另一种风格的美化，替换所有部件的大型综合美化，覆盖较为全面
+
+  ![预览](readme-susato.webp)
+
 - ### 作弊
 
   - 默认启动作弊，且不会禁用成就，即使游戏提醒 `这个存档将禁用成就`
@@ -78,3 +86,4 @@ date = 2023-10-16T18:38:12+08:00
 [sideview-dc]: https://gitgud.io/GTXMEGADUDE/double-cheeseburger
 [sideview-bj-extend]: https://github.com/zubonko/DOL_BJ_hair_extend
 [sideview-kr]: https://arca.live/b/textgame/83875947
+[susato-discord]: https://discord.com/channels/675158131688603721/1216104862870147303
