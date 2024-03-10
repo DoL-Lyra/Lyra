@@ -4,14 +4,14 @@ import os
 import datetime
 
 # 功能定义
-functions = ["WAX", "KR特写", "BJ特写", "CSD", "作弊", "BESC", "BES"]
+functions = ["SUSATO", "WAX", "KR特写", "BJ特写", "CSD", "作弊", "BESC", "BES"]
 
 # 白名单
-add_dec = [11,27,91]
+add_dec = [11,27,91,136]
 # 黑名单
 skip_dec = [0]
 # 推荐
-recommend_dec = [11,27]
+recommend_dec = [27,95,136]
 # polyfill
 polyfill_comb = "polyfill_31"
 
@@ -56,6 +56,7 @@ class combination:
     binary = 0
     decimal = 0
     functions = ""
+    recommend = 0
 
     def __init__(self, binary, decimal):
         self.binary = binary
@@ -106,6 +107,9 @@ def gencomb():
         # HP作弊异或
         if (binary_and(3) and not binary_and(4)) or (not binary_and(3) and binary_and(4)):
             continue
+        # Susato 与 BESC 互斥
+        if should_skip_mutex(8,2):
+            continue
 
         #combinations.append((binary, decimal))
         combinations.append(combination(binary, decimal))
@@ -137,15 +141,24 @@ def gencomb():
         # 推荐
         if comb.decimal in recommend_dec:
             combinations[i].functions = f"***{funcs}(推荐)***"
+            combinations[i].recommend = 1
         else:
             combinations[i].functions = funcs
 
-    # # 打印所有组合
-    # for comb in combinations:
-    #     decimal = comb.decimal
-    #     binary = comb.binary
-    #     functions = comb.functions
-    #     print(f"二进制: {binary}, 十进制: {decimal}, 功能: {functions}")
+    # 重排序组合，推荐放至最前
+    combinations.sort(key=lambda x: x.recommend, reverse=True)
+
+    # 打印所有组合
+    for comb in combinations:
+        decimal = comb.decimal
+        binary = comb.binary
+        functions = comb.functions
+        recommend = comb.recommend
+        print(f"二进制: {binary}, 十进制: {decimal}, 功能: {functions}, 推荐： {recommend}")
+
+    # 打印组合十进制数组
+    
+    print(sorted([ f.decimal for f in combinations ]))
 
 def gentable():
     global combinations
