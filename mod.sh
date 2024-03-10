@@ -141,6 +141,11 @@ fun_check_code() {
     OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-wax
     echo 64-Complete patch wax!
   fi
+  if [ $((MOD_CODE & 128)) -ne 0 ]; then
+    echo 128-Start patch susato...
+    OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-susato
+    echo 128-Complete patch susato!
+  fi
   if [ $((MOD_CODE & 4)) -ne 0 ]; then
     echo 4-Start patch cheat...
     # fun_cheat
