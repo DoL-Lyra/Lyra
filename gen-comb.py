@@ -9,9 +9,9 @@ functions = ["SUSATO", "WAX", "KR特写", "BJ特写", "CSD", "作弊", "BESC", "
 # 白名单
 add_dec = [11,27,91,136]
 # 黑名单
-skip_dec = [0]
+skip_dec = [0,128]
 # 推荐
-recommend_dec = [27,95,136]
+recommend_dec = [27,91,136]
 # polyfill
 polyfill_comb = "polyfill_31"
 
@@ -234,4 +234,4 @@ def link_builder(filename):
 
 if __name__ == "__main__":
     gencomb()
-    gentable()
+    #gentable()
