@@ -234,4 +234,4 @@ def link_builder(filename):
 
 if __name__ == "__main__":
     gencomb()
-    #gentable()
+    gentable()
