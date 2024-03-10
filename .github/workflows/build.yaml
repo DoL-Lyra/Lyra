@@ -11,8 +11,6 @@ on:
       - "LICENSE"
       - ".github/workflows/trigger.yaml"
       - ".github/workflows/deploy-hub.yaml"
-  release:
-    types: [created, published]
   workflow_dispatch:
 
 jobs:
