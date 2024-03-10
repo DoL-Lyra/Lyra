@@ -44,7 +44,7 @@ jobs:
           # 解压apk
           unzip -q *.apk -d modify_tmp/apk
 
-          ver=( 0 4 8 12 )
+          ver=( 0 4 8 12 136 140 )
           for v in "${ver[@]}"
           do
             dol_basename=$(basename DoL*[^polyfill]-${v}.zip .zip)
@@ -103,23 +103,7 @@ jobs:
         pack: [zip, apk]
         code:
           [
-            3,
-            11,
-            12,
-            15,
-            19,
-            27,
-            31,
-            35,
-            47,
-            67,
-            79,
-            83,
-            91,
-            95,
-            99,
-            111,
-            polyfill-31,
+            3, 11, 12, 15, 19, 27, 31, 35, 47, 67, 79, 83, 91, 95, 99, 111, 136, 140, polyfill-31,
           ]
     steps:
       - uses: actions/checkout@v4

@@ -223,6 +223,12 @@ if [[ ${MOD_CODE} = polyfill-* ]]; then
   FILE_NAME=$(basename DoL*polyfill-12.$VERSION)
   IS_POLYFILL=1
   MOD_CODE=$(echo $MOD_CODE | cut -d '-' -f 2)
+elif [ $MOD_CODE -eq 140 ]; then
+  echo 140-Use susato cheat csd
+  FILE_NAME=$(basename DoL*-140.$VERSION)
+elif [ $MOD_CODE -eq 136 ]; then
+  echo 140-Use susato csd
+  FILE_NAME=$(basename DoL*-136.$VERSION)
 elif [ $((MOD_CODE & 12)) -eq 12 ]; then
   echo 12-Use cheat csd base
   FILE_NAME=$(basename DoL*[^polyfill]-12.$VERSION)
