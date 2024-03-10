@@ -35,6 +35,7 @@
   - [Degrees of Lewdity Graphics Mod][beeesss]
   - [BEEESSS Community Sprite Compilation][beeesss-ext]
   - [BEEESSS Wax][beeesss-wax]
+  - [Susato Model][susato-model]
 - 特写
   - [Paril Double Cheeseburger][sideview-dc]
   - [DOL BJ hair extend][sideview-bj-extend]
@@ -84,6 +85,10 @@
 
 <details>
 <summary>点击展开</summary>
+
+- 20240310
+
+  添加 `Susato Model`
 
 - 20240215
 
@@ -190,6 +195,8 @@
   - Zubonko
 - [韩站特写][sideview-kr]
   - G259M
+- [Susato Model][susato-model]
+  - susato, miyako2428
 
 [blog]: https://vrelnir.blogspot.com
 [wiki-en]: https://degreesoflewdity.miraheze.org/wiki
@@ -208,3 +215,4 @@
 [github-lyra]: https://github.com/DoL-Lyra
 [lyra-csd]: https://github.com/DoL-Lyra/CombatStatusDisplay
 [lyra-cheat]: https://github.com/DoL-Lyra/Cheat
+[susato-model]: https://discord.com/channels/675158131688603721/1216104862870147303
