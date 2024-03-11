@@ -4,7 +4,6 @@
 
 - [目录](#目录)
 - [简介](#简介)
-  - [写在最前...](#写在最前)
   - [关于本仓库](#关于本仓库)
 - [各版本说明](#各版本说明)
 - [下载](#下载)
@@ -17,29 +16,6 @@
 ---
 
 ## 简介
-
-### 写在最前...
-
-- <img decoding="async" src="https://gitgud.io/uploads/-/system/user/avatar/9096/avatar.png" width="24"> <b>游戏作者</b> $\color{purple} {Vrelnir}$
-  - [Vrelnir 的博客][blog]
-  - [英文游戏维基][wiki-en]
-  - [中文游戏维基][wiki-cn]
-  - [官方 Discord][discord]
-  - [游戏源码仓库][gitgud]
-- [原版汉化仓库][github-chs]
-- [DoL-Lyra][github-lyra]
-- Mod
-  - [Lyra-CombatStatusDisplay][lyra-csd]
-  - [Lyra-Cheat][lyra-cheat]
-- 美化
-  - [Degrees of Lewdity Graphics Mod][beeesss]
-  - [BEEESSS Community Sprite Compilation][beeesss-ext]
-  - [BEEESSS Wax][beeesss-wax]
-  - [Susato Model][susato-model]
-- 特写
-  - [Paril Double Cheeseburger][sideview-dc]
-  - [DOL BJ hair extend][sideview-bj-extend]
-  - [韩站特写][sideview-kr]
 
 ### 关于本仓库
 
@@ -179,24 +155,32 @@
 
 - <img decoding="async" src="https://gitgud.io/uploads/-/system/user/avatar/9096/avatar.png" width="24"> $\color{purple} {Vrelnir}$
   - [Vrelnir 的博客][blog]
+  - [英文游戏维基][wiki-en]
+  - [中文游戏维基][wiki-cn]
+  - [官方 Discord][discord]
   - [游戏源码仓库][gitgud]
 - [原版汉化仓库][github-chs]
   - [为汉化仓库做出过贡献的诸位][github-chs-credits]
 - [DoL-Lyra][github-lyra]
-- [Degrees of Lewdity Graphics Mod][beeesss]
-  - BEEESSS
-- [BEEESSS Community Sprite Compilation][beeesss-ext]
-  - BEEESSS, ethanatortx, MatchaCrepeCakes, LedhaKuromi, Tommohas, Jessplayin690, SkyFall669/SomethingIsHuntingYou, AvinsXD, okbd321, cloversnipe, Elegant_Dress_5771, doseonseng, G259M, VanityDecay, Hikari, luoyin mengling, Tieba user_5CU79bt, Xiaochien, cheese shredded cake, artiste (the gayest man alive), Suqi eggplant stew, Paril, La Maritza, AD calcium, Isari, 森谷華子, aqua, superhydroxide, 再3棘, 567600, ToumanLin, Isopod, ◌/あきやま, Poop, SydNekoKawaii, Bunnyberry<3, Mizzy, 長門有栖☆, 七玳, 墮天使
-- [BEEESSS Wax][beeesss-wax]
-  - Paril, b333sss
-- [Paril Double Cheeseburger][sideview-dc]
-  - Paril, b333sss, Zubonko, Blaine
-- [DOL BJ hair extend][sideview-bj-extend]
-  - Zubonko
-- [韩站特写][sideview-kr]
-  - G259M
-- [Susato Model][susato-model]
-  - susato, miyako2428
+- Mod
+  - [Lyra-CombatStatusDisplay][lyra-csd]
+  - [Lyra-Cheat][lyra-cheat]
+- 美化
+  - [Degrees of Lewdity Graphics Mod][beeesss]
+    - BEEESSS
+  - [BEEESSS Community Sprite Compilation][beeesss-ext]
+    - BEEESSS, ethanatortx, MatchaCrepeCakes, LedhaKuromi, Tommohas, Jessplayin690, SkyFall669/SomethingIsHuntingYou, AvinsXD, okbd321, cloversnipe, Elegant_Dress_5771, doseonseng, G259M, VanityDecay, Hikari, luoyin mengling, Tieba user_5CU79bt, Xiaochien, cheese shredded cake, artiste (the gayest man alive), Suqi eggplant stew, Paril, La Maritza, AD calcium, Isari, 森谷華子, aqua, superhydroxide, 再3棘, 567600, ToumanLin, Isopod, ◌/あきやま, Poop, SydNekoKawaii, Bunnyberry<3, Mizzy, 長門有栖☆, 七玳, 墮天使
+  - [BEEESSS Wax][beeesss-wax]
+    - Paril, b333sss
+  - [Susato Model][susato-model]
+    - susato, miyako2428
+- 特写
+  - [Paril Double Cheeseburger][sideview-dc]
+    - Paril, b333sss, Zubonko, Blaine
+  - [DOL BJ hair extend][sideview-bj-extend]
+    - Zubonko
+  - [韩站特写][sideview-kr]
+    - G259M
 
 [blog]: https://vrelnir.blogspot.com
 [wiki-en]: https://degreesoflewdity.miraheze.org/wiki
