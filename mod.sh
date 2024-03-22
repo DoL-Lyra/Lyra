@@ -175,7 +175,7 @@ fun_check_code() {
 # 美化
 fun_bes() {
   BEAUTIFY_DIR="beautify"
-  mkdir $BEAUTIFY_DIR
+  mkdir -p $BEAUTIFY_DIR
   pushd $BEAUTIFY_DIR
 
   wget -q -nc -O B-1.zip $URL_BES
@@ -186,7 +186,7 @@ fun_bes() {
 }
 fun_besc() {
   BEAUTIFY_DIR="beautify"
-  mkdir $BEAUTIFY_DIR
+  mkdir -p $BEAUTIFY_DIR
   pushd $BEAUTIFY_DIR
 
   wget -q -nc -O B-2.tar.gz $URL_BESC
@@ -197,7 +197,7 @@ fun_besc() {
 }
 fun_wax() {
   BEAUTIFY_DIR="beautify"
-  mkdir $BEAUTIFY_DIR
+  mkdir -p $BEAUTIFY_DIR
   pushd $BEAUTIFY_DIR
 
   wget -q -nc -O B-3.zip $URL_BESC_WAX
