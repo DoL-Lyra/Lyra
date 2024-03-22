@@ -202,7 +202,7 @@ fun_wax() {
 
   wget -q -nc -O B-3.zip $URL_BESC_WAX
   unzip -q B-3.zip
-  cp -r 'BEEESSS WAX/img' .
+  cp -r 'BEEESSS WAX/BEEESSS WAX/img' .
 
   popd
   cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
