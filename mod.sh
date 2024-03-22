@@ -40,7 +40,7 @@ URL_APKSIGN=https://github.com/patrickfav/uber-apk-signer/releases/download/v1.3
 # 资源
 URL_BES=https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod/-/raw/master/img.zip
 URL_BESC=https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation/-/archive/master/kaervek-beeesss-community-sprite-compilation-master.tar.gz
-URL_BESC_WAX=https://gitgud.io/GTXMEGADUDE/beeesss-wax/-/raw/master/BEEESSS_WAX.rar
+URL_BESC_WAX=https://gitgud.io/GTXMEGADUDE/beeesss-wax/-/blob/1e2b58248afb1b6537dabba7b684b54225466fcd/BEEESSS_WAX.rar
 # URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/double-cheeseburger/-/raw/master/Paril_BJ_BEEESSS_Addon.rar
 
 EXTRACT_DIR=extract # 解压目录
@@ -200,8 +200,8 @@ fun_wax() {
   mkdir $BEAUTIFY_DIR
   pushd $BEAUTIFY_DIR
 
-  wget -q -nc -O B-3.rar $URL_BESC_WAX
-  unrar x B-3.rar -idq
+  wget -q -nc -O B-3.zip $URL_BESC_WAX
+  unzip -q B-3.zip
   cp -r 'BEEESSS WAX/img' .
 
   popd
