@@ -40,7 +40,15 @@ release_prepend = """
 {{< /alert >}}
 <br>
 {{< alert >}}
-如出现各种问题请参考 [⚠疑难解答⚠]({{< ref "troubleshoot" >}})
+本仓库分发的为完整游戏本体+mod的 **`整合包`**，并非单独的 mod，请勿使用 modloader 加载。
+<br>
+请 **`不要`** 手动再添加汉化`ModI18N.mod.zip`和图片包`GameOriginalImagePack.mod.zip`
+{{< /alert >}}
+<br>
+{{< alert >}}
+使用本整合出现各种问题时请先使用 [汉化仓库](https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization) 发布的版本，或是汉化仓库提供的 [汉化在线版](https://eltirosto.github.io/Degrees-of-Lewdity-Chinese-Localization/)，测试是否同样出现问题，参考 [发布下载版](https://github.com/Eltirosto/Degrees-of-Lewdity-Chinese-Localization/blob/main/README.md#%E5%8F%91%E5%B8%83%E4%B8%8B%E8%BD%BD%E7%89%88)。
+<br>
+如问题同样能够复现请前往汉化仓库反馈；如问题只在本整合内出现请向 [本仓库](https://github.com/sakarie9/DoL-Lyra/issues) 反馈
 {{< /alert >}}
 
 ## 汉化整合
