@@ -25,8 +25,7 @@ md_path = "content/posts/downloads"
 if not os.path.exists(md_path):
     os.mkdir(md_path)
 
-release_fontmatter = f"""
-+++
+release_fontmatter = f"""+++
 title = '{release_tag}'
 date = {datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%S+00:00")}
 slug = 'downloads/{release_tag}'
