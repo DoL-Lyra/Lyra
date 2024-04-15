@@ -71,14 +71,15 @@ date = 2023-10-16T18:38:12+08:00
 
   ![预览](readme-kr.webp)
 
+  已包含 [kr特写刘海补充][sideview-kr-extend]
+
   {{< alert >}}
-  已长时间未更新，可能无后续更新；未支持的头发和帽子会显示为光头
+  尚未支持的头发和帽子会显示为光头
   {{< /alert >}}
 
 - ### 兼容版
 
   名称中含有 `兼容版` 的游戏本体意味着针对较旧版本的浏览器内核进行了一定程度的兼容，因此请优先下载名称中不含 `兼容版` 的游戏文件，如果无法正常运行，再下载名称中含 `兼容版` 的游戏文件尝试运行。
-
 
 [beeesss]: https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod
 [beeesss-ext]: https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation
@@ -86,4 +87,5 @@ date = 2023-10-16T18:38:12+08:00
 [sideview-dc]: https://gitgud.io/GTXMEGADUDE/double-cheeseburger
 [sideview-bj-extend]: https://github.com/zubonko/DOL_BJ_hair_extend
 [sideview-kr]: https://arca.live/b/textgame/83875947
+[sideview-kr-extend]: https://tieba.baidu.com/p/8979117042
 [susato-discord]: https://discord.com/channels/675158131688603721/1216104862870147303
