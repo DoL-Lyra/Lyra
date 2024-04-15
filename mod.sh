@@ -218,8 +218,8 @@ fun_sideview_bj() {
 # KR特写
 fun_sideview_kr() {
   DIR_SIDEVIEWKR="sideview_kr"
-  unzip -q assets/KR_G259M.zip -d $DIR_SIDEVIEWKR
-  cp -r $DIR_SIDEVIEWKR/얼굴추가/img/* $IMG_PATH/
+  unzip -q assets/KR_Extend.zip -d $DIR_SIDEVIEWKR
+  cp -r $DIR_SIDEVIEWKR/KR_Extend/img/* $IMG_PATH/
 }
 
 # 入口

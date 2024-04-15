@@ -62,6 +62,10 @@
 <details>
 <summary>点击展开</summary>
 
+- 20240415
+
+  添加 `kr特写刘海补充`
+
 - 20240310
 
   添加 `Susato Model`
@@ -111,7 +115,6 @@
   修改特写命名
 
   > 特写1 -> KR特写
-
   > 特写2 -> BJ特写
 
 - 0908
@@ -181,6 +184,8 @@
     - Zubonko
   - [韩站特写][sideview-kr]
     - G259M
+  - [KR特写刘海补充][sideview-kr-extend]
+    - 贴吧用户_GaC5V7E
 
 [blog]: https://vrelnir.blogspot.com
 [wiki-en]: https://degreesoflewdity.miraheze.org/wiki
@@ -196,6 +201,7 @@
 [sideview-dc]: https://gitgud.io/GTXMEGADUDE/double-cheeseburger
 [sideview-bj-extend]: https://github.com/zubonko/DOL_BJ_hair_extend
 [sideview-kr]: https://arca.live/b/textgame/83875947
+[sideview-kr-extend]: https://tieba.baidu.com/p/8979117042
 [github-lyra]: https://github.com/DoL-Lyra
 [lyra-csd]: https://github.com/DoL-Lyra/CombatStatusDisplay
 [lyra-cheat]: https://github.com/DoL-Lyra/Cheat
