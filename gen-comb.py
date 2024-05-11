@@ -184,16 +184,17 @@ def gentable():
         
     table_matrix = []
 
+    # TODO: 暂时禁用 polyfill
     # 添加 polyfill
-    fzip = open(f"{pair_path}/zip_{polyfill_comb}")
-    linezip = fzip.readline()
-    fzip.close()
+    # fzip = open(f"{pair_path}/zip_{polyfill_comb}")
+    # linezip = fzip.readline()
+    # fzip.close()
 
-    fapk = open(f"{pair_path}/apk_{polyfill_comb}")
-    lineapk = fapk.readline()
-    fapk.close()
+    # fapk = open(f"{pair_path}/apk_{polyfill_comb}")
+    # lineapk = fapk.readline()
+    # fapk.close()
 
-    table_matrix.append(["BESC+CSD+BJ特写(兼容版)",link_builder(linezip),link_builder(lineapk)])
+    # table_matrix.append(["BESC+CSD+BJ特写(兼容版)",link_builder(linezip),link_builder(lineapk)])
     # 添加 polyfill 结束
 
     for comb in combinations:
