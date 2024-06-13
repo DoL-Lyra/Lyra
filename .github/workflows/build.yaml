@@ -32,7 +32,7 @@ jobs:
         with:
           repository: "Eltirosto/Degrees-of-Lewdity-Chinese-Localization"
           latest: true
-          fileName: "DoL-ModLoader-*-v*[^polyfill].apk"
+          fileName: "DoL-ModLoader-*-v*[^polyfill].APK"
 
       # 修改内容
       - name: Modify ZIP&APK
@@ -40,7 +40,7 @@ jobs:
           mkdir ${{ github.workspace }}/output
           mkdir modify_tmp
           # 解压apk
-          unzip -q *.apk -d modify_tmp/apk
+          unzip -q *.APK -d modify_tmp/apk
 
           ver=( 0 4 8 12 136 140 )
           for v in "${ver[@]}"
