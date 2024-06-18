@@ -203,7 +203,7 @@
 [sideview-dc]: https://gitgud.io/GTXMEGADUDE/double-cheeseburger
 [sideview-bj-extend]: https://github.com/zubonko/DOL_BJ_hair_extend
 [sideview-kr]: https://arca.live/b/textgame/83875947
-[sideview-kr-extend]: https://tieba.baidu.com/p/8979117042
+[sideview-kr-extend]: https://tieba.baidu.com/p/9055647926
 [github-lyra]: https://github.com/DoL-Lyra
 [lyra-csd]: https://github.com/DoL-Lyra/CombatStatusDisplay
 [lyra-cheat]: https://github.com/DoL-Lyra/Cheat
