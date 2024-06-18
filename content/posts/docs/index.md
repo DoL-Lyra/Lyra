@@ -71,7 +71,7 @@ date = 2023-10-16T18:38:12+08:00
 
   ![预览](readme-kr.webp)
 
-  已包含 [kr特写刘海补充][sideview-kr-extend]
+  已包含 [kr特写刘海补充5.0][sideview-kr-extend]
 
   {{< alert >}}
   尚未支持的头发和帽子会显示为光头
@@ -87,5 +87,5 @@ date = 2023-10-16T18:38:12+08:00
 [sideview-dc]: https://gitgud.io/GTXMEGADUDE/double-cheeseburger
 [sideview-bj-extend]: https://github.com/zubonko/DOL_BJ_hair_extend
 [sideview-kr]: https://arca.live/b/textgame/83875947
-[sideview-kr-extend]: https://tieba.baidu.com/p/8979117042
+[sideview-kr-extend]: https://tieba.baidu.com/p/9055647926
 [susato-discord]: https://discord.com/channels/675158131688603721/1216104862870147303
