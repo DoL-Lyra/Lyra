@@ -3,21 +3,7 @@
 # 128 64     32    16       8      4     2   1
 # N   WAX   KR特写 BJ特写 CSD(HP) 作弊  BESC BES
 
-# 二进制: 0000001, 十进制: 1, 功能: BES+
-# 二进制: 0000011, 十进制: 3, 功能: BES+BESC+
-# 二进制: 0001100, 十进制: 12, 功能: 作弊+HP+
-# 二进制: 0001101, 十进制: 13, 功能: BES+作弊+HP+
-# 二进制: 0001111, 十进制: 15, 功能: BES+BESC+作弊+HP+
-# 二进制: 0010011, 十进制: 19, 功能: BES+BESC+BJ特写+
-# 二进制: 0011111, 十进制: 31, 功能: BES+BESC+作弊+HP+BJ特写+
-# 二进制: 0100011, 十进制: 35, 功能: BES+BESC+KR特写+
-# 二进制: 0101111, 十进制: 47, 功能: BES+BESC+作弊+HP+KR特写+
-# 二进制: 1000011, 十进制: 67, 功能: BES+BESC+WAX+
-# 二进制: 1001111, 十进制: 79, 功能: BES+BESC+作弊+HP+WAX+
-# 二进制: 1010011, 十进制: 83, 功能: BES+BESC+BJ特写+WAX+
-# 二进制: 1011111, 十进制: 95, 功能: BES+BESC+作弊+HP+BJ特写+WAX+
-# 二进制: 1100011, 十进制: 99, 功能: BES+BESC+KR特写+WAX+
-# 二进制: 1101111, 十进制: 111, 功能: BES+BESC+作弊+HP+KR特写+WAX+
+# ["UCB", "SUSATO", "WAX", "KR特写", "BJ特写", "CSD", "作弊", "BESC", "BES"]
 
 # 参数1 包类型 (zip apk)
 VERSION=$1
@@ -42,6 +28,7 @@ URL_BES=https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod/-/raw/master/i
 URL_BESC=https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation/-/archive/master/kaervek-beeesss-community-sprite-compilation-master.tar.gz
 URL_BESC_WAX=https://gitgud.io/GTXMEGADUDE/beeesss-wax/-/raw/ff1df29d4e737ab9af1c19532e7ebb2985b5cfb8/BEEESSS_WAX.rar
 # URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/double-cheeseburger/-/raw/master/Paril_BJ_BEEESSS_Addon.rar
+URL_UCB=https://github.com/site098/mysterious/releases/download/%E9%A2%84%E5%8F%91%E5%B8%83/default.zip
 
 EXTRACT_DIR=extract # 解压目录
 OUTPUT_DIR=output   # 输出目录
@@ -168,6 +155,12 @@ fun_check_code() {
     OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-sideviewkr
     echo 32-Complete patch sideview type kr!
   fi
+  if [ $((MOD_CODE & 256)) -ne 0 ]; then
+    echo 256-Start patch Universal Combat Beautification...
+    fun_ucb
+    OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-ucb
+    echo 32-Complete patch Universal Combat Beautification...
+  fi
 }
 
 # 美化
@@ -218,6 +211,19 @@ fun_sideview_kr() {
   DIR_SIDEVIEWKR="sideview_kr"
   unzip -q assets/KR_Extend.zip -d $DIR_SIDEVIEWKR
   cp -r $DIR_SIDEVIEWKR/KR_Extend/img/* $IMG_PATH/
+}
+
+# UCB
+fun_ucb() {
+  DIR_UCB="ucb"
+  mkdir -p $DIR_UCB
+  pushd $DIR_UCB
+
+  wget -q -nc -O ucb.zip $URL_UCB
+  unzip -q ucb.zip
+
+  popd
+  cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
 }
 
 # 入口
