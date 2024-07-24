@@ -1,4 +1,4 @@
-module github.com/DOL-CHS-MODS/hub
+module github.com/DoL-Lyra/hub
 
 go 1.21.3
 

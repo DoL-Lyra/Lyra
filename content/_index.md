@@ -2,7 +2,7 @@
 title: "DoL-Lyra 整合包发布站"
 ---
 
-**此发布页由 [Github: sakarie9/DoL-Lyra](https://github.com/sakarie9/DoL-Lyra) 构建，并非 DoL 或汉化组官方发布网站**
+**此发布页由 [Github: DoL-Lyra/Lyra](https://github.com/DoL-Lyra/Lyra) 构建，并非 DoL 或汉化组官方发布网站**
 
 ---
 
