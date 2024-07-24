@@ -179,6 +179,8 @@
     - Paril, b333sss
   - [Susato Model][susato-model]
     - susato, miyako2428
+  - [通用战斗美化 UCB][ucb-github]
+    - 贴吧用户_GaC5V7E
 - 特写
   - [Paril Double Cheeseburger][sideview-dc]
     - Paril, b333sss, Zubonko, Blaine
@@ -208,3 +210,4 @@
 [lyra-csd]: https://github.com/DoL-Lyra/CombatStatusDisplay
 [lyra-cheat]: https://github.com/DoL-Lyra/Cheat
 [susato-model]: https://discord.com/channels/675158131688603721/1216104862870147303
+[ucb-github]: https://github.com/site098/mysterious
