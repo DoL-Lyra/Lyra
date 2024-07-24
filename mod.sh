@@ -159,7 +159,7 @@ fun_check_code() {
     echo 256-Start patch Universal Combat Beautification...
     fun_ucb
     OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-ucb
-    echo 32-Complete patch Universal Combat Beautification...
+    echo 256-Complete patch Universal Combat Beautification...
   fi
 }
 
@@ -223,7 +223,7 @@ fun_ucb() {
   unzip -q ucb.zip
 
   popd
-  cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
+  cp -r $DIR_UCB/img/* $IMG_PATH/
 }
 
 # 入口
