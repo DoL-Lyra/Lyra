@@ -37,6 +37,16 @@ date = 2023-10-16T18:38:12+08:00
 
   ![预览](readme-susato.webp)
 
+- ### 通用战斗美化 (UCB)
+
+  [Universal Combat Beautification][ucb-github]
+
+  通用战斗美化
+
+  {{< alert >}}
+  需要在`选项`-`性能`中关闭`玩家和NPC肤色的视觉表现`。其它问题参考[疑难解答]({{< relref "troubleshoot" >}})
+  {{< /alert >}}
+
 - ### 作弊
 
   - 默认启动作弊，且不会禁用成就，即使游戏提醒 `这个存档将禁用成就`
@@ -89,3 +99,4 @@ date = 2023-10-16T18:38:12+08:00
 [sideview-kr]: https://arca.live/b/textgame/83875947
 [sideview-kr-extend]: https://tieba.baidu.com/p/9055647926
 [susato-discord]: https://discord.com/channels/675158131688603721/1216104862870147303
+[ucb-github]: https://github.com/site098/mysterious

@@ -4,14 +4,14 @@ import os
 import datetime
 
 # 功能定义
-functions = ["SUSATO", "WAX", "KR特写", "BJ特写", "CSD", "作弊", "BESC", "BES"]
+functions = ["UCB", "SUSATO", "WAX", "KR特写", "BJ特写", "CSD", "作弊", "BESC", "BES"]
 
 # 白名单
-add_dec = [11,27,91,136]
+add_dec = [3,11,91,136]
 # 黑名单
-skip_dec = [0,128]
+skip_dec = [0,67,128]
 # 推荐
-recommend_dec = [27,91,136]
+recommend_dec = [91,136]
 # polyfill
 polyfill_comb = "polyfill_31"
 
@@ -107,6 +107,12 @@ def gencomb():
         if should_skip_dep(6,2):
             continue
         if should_skip_dep(7,2):
+            continue
+        # UCB依赖BESC
+        if should_skip_dep(9,2):
+            continue
+        # 绑定WAX和BESC
+        if (binary_and(7) and not binary_and(2)) or (not binary_and(7) and binary_and(2)):
             continue
         # 特写互斥
         if should_skip_mutex(5,6):
