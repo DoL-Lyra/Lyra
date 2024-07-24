@@ -20,6 +20,11 @@
   pageRef = "posts/docs"
   weight = 5
 
+[[main]]
+  name = "疑难解答"
+  pageRef = "troubleshoot"
+  weight = 3
+
 # [[main]]
 #   name = "Categories"
 #   pageRef = "categories"
