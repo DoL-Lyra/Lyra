@@ -185,6 +185,9 @@ fun_besc() {
 
   popd
   cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
+
+  # #42
+  mv "$IMG_PATH/hair/sides/messy ponytail/Shoulder.png" "$IMG_PATH/hair/sides/messy ponytail/shoulder.png"
 }
 fun_wax() {
   BEAUTIFY_DIR="beautify"
