@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v4
       # 下载焊入html的i18n
       - name: Download game files (zip)
-        uses: robinraju/release-downloader@v1.8
+        uses: robinraju/release-downloader@v1.11
         with:
           repository: "DoL-Lyra/DoLModLoaderBuild"
           latest: true
@@ -28,7 +28,7 @@ jobs:
 
       # 下载汉化仓库的apk
       - name: Download game files (apk)
-        uses: robinraju/release-downloader@v1.8
+        uses: robinraju/release-downloader@v1.11
         with:
           repository: "Eltirosto/Degrees-of-Lewdity-Chinese-Localization"
           latest: true
