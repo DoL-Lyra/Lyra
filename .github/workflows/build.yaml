@@ -57,7 +57,7 @@ jobs:
             mv ${dol_basename}.zip ${{ github.workspace }}/output/
             popd
             pushd modify_tmp/apk
-            zip -q -r ${dol_basename}.apk *
+            zip -q -r -0 ${dol_basename}.apk *
             mv ${dol_basename}.apk ${{ github.workspace }}/output/
             popd
             rm -rf modify_tmp/zip
@@ -76,7 +76,7 @@ jobs:
           mv ${dol_basename}.zip ${{ github.workspace }}/output/
           popd
           pushd modify_tmp/apk
-          zip -q -r ${dol_basename}.apk *
+          zip -q -r -0 ${dol_basename}.apk *
           mv ${dol_basename}.apk ${{ github.workspace }}/output/
           popd
           rm -rf modify_tmp/zip
@@ -101,7 +101,24 @@ jobs:
         pack: [zip, apk]
         code:
           [
-            3, 11, 12, 79, 83, 91, 95, 99, 111, 136, 140, 323, 335, 339, 351, 355, 367, polyfill-31,
+            3,
+            11,
+            12,
+            79,
+            83,
+            91,
+            95,
+            99,
+            111,
+            136,
+            140,
+            323,
+            335,
+            339,
+            351,
+            355,
+            367,
+            polyfill-31,
           ]
     steps:
       - uses: actions/checkout@v4
@@ -173,4 +190,3 @@ jobs:
     needs: release
     if: github.ref_type == 'tag'
     secrets: inherit
-
