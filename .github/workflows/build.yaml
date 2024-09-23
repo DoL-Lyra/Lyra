@@ -50,7 +50,7 @@ jobs:
             # 将zip的img覆盖到apk中
             cp -r "modify_tmp/zip/img" "modify_tmp/apk/assets/www/"
             # 将zip的html覆盖到apk中
-            cp "modify_tmp/zip/Degrees of Lewdity.html" "modify_tmp/apk/assets/www/"
+            cp "modify_tmp/zip/Degrees of Lewdity.html" "modify_tmp/apk/assets/www/index.html"
             # 打包
             pushd modify_tmp/zip
             zip -q -r ${dol_basename}.zip *
@@ -69,7 +69,7 @@ jobs:
           # 将zip的img覆盖到apk中
           cp -r "modify_tmp/zip/img" "modify_tmp/apk/assets/www/"
           # 将zip的html覆盖到apk中
-          cp "modify_tmp/zip/Degrees of Lewdity.html" "modify_tmp/apk/assets/www/"
+          cp "modify_tmp/zip/Degrees of Lewdity.html" "modify_tmp/apk/assets/www/index.html"
           # 打包
           pushd modify_tmp/zip
           zip -q -r ${dol_basename}.zip *

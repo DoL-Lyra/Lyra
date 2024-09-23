@@ -21,7 +21,7 @@ IS_POLYFILL=0
 
 # 资源地址
 # 工具
-URL_APKTOOL=https://github.com/iBotPeaches/Apktool/releases/download/v2.8.1/apktool_2.8.1.jar
+URL_APKTOOL=https://github.com/iBotPeaches/Apktool/releases/download/v2.10.0/apktool_2.10.0.jar
 URL_APKSIGN=https://github.com/patrickfav/uber-apk-signer/releases/download/v1.3.0/uber-apk-signer-1.3.0.jar
 # 资源
 URL_BES=https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod/-/raw/master/img.zip
@@ -87,6 +87,8 @@ fun_apk() {
 
   # 修改包名
   sed -i 's/"com.vrelnir.DegreesOfLewdity"/"com.vrelnir.DegreesOfLewdity.lyra"/g' $EXTRACT_DIR/AndroidManifest.xml
+  sed -i 's/"com.vrelnir.dol"/"com.vrelnir.DegreesOfLewdity.lyra"/g' $EXTRACT_DIR/AndroidManifest.xml
+  sed -i 's/"com.vrelnir.dol_debug"/"com.vrelnir.DegreesOfLewdity.lyra"/g' $EXTRACT_DIR/AndroidManifest.xml
 
   # 修改应用名
   sed -i 's/DoL/DoL Lyra/g' $EXTRACT_DIR/res/values/strings.xml
