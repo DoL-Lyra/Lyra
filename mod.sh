@@ -86,9 +86,8 @@ fun_apk() {
   java -jar apktool.jar d $FILE_NAME -o $EXTRACT_DIR
 
   # 修改包名
-  sed -i 's/"com.vrelnir.DegreesOfLewdity"/"com.vrelnir.DegreesOfLewdity.lyra"/g' $EXTRACT_DIR/AndroidManifest.xml
-  sed -i 's/"com.vrelnir.dol"/"com.vrelnir.DegreesOfLewdity.lyra"/g' $EXTRACT_DIR/AndroidManifest.xml
-  sed -i 's/"com.vrelnir.dol_debug"/"com.vrelnir.DegreesOfLewdity.lyra"/g' $EXTRACT_DIR/AndroidManifest.xml
+  sed -i 's/"com.vrelnir.dol"/"com.vrelnir.dol.lyra"/g' $EXTRACT_DIR/AndroidManifest.xml
+  sed -i 's/"com.vrelnir.dol_debug"/"com.vrelnir.dol.lyra"/g' $EXTRACT_DIR/AndroidManifest.xml
 
   # 修改应用名
   sed -i 's/DoL/DoL Lyra/g' $EXTRACT_DIR/res/values/strings.xml
