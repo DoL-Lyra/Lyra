@@ -18,6 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: "adopt"
+          java-version: "17"
       # 下载焊入html的i18n
       - name: Download game files (zip)
         uses: robinraju/release-downloader@v1.11
@@ -37,10 +41,15 @@ jobs:
       # 修改内容
       - name: Modify ZIP&APK
         run: |
+          # Download apktool
+          URL_APKTOOL=https://github.com/iBotPeaches/Apktool/releases/download/v2.10.0/apktool_2.10.0.jar
+          wget -q -nc -O apktool.jar $URL_APKTOOL
+          APKTOOL=$(realpath apktool.jar)
+
           mkdir ${{ github.workspace }}/output
           mkdir modify_tmp
           # 解压apk
-          unzip -q *.APK -d modify_tmp/apk
+          java -jar $APKTOOL d *.APK -o modify_tmp/apk
 
           ver=( 0 4 8 12 136 140 )
           for v in "${ver[@]}"
@@ -52,14 +61,15 @@ jobs:
             # 将zip的html覆盖到apk中
             cp "modify_tmp/zip/Degrees of Lewdity.html" "modify_tmp/apk/assets/www/index.html"
             # 打包
+            # zip
             pushd modify_tmp/zip
             zip -q -r ${dol_basename}.zip *
             mv ${dol_basename}.zip ${{ github.workspace }}/output/
             popd
-            pushd modify_tmp/apk
-            zip -q -r -0 ${dol_basename}.apk *
+            # apk
+            java -jar $APKTOOL b modify_tmp/apk -o ${dol_basename}.apk
             mv ${dol_basename}.apk ${{ github.workspace }}/output/
-            popd
+            # 清理
             rm -rf modify_tmp/zip
           done
 
@@ -75,10 +85,10 @@ jobs:
           zip -q -r ${dol_basename}.zip *
           mv ${dol_basename}.zip ${{ github.workspace }}/output/
           popd
-          pushd modify_tmp/apk
-          zip -q -r -0 ${dol_basename}.apk *
+          # apk
+          java -jar $APKTOOL b modify_tmp/apk -o ${dol_basename}.apk
           mv ${dol_basename}.apk ${{ github.workspace }}/output/
-          popd
+          # 清理
           rm -rf modify_tmp/zip
 
       - name: Upload artifacts
@@ -125,7 +135,7 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: "adopt"
-          java-version: "8"
+          java-version: "17"
 
       - name: Install APT packages
         run: sudo apt install -y unrar
