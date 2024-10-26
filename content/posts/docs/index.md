@@ -49,11 +49,15 @@ date = 2023-10-16T18:38:12+08:00
 
 - ### 作弊
 
+  [Cheat-Lyra][cheat-lyra]
+
   - 默认启动作弊，且不会禁用成就，即使游戏提醒 `这个存档将禁用成就`
 
   - 重新启用言灵法术
 
 - ### 战斗状态显示 (CSD)
+
+  [CombatStatusDisplay-Lyra][csd-lyra]
 
   显示敌人当前 HP 及 AP 状态
 
@@ -100,3 +104,6 @@ date = 2023-10-16T18:38:12+08:00
 [sideview-kr-extend]: https://tieba.baidu.com/p/9055647926
 [susato-discord]: https://discord.com/channels/675158131688603721/1216104862870147303
 [ucb-github]: https://github.com/site098/mysterious
+[csd-lyra]: https://github.com/DoL-Lyra/CombatStatusDisplay
+[cheat-lyra]: https://github.com/DoL-Lyra/Cheat
+
