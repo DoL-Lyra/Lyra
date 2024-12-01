@@ -28,7 +28,7 @@ URL_BES=https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod/-/raw/master/i
 URL_BESC=https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation/-/archive/master/kaervek-beeesss-community-sprite-compilation-master.tar.gz
 URL_BESC_WAX=https://gitgud.io/GTXMEGADUDE/beeesss-wax/-/raw/ff1df29d4e737ab9af1c19532e7ebb2985b5cfb8/BEEESSS_WAX.rar
 # URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/double-cheeseburger/-/raw/master/Paril_BJ_BEEESSS_Addon.rar
-URL_UCB=https://github.com/site098/mysterious/releases/download/%E9%A2%84%E5%8F%91%E5%B8%83/default.zip
+# URL_UCB=https://github.com/site098/mysterious/releases/download/%E9%A2%84%E5%8F%91%E5%B8%83/default.zip
 
 EXTRACT_DIR=extract # 解压目录
 OUTPUT_DIR=output   # 输出目录
@@ -224,13 +224,7 @@ fun_sideview_kr() {
 # UCB
 fun_ucb() {
   DIR_UCB="ucb"
-  mkdir -p $DIR_UCB
-  pushd $DIR_UCB
-
-  wget -q -nc -O ucb.zip $URL_UCB
-  unzip -q ucb.zip
-
-  popd
+  unzip -q assets/UCB.zip -d $DIR_UCB
   cp -r $DIR_UCB/img/* $IMG_PATH/
 }
 
