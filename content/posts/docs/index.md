@@ -63,6 +63,10 @@ date = 2023-10-16T18:38:12+08:00
 
   ![预览](readme-hp.webp)
 
+- ### Hikari 特写
+
+  ![预览](readme-hikari.webp)
+
 - ### BJ特写
 
   [Paril Double Cheeseburger][sideview-dc]
@@ -106,4 +110,3 @@ date = 2023-10-16T18:38:12+08:00
 [ucb-github]: https://github.com/site098/mysterious
 [csd-lyra]: https://github.com/DoL-Lyra/CombatStatusDisplay
 [cheat-lyra]: https://github.com/DoL-Lyra/Cheat
-
