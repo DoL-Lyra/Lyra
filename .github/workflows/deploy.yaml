@@ -7,7 +7,7 @@ on:
   workflow_call:
 
 env:
-  DOWNLOAD_RELEASE_TEMP_PATH: ${{ github.workspace }}/modloader-temp  
+  DOWNLOAD_RELEASE_TEMP_PATH: ${{ github.workspace }}/modloader-temp
 
   MODLOADER_HTML_NORMAL_FILENAME: "dol.html"
   MODLOADER_HTML_POLYFILL_FILENAME: "dol-polyfill.html"
@@ -33,13 +33,13 @@ jobs:
         uses: robinraju/release-downloader@v1.11
         with:
           latest: true
-          fileName: "DoL-*-Lyra-*-besc-cheat-csd-sideviewbj-*.zip"
+          fileName: "DoL-*-Lyra-*-besc-cheat-csd-hikari-*.zip"
       - id: getRelease-polyfill
         name: release-downloader
         uses: robinraju/release-downloader@v1.11
         with:
           latest: true
-          fileName: "DoL-*-Lyra-*-polyfill-besc-cheat-csd-sideviewbj-*.zip"
+          fileName: "DoL-*-Lyra-*-polyfill-besc-cheat-csd-*.zip"
 
       - name: Extract downloaded file
         run: |
