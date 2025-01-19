@@ -171,6 +171,7 @@
   - [Lyra-CombatStatusDisplay][lyra-csd]
   - [Lyra-Cheat][lyra-cheat]
 - 美化
+  - [Degrees of Lewdity Plus][dolp]
   - [Degrees of Lewdity Graphics Mod][beeesss]
     - BEEESSS
   - [BEEESSS Community Sprite Compilation][beeesss-ext]
@@ -180,7 +181,7 @@
   - [Susato Model][susato-model]
     - susato, miyako2428
   - [通用战斗美化 UCB][ucb-github]
-    - 贴吧用户_GaC5V7E
+    - 贴吧用户\_GaC5V7E
 - 特写
   - [Paril Double Cheeseburger][sideview-dc]
     - Paril, b333sss, Zubonko, Blaine
@@ -189,7 +190,7 @@
   - [韩站特写][sideview-kr]
     - G259M
   - [KR特写刘海补充][sideview-kr-extend]
-    - 贴吧用户_GaC5V7E
+    - 贴吧用户\_GaC5V7E
 
 [blog]: https://vrelnir.blogspot.com
 [wiki-en]: https://degreesoflewdity.miraheze.org/wiki
@@ -211,3 +212,4 @@
 [lyra-cheat]: https://github.com/DoL-Lyra/Cheat
 [susato-model]: https://discord.com/channels/675158131688603721/1216104862870147303
 [ucb-github]: https://github.com/site098/mysterious
+[dolp]: https://gitgud.io/Frostberg/degrees-of-lewdity-plus
