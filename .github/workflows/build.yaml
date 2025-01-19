@@ -51,7 +51,7 @@ jobs:
           # 解压apk
           java -jar $APKTOOL d *.APK -o modify_tmp/apk
 
-          ver=( 0 4 8 12 136 140 )
+          ver=( 0 2 4 6 )
           for v in "${ver[@]}"
           do
             dol_basename=$(basename DoL*[^polyfill]-${v}.zip .zip)
@@ -74,7 +74,7 @@ jobs:
           done
 
           # polyfill
-          dol_basename=$(basename DoL*polyfill-12.zip .zip)
+          dol_basename=$(basename DoL*polyfill-6.zip .zip)
           unzip -q ${dol_basename}.zip -d modify_tmp/zip
           # 将zip的img覆盖到apk中
           cp -r "modify_tmp/zip/img" "modify_tmp/apk/assets/www/"
