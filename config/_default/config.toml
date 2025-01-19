@@ -6,7 +6,7 @@ baseURL = "https://dol-lyra.github.io/hub/"
 #defaultContentLanguage = "en"
 
 enableRobotsTXT = true
-paginate = 5
+pagination.pagerSize = 5
 summaryLength = 0
 
 languageCode = "zh-cn"
@@ -16,4 +16,4 @@ hasCJKLanguage = true
 googleAnalytics = "G-1NSQ56KN9P"
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+home = ["HTML", "RSS", "JSON"]
