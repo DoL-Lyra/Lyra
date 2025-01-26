@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #[
+#     "GOOSE",  512
 #     "UCB",    256
 #     "SUSATO", 128
 #     "WAX",    64
@@ -164,6 +165,12 @@ fun_check_code() {
     OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-hikari
     echo 32-Complete patch sideview type hikari!
   fi
+  if [ $((MOD_CODE & 512)) -ne 0 ]; then
+    echo 512-Start patch sideview type goose...
+    fun_sideview_goose
+    OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-goose
+    echo 512-Complete patch sideview type goose!
+  fi
   if [ $((MOD_CODE & 256)) -ne 0 ]; then
     echo 256-Start patch Universal Combat Beautification...
     fun_ucb
@@ -256,6 +263,27 @@ fun_sideview_hikari() {
   IMGS=("$IMG_HIK" "$IMG_HIKS")
 
   BEAUTIFY_DIR="sideview_hikari"
+  mkdir -p $BEAUTIFY_DIR/img
+  pushd $BEAUTIFY_DIR
+  for URL in "${IMGS[@]}"; do
+
+    wget -q -O dolp-tmp.tar.gz "$URL"
+    tar xf dolp-tmp.tar.gz --strip-components 3 --directory=img
+    rm dolp-tmp.tar.gz
+
+  done
+  popd
+  cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
+}
+
+# Goose 特写
+fun_sideview_goose() {
+  IMG_DOLP="${URL_DOLP_BASE}/dolp"
+  IMG_GOOSE="${URL_DOLP_BASE}/goosefem"
+  IMG_GOOSES="${URL_DOLP_BASE}/goosefemsubs"
+  IMGS=("$IMG_DOLP" "$IMG_GOOSE" "$IMG_GOOSES")
+
+  BEAUTIFY_DIR="sideview_goose"
   mkdir -p $BEAUTIFY_DIR/img
   pushd $BEAUTIFY_DIR
   for URL in "${IMGS[@]}"; do
