@@ -3,103 +3,108 @@ title = '版本说明'
 date = 2023-10-16T18:38:12+08:00
 +++
 
-- ### BES
+### BESC
 
-  [Degrees of Lewdity Graphics Mod][beeesss]
+[BEEESSS Community Sprite Compilation][beeesss-ext]
 
-  基础美化，此美化在目前版本上会出现错位，无法单独使用
+BES 社区补充包，社区美化的集合，基于 BES 并修正了部分 BES 的显示问题
 
-- ### BESC
+![预览](readme-besc.webp)
 
-  [BEEESSS Community Sprite Compilation][beeesss-ext]
+### Hikari 特写
 
-  BES 社区补充包，社区美化的集合，基于 BEC 并修正了部分 BES 的显示问题
+![预览](readme-hikari.webp)
 
-  ![预览](readme-besc.webp)
+### Goose 特写
 
-- ### WAX
+![预览](readme-goose.webp)
 
-  [BEEESSS Wax][beeesss-wax]
+### 通用战斗美化 (UCB)
 
-  身体美化
+[Universal Combat Beautification][ucb-github]
 
-  ![预览](readme-wax.webp)
+通用战斗美化
 
-  {{< alert >}}
-  过大的胸部可能会出现贴图错位问题
-  {{< /alert >}}
+{{< alert >}}
+需要在`选项`-`性能`中关闭`玩家和NPC肤色的视觉表现`。其它问题参考[疑难解答]({{< relref "troubleshoot" >}})
+{{< /alert >}}
 
-- ### SUSATO
+### 作弊
 
-  [Susato Model][susato-discord]
+[Cheat-Lyra][cheat-lyra]
 
-  寿里式美化，替换所有部件的大型综合美化，覆盖较为全面
+- 默认启动作弊，且不会禁用成就，即使游戏提醒 `这个存档将禁用成就`
 
-  ![预览](readme-susato.webp)
+- 重新启用言灵法术
 
-- ### 通用战斗美化 (UCB)
+### 战斗状态显示 (CSD)
 
-  [Universal Combat Beautification][ucb-github]
+[CombatStatusDisplay-Lyra][csd-lyra]
 
-  通用战斗美化
+显示敌人当前 HP 及 AP 状态
 
-  {{< alert >}}
-  需要在`选项`-`性能`中关闭`玩家和NPC肤色的视觉表现`。其它问题参考[疑难解答]({{< relref "troubleshoot" >}})
-  {{< /alert >}}
+![预览](readme-hp.webp)
 
-- ### 作弊
+### 兼容版
 
-  [Cheat-Lyra][cheat-lyra]
+名称中含有 `兼容版` 的游戏本体意味着针对较旧版本的浏览器内核进行了一定程度的兼容，因此请优先下载名称中不含 `兼容版` 的游戏文件，如果无法正常运行，再下载名称中含 `兼容版` 的游戏文件尝试运行。
 
-  - 默认启动作弊，且不会禁用成就，即使游戏提醒 `这个存档将禁用成就`
+### 过时的美化
 
-  - 重新启用言灵法术
+<details>
 
-- ### 战斗状态显示 (CSD)
+   <summary>点击展开</summary>
 
-  [CombatStatusDisplay-Lyra][csd-lyra]
+### SUSATO
 
-  显示敌人当前 HP 及 AP 状态
+[Susato Model][susato-discord]
 
-  ![预览](readme-hp.webp)
+寿里式美化，替换所有部件的大型综合美化，覆盖较为全面
 
-- ### Hikari 特写
+![预览](readme-susato.webp)
 
-  ![预览](readme-hikari.webp)
+### BJ特写
 
-- ### BJ特写
+[Paril Double Cheeseburger][sideview-dc]
 
-  [Paril Double Cheeseburger][sideview-dc]
+在立绘旁显示特写头像
 
-  在立绘旁显示特写头像
+![预览](readme-bj.webp)
 
-  ![预览](readme-bj.webp)
+已包含 [庫褲子BJ美化包髮型擴充][sideview-bj-extend]，更多预览请前往此仓库查看
 
-  已包含 [庫褲子BJ美化包髮型擴充][sideview-bj-extend]，更多预览请前往此仓库查看
+{{< alert >}}
+尚未支持的头发和帽子会显示为光头
+{{< /alert >}}
 
-  {{< alert >}}
-  尚未支持的头发和帽子会显示为光头
-  {{< /alert >}}
+### KR特写
 
-- ### KR特写
+[原帖][sideview-kr]
 
-  [原帖][sideview-kr]
+另一个特写版本
 
-  另一个特写版本
+![预览](readme-kr.webp)
 
-  ![预览](readme-kr.webp)
+已包含 [kr特写刘海补充5.0][sideview-kr-extend]
 
-  已包含 [kr特写刘海补充5.0][sideview-kr-extend]
+{{< alert >}}
+尚未支持的头发和帽子会显示为光头
+{{< /alert >}}
 
-  {{< alert >}}
-  尚未支持的头发和帽子会显示为光头
-  {{< /alert >}}
+### WAX
 
-- ### 兼容版
+[BEEESSS Wax][beeesss-wax]
 
-  名称中含有 `兼容版` 的游戏本体意味着针对较旧版本的浏览器内核进行了一定程度的兼容，因此请优先下载名称中不含 `兼容版` 的游戏文件，如果无法正常运行，再下载名称中含 `兼容版` 的游戏文件尝试运行。
+身体美化
 
-[beeesss]: https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod
+![预览](readme-wax.webp)
+
+{{< alert >}}
+过大的胸部可能会出现贴图错位问题
+{{< /alert >}}
+
+</details>
+
 [beeesss-ext]: https://gitgud.io/Kaervek/kaervek-beeesss-community-sprite-compilation
 [beeesss-wax]: https://gitgud.io/GTXMEGADUDE/beeesss-wax
 [sideview-dc]: https://gitgud.io/GTXMEGADUDE/double-cheeseburger
