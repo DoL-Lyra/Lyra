@@ -13,9 +13,13 @@ BES 社区补充包，社区美化的集合，基于 BES 并修正了部分 BES 
 
 ### Hikari 特写
 
+[Hikari Mods][hikari]
+
 ![预览](readme-hikari.webp)
 
 ### Goose 特写
+
+[Goose][goose]
 
 ![预览](readme-goose.webp)
 
@@ -115,3 +119,5 @@ BES 社区补充包，社区美化的集合，基于 BES 并修正了部分 BES 
 [ucb-github]: https://github.com/site098/mysterious
 [csd-lyra]: https://github.com/DoL-Lyra/CombatStatusDisplay
 [cheat-lyra]: https://github.com/DoL-Lyra/Cheat
+[hikari]: https://gitgud.io/HikariT/hikari-mods
+[goose]: https://gitgud.io/goose/createshit
