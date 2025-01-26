@@ -183,6 +183,8 @@
   - [通用战斗美化 UCB][ucb-github]
     - 贴吧用户\_GaC5V7E
 - 特写
+  - [Hikari][hikari]
+  - [Goose][goose]
   - [Paril Double Cheeseburger][sideview-dc]
     - Paril, b333sss, Zubonko, Blaine
   - [DOL BJ hair extend][sideview-bj-extend]
@@ -213,3 +215,5 @@
 [susato-model]: https://discord.com/channels/675158131688603721/1216104862870147303
 [ucb-github]: https://github.com/site098/mysterious
 [dolp]: https://gitgud.io/Frostberg/degrees-of-lewdity-plus
+[hikari]: https://gitgud.io/HikariT/hikari-mods
+[goose]: https://gitgud.io/goose/createshit
