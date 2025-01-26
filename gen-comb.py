@@ -5,6 +5,7 @@ import datetime
 
 # 功能定义
 functions = [
+    "GOOSE",
     "UCB",
     "SUSATO",
     "WAX",
@@ -18,11 +19,11 @@ functions = [
 
 # 暂时移除： 二进制:   10001000, 十进制: 136, 功能: ***CSD+SUSATO(推荐)***, 推荐： 1
 # 白名单
-add_dec = [5, 37]
+add_dec = [5, 37, 516, 774]
 # 黑名单
-skip_dec = []
+skip_dec = [512]
 # 推荐
-recommend_dec = [5, 37]
+recommend_dec = [5, 37, 516]
 # polyfill
 polyfill_comb = "polyfill_6"
 
@@ -171,6 +172,9 @@ def gencomb():
             continue
         # Susato 与 BESC 互斥
         if should_skip_mutex(8, 1):
+            continue
+        # Goose 与 BESC 互斥
+        if should_skip_mutex(10, 1):
             continue
 
         # combinations.append((binary, decimal))
