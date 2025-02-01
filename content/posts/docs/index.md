@@ -11,6 +11,14 @@ BES 社区补充包，社区美化的集合，基于 BES 并修正了部分 BES 
 
 ![预览](readme-besc.webp)
 
+### SUSATO
+
+[Susato Model][susato-discord]
+
+寿里式美化，替换所有部件的大型综合美化，覆盖较为全面
+
+![预览](readme-susato.webp)
+
 ### Hikari 特写
 
 [Hikari Mods][hikari]
@@ -58,14 +66,6 @@ BES 社区补充包，社区美化的集合，基于 BES 并修正了部分 BES 
 <details>
 
    <summary>点击展开</summary>
-
-### SUSATO
-
-[Susato Model][susato-discord]
-
-寿里式美化，替换所有部件的大型综合美化，覆盖较为全面
-
-![预览](readme-susato.webp)
 
 ### BJ特写
 
