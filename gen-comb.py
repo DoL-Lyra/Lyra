@@ -77,7 +77,7 @@ release_prepend = """
 {{< /alert >}}
 <br>
 {{< alert >}}
-BJ，KR 及 Susato 暂未适配新版
+BJ 及 KR 暂未适配新版
 {{< /alert >}}
 
 ## 汉化整合
