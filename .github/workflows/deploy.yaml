@@ -33,7 +33,7 @@ jobs:
         uses: robinraju/release-downloader@v1.11
         with:
           latest: true
-          fileName: "DoL-*-Lyra-*-cheat-csd-goose-*.zip"
+          fileName: "DoL-*-Lyra-*-besc-cheat-csd-*.zip"
       - id: getRelease-polyfill
         name: release-downloader
         uses: robinraju/release-downloader@v1.11
