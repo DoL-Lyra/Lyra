@@ -28,7 +28,7 @@ title: "DoL-Lyra 整合包发布站"
 
 - [Github Pages](https://dol-lyra.github.io/)
 
-> 在线版仅使用 `作弊+CSD+Goose` 构建，需要其他版本请下载本地版
+> 在线版仅使用 `BESC+作弊+CSD` 构建，需要其他版本请下载本地版
 
 {{< alert >}}
 若在线版因为各种原因停止服务，存档将无法导出，请及时备份存档或下载到本地游玩
