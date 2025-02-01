@@ -19,11 +19,11 @@ functions = [
 
 # 暂时移除： 二进制:   10001000, 十进制: 136, 功能: ***CSD+SUSATO(推荐)***, 推荐： 1
 # 白名单
-add_dec = [5, 37, 516, 774]
+add_dec = [5, 37, 132, 516, 774]
 # 黑名单
-skip_dec = [512]
+skip_dec = [128, 512]
 # 推荐
-recommend_dec = [5, 37, 516]
+recommend_dec = [5, 37, 132, 516]
 # polyfill
 polyfill_comb = "polyfill_7"
 
@@ -137,8 +137,8 @@ def gencomb():
         if binary_and(7) or binary_and(5) or binary_and(4):
             continue
         # 跳过 SUSATO
-        if binary_and(8):
-            continue
+        # if binary_and(8):
+        #     continue
         # 添加限制条件：BESC只能在BES应用的同时应用
         # if should_skip_dep(2, 1):
         #     continue
@@ -175,6 +175,9 @@ def gencomb():
             continue
         # Goose 与 BESC 互斥
         if should_skip_mutex(10, 1):
+            continue
+        # Susato 与 Goose 互斥
+        if should_skip_mutex(10, 8):
             continue
 
         # combinations.append((binary, decimal))
