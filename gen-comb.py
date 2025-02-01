@@ -25,7 +25,7 @@ skip_dec = [512]
 # 推荐
 recommend_dec = [5, 37, 516]
 # polyfill
-polyfill_comb = "polyfill_6"
+polyfill_comb = "polyfill_7"
 
 baseurl_github = "https://github.com/DoL-Lyra/Lyra/releases/download/"
 baseurl_ghproxy = f"https://mirror.ghproxy.com/{baseurl_github}"
