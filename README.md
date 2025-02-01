@@ -35,7 +35,7 @@
 
 [【DoL-Lyra Github Pages】](https://dol-lyra.github.io)
 
-> 在线版仅使用 `BESC+作弊+CSD+BJ特写` 构建，需要其他版本请前往下载本地版
+> 在线版仅使用 `BESC+作弊+CSD` 构建，需要其他版本请前往下载本地版
 
 ## 疑难解答
 
@@ -63,6 +63,10 @@
 
 <details>
 <summary>点击展开</summary>
+
+- 20250201
+
+  添加新美化，移除旧美化
 
 - 20240415
 
