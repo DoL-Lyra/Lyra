@@ -51,7 +51,7 @@ jobs:
           # 解压apk
           java -jar $APKTOOL d *.APK -o modify_tmp/apk
 
-          ver=( 0 2 4 6 )
+          ver=( 0 2 4 6 132 134 )
           for v in "${ver[@]}"
           do
             dol_basename=$(basename DoL*[^polyfill]-${v}.zip .zip)
