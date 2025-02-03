@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source utils.sh
+
 #[
 #     "GOOSE",  512
 #     "UCB",    256
@@ -227,7 +229,7 @@ fun_besc() {
 
   done
   popd
-  cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
+  smart_cp $BEAUTIFY_DIR/img/* $IMG_PATH/
 }
 # fun_wax() {
 #   BEAUTIFY_DIR="beautify"
@@ -273,7 +275,7 @@ fun_sideview_hikari() {
 
   done
   popd
-  cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
+  smart_cp $BEAUTIFY_DIR/img/* $IMG_PATH/
 }
 
 # Goose 特写
@@ -294,7 +296,7 @@ fun_sideview_goose() {
 
   done
   popd
-  cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
+  smart_cp $BEAUTIFY_DIR/img/* $IMG_PATH/
 }
 
 # UCB
@@ -318,7 +320,7 @@ fun_ucb() {
 
   done
   popd
-  cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
+  smart_cp $BEAUTIFY_DIR/img/* $IMG_PATH/
 }
 
 # 入口
