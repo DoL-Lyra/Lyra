@@ -78,10 +78,10 @@ fun_zip() {
   OUTPUT_NAME="${OUTPUT_PREFIX}${OUTPUT_SUFFIX}-${DATE_NOW}.zip"
   echo $OUTPUT_NAME
 
-  pushd $EXTRACT_DIR
+  pushd $EXTRACT_DIR || exit
   zip -q -r dol.zip *
   mv dol.zip ../$OUTPUT_DIR/$OUTPUT_NAME
-  popd
+  popd || exit
 
   # for generate markdown table
   fun_gen_pairs
@@ -218,7 +218,7 @@ fun_besc() {
 
   BEAUTIFY_DIR="besc"
   mkdir -p $BEAUTIFY_DIR/img
-  pushd $BEAUTIFY_DIR
+  pushd $BEAUTIFY_DIR || exit
   for URL in "${IMGS[@]}"; do
 
     wget -q -O dolp-tmp.tar.gz "$URL"
@@ -226,7 +226,7 @@ fun_besc() {
     rm dolp-tmp.tar.gz
 
   done
-  popd
+  popd || exit
 
   #HACK: Case isssue from kaervek
   mv "$BEAUTIFY_DIR/img/hair/sides/messy ponytail/Shoulder.png" "$BEAUTIFY_DIR/img/hair/sides/messy ponytail/shoulder.png"
@@ -268,7 +268,7 @@ fun_sideview_hikari() {
 
   BEAUTIFY_DIR="sideview_hikari"
   mkdir -p $BEAUTIFY_DIR/img
-  pushd $BEAUTIFY_DIR
+  pushd $BEAUTIFY_DIR || exit
   for URL in "${IMGS[@]}"; do
 
     wget -q -O dolp-tmp.tar.gz "$URL"
@@ -276,7 +276,7 @@ fun_sideview_hikari() {
     rm dolp-tmp.tar.gz
 
   done
-  popd
+  popd || exit
 
   #HACK: Case isssue from b3s_hikfem
   rm -r "$BEAUTIFY_DIR/img/hair/fringe/Messy curls"
@@ -294,7 +294,7 @@ fun_sideview_goose() {
 
   BEAUTIFY_DIR="sideview_goose"
   mkdir -p $BEAUTIFY_DIR/img
-  pushd $BEAUTIFY_DIR
+  pushd $BEAUTIFY_DIR || exit
   for URL in "${IMGS[@]}"; do
 
     wget -q -O dolp-tmp.tar.gz "$URL"
@@ -302,12 +302,14 @@ fun_sideview_goose() {
     rm dolp-tmp.tar.gz
 
   done
-  popd
+  popd || exit
 
   #HACK: Case isssue from goosefemsubs
-  pushd "$BEAUTIFY_DIR/img/clothes/lower/openshoulderlolitaclassic"
-  rename -v .PNG .png ./*.PNG
-  popd
+  pushd "$BEAUTIFY_DIR/img/clothes/lower/openshoulderlolitaclassic" || exit
+  for file in ./*.PNG; do
+    mv "$file" "${file%.PNG}.png"
+  done
+  popd || exit
 
   cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
 }
@@ -324,7 +326,7 @@ fun_ucb() {
 
   BEAUTIFY_DIR="ucb"
   mkdir -p $BEAUTIFY_DIR/img
-  pushd $BEAUTIFY_DIR
+  pushd $BEAUTIFY_DIR || exit
   for URL in "${IMGS[@]}"; do
 
     wget -q -O dolp-tmp.tar.gz "$URL"
@@ -332,7 +334,7 @@ fun_ucb() {
     rm dolp-tmp.tar.gz
 
   done
-  popd
+  popd || exit
 
   #HACK: Case isssue from mysterious
   mv "$BEAUTIFY_DIR/img/sex/close/chest/NPC" "$BEAUTIFY_DIR/img/sex/close/chest/npc"
