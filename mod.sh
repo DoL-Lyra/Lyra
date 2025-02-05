@@ -216,7 +216,7 @@ fun_besc() {
   IMG_DOLPB3S="${URL_DOLP_BASE}/dolp_b3s"
   IMGS=("$IMG_DOLP" "$IMG_B3S" "$IMG_KAE" "$IMG_DOLPB3S")
 
-  BEAUTIFY_DIR="beautify"
+  BEAUTIFY_DIR="besc"
   mkdir -p $BEAUTIFY_DIR/img
   pushd $BEAUTIFY_DIR
   for URL in "${IMGS[@]}"; do
@@ -227,6 +227,10 @@ fun_besc() {
 
   done
   popd
+
+  #HACK: Case isssue from kaervek
+  mv "$BEAUTIFY_DIR/img/hair/sides/messy ponytail/Shoulder.png" "$BEAUTIFY_DIR/img/hair/sides/messy ponytail/shoulder.png"
+
   cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
 }
 # fun_wax() {
@@ -273,6 +277,11 @@ fun_sideview_hikari() {
 
   done
   popd
+
+  #HACK: Case isssue from b3s_hikfem
+  rm -r "$BEAUTIFY_DIR/img/hair/fringe/Messy curls"
+  rm "$BEAUTIFY_DIR/img/clothes/face/foxmask/Full.png"
+
   cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
 }
 
@@ -294,6 +303,12 @@ fun_sideview_goose() {
 
   done
   popd
+
+  #HACK: Case isssue from goosefemsubs
+  pushd "$BEAUTIFY_DIR/img/clothes/lower/openshoulderlolitaclassic"
+  rename -v .PNG .png ./*.PNG
+  popd
+
   cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
 }
 
@@ -318,6 +333,12 @@ fun_ucb() {
 
   done
   popd
+
+  #HACK: Case isssue from mysterious
+  mv "$BEAUTIFY_DIR/img/sex/close/chest/NPC" "$BEAUTIFY_DIR/img/sex/close/chest/npc"
+  rm "$BEAUTIFY_DIR/img/sex/missionary/active/virginkiller/chest.png"
+  rm "$BEAUTIFY_DIR/img/sex/missionary/active/virginkiller/waist.png"
+
   cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
 }
 
