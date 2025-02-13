@@ -19,66 +19,66 @@ enableImageLazyLoading = true
 fingerprintAlgorithm = "sha256"
 
 [header]
-  layout = "basic" # valid options: basic, hamburger, hybrid, custom
-  # logo = "img/logo.jpg"
-  # logoDark = "img/dark-logo.jpg"
-  showTitle = true
+layout = "basic" # valid options: basic, hamburger, hybrid, custom
+# logo = "img/logo.jpg"
+# logoDark = "img/dark-logo.jpg"
+showTitle = true
 
 [footer]
-  showCopyright = true
-  showThemeAttribution = true
-  showAppearanceSwitcher = false
-  showScrollToTop = true
+showCopyright = true
+showThemeAttribution = true
+showAppearanceSwitcher = false
+showScrollToTop = true
 
 [homepage]
-  layout = "page" # valid options: page, profile, custom
-  showRecent = true
-  recentLimit = 3
+layout = "page"   # valid options: page, profile, custom
+showRecent = true
+recentLimit = 3
 
 [article]
-  showDate = true
-  showDateUpdated = false
-  showAuthor = true
-  showBreadcrumbs = false
-  showDraftLabel = true
-  showEdit = false
-  # editURL = "https://github.com/username/repo/"
-  editAppendPath = true
-  showHeadingAnchors = true
-  showPagination = true
-  invertPagination = false
-  showReadingTime = false
-  showTableOfContents = true
-  showTaxonomies = false
-  showWordCount = false
-  showComments = false
-  # sharingLinks = ["facebook", "twitter", "mastodon", "pinterest", "reddit", "linkedin", "email"]
+showDate = true
+showDateUpdated = false
+showAuthor = true
+showBreadcrumbs = false
+showDraftLabel = true
+showEdit = false
+# editURL = "https://github.com/username/repo/"
+editAppendPath = true
+showHeadingAnchors = true
+showPagination = true
+invertPagination = false
+showReadingTime = false
+showTableOfContents = true
+showTaxonomies = false
+showWordCount = false
+showComments = false
+# sharingLinks = ["facebook", "twitter", "mastodon", "pinterest", "reddit", "linkedin", "email"]
 
 [list]
-  showBreadcrumbs = false
-  showSummary = false
-  showTableOfContents = false
-  showTaxonomies = false
-  groupByYear = true
-  paginationWidth = 1
+showBreadcrumbs = false
+showSummary = false
+showTableOfContents = false
+showTaxonomies = false
+groupByYear = true
+paginationWidth = 1
 
 [sitemap]
-  excludedKinds = ["taxonomy", "term"]
+excludedKinds = ["taxonomy", "term"]
 
 [taxonomy]
-  showTermCount = true
+showTermCount = true
 
 [fathomAnalytics]
-  # site = "ABC12345"
-  # domain = "llama.yoursite.com"
+# site = "ABC12345"
+# domain = "llama.yoursite.com"
 
 [plausibleAnalytics]
-  # domain = "blog.yoursite.com"
-  # event = ""
-  # script = ""
+# domain = "blog.yoursite.com"
+# event = ""
+# script = ""
 
 [verification]
-  # google = ""
-  # bing = ""
-  # pinterest = ""
-  # yandex = ""
+# google = ""
+# bing = ""
+# pinterest = ""
+# yandex = ""

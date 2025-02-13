@@ -6,7 +6,7 @@ baseURL = "https://dol-lyra.github.io/hub/"
 #defaultContentLanguage = "en"
 
 enableRobotsTXT = true
-pagination.pagerSize = 5
+pagination.pagerSize = 10
 summaryLength = 0
 
 languageCode = "zh-cn"
