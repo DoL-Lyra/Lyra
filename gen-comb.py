@@ -28,7 +28,7 @@ recommend_dec = [5, 37, 132, 516]
 polyfill_comb = "polyfill_7"
 
 baseurl_github = "https://github.com/DoL-Lyra/Lyra/releases/download/"
-baseurl_ghproxy = f"https://mirror.ghproxy.com/{baseurl_github}"
+baseurl_ghproxy = f"https://ghfast.top/{baseurl_github}"
 # pair_path = str(sys.argv[1])
 pair_path = "pairs"
 release_tag = str(sys.argv[1])
