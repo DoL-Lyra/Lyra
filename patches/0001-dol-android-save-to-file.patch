@@ -1,0 +1,58 @@
+diff --git a/index.html b/index.html
+index 6631a1a..c8d2439 100644
+--- a/index.html	
++++ b/index.html	
+@@ -3,6 +3,8 @@
+ <head>
+ <meta charset="UTF-8" />
+ <title>Degrees of Lewdity</title>
++<script src="cordova.js" type="text/javascript"></script>
++<script src="custom_cordova_additions.js" type="text/javascript"></script>
+ <meta name="viewport" content="width=device-width,initial-scale=1" />
+ <!--
+ 
+@@ -34956,7 +34958,7 @@ const Utils = (() => {
+ 		}
+ 		const saveName = `${Story.domId}-${getDatestamp()}.save`;
+ 		const encodedObj = LZString.compressToBase64(JSON.stringify(saveObj));
+-		saveAs(
++		cordova.plugins.saveDialog.saveFile(
+ 			new Blob([encodedObj], {
+ 				type: "text/plain;charset=UTF-8",
+ 			}),
+@@ -65555,7 +65557,7 @@ var IronMan = (Save => {
+ 		const saveName = data.metadata.saveName;
+ 		const exportName = `${data.id}-${saveName === "" ? saveId : saveName}-${getDatestamp()}.save`;
+ 		const saveObj = LZString.compressToBase64(JSON.stringify(data));
+-		saveAs(new Blob([saveObj], { type: "text/plain;charset=UTF-8" }), exportName);
++		cordova.plugins.saveDialog.saveFile(new Blob([saveObj], { type: "text/plain;charset=UTF-8" }), exportName);
+ 	}
+ 
+ 	/**
+@@ -65618,7 +65620,7 @@ var IronMan = (Save => {
+ 		const saveName = saveData.metadata.saveName;
+ 		const exportName = `${saveData.id}-${saveName === "" ? saveId : saveName}-${getDatestamp()}.save`;
+ 		const saveObj = LZString.compressToBase64(JSON.stringify(saveData));
+-		saveAs(new Blob([saveObj], { type: "text/plain;charset=UTF-8" }), exportName);
++		cordova.plugins.saveDialog.saveFile(new Blob([saveObj], { type: "text/plain;charset=UTF-8" }), exportName);
+ 	}
+ 
+ 	const clickCount = {
+@@ -68226,7 +68228,7 @@ function exportSettings(data, type) {
+ 		textArea.value = result;
+ 	} else if (type === "file") {
+ 		const blob = new Blob([result], { type: "text/plain;charset=utf-8" });
+-		saveAs(blob, "DolSettingsExport.txt");
++		cordova.plugins.saveDialog.saveFile(blob, "DolSettingsExport.txt");
+ 	}
+ }
+ window.exportSettings = exportSettings;
+@@ -726733,7 +726735,7 @@ var Save = (() => { // eslint-disable-line no-unused-vars, no-var
+ 		const supplemental = metadata == null ? {} : { metadata }; // lazy equality for null
+ 		const data         = LZString.compressToBase64(JSON.stringify(_marshal(supplemental, { type : Type.Disk })));
+ 		const saveObj      = data + LZString.compressToBase64(JSON.stringify({ [Story.domId] : data.length }));
+-		saveAs(new Blob([saveObj], { type : 'text/plain;charset=UTF-8' }), saveName);
++		cordova.plugins.saveDialog.saveFile(new Blob([saveObj], { type : 'text/plain;charset=UTF-8' }), saveName);
+ 	}
+ 
+ 	function importFromDisk(event) {

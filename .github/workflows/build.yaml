@@ -60,6 +60,12 @@ jobs:
             cp -r "modify_tmp/zip/img" "modify_tmp/apk/assets/www/"
             # 将zip的html覆盖到apk中
             cp "modify_tmp/zip/Degrees of Lewdity.html" "modify_tmp/apk/assets/www/index.html"
+
+            # patch apk
+            pushd modify_tmp/apk/assets/www
+            patch < ${{ github.workspace }}/patches/0001-dol-android-save-to-file.patch
+            popd
+
             # 打包
             # zip
             pushd modify_tmp/zip
