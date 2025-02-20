@@ -98,6 +98,10 @@ fun_apk() {
   sed -i 's/"com.vrelnir.dol"/"com.vrelnir.dol.lyra"/g' $EXTRACT_DIR/AndroidManifest.xml
   sed -i 's/"com.vrelnir.dol_debug"/"com.vrelnir.dol.lyra"/g' $EXTRACT_DIR/AndroidManifest.xml
 
+  # 修改 provider
+  sed -i 's/"com.vrelnir.dol.androidx-startup"/"com.vrelnir.dol.lyra.androidx-startup"/g' $EXTRACT_DIR/AndroidManifest.xml
+  sed -i 's/"com.vrelnir.dol_debug.androidx-startup"/"com.vrelnir.dol.lyra.androidx-startup"/g' $EXTRACT_DIR/AndroidManifest.xml
+
   # 修改应用名
   sed -i 's/DoL/DoL Lyra/g' $EXTRACT_DIR/res/values/strings.xml
   sed -i 's/Degrees of Lewdity/DoL Lyra/g' $EXTRACT_DIR/res/values/strings.xml
