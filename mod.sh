@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 #[
 #     "GOOSE",  512
 #     "UCB",    256
