@@ -2,10 +2,25 @@ from pytablewriter import MarkdownTableWriter
 import sys
 import os
 import datetime
+import argparse
 
 
 class Config:
     def __init__(self):
+        # 解析命令行参数
+        parser = argparse.ArgumentParser(description="生成整合包下载页面")
+        parser.add_argument(
+            "--draft",
+            action="store_true",
+            help="草稿模式，可以不需要release_tag和pairs目录",
+        )
+        parser.add_argument("release_tag", nargs="?", help="发布标签")
+
+        args = parser.parse_args()
+
+        self.draft_mode = args.draft
+        self.release_tag = args.release_tag if args.release_tag else ""
+
         # 功能定义
         self.functions = [
             "GOOSE",
@@ -32,17 +47,28 @@ class Config:
         self.baseurl_github = "https://github.com/DoL-Lyra/Lyra/releases/download/"
         self.baseurl_ghproxy = f"https://ghfast.top/{self.baseurl_github}"
         self.pair_path = "pairs"
-        self.release_tag = str(sys.argv[1]) if len(sys.argv) > 1 else ""
 
+        # 创建输出目录
         self.md_path = "content/posts/downloads"
         if not os.path.exists(self.md_path):
             os.mkdir(self.md_path)
 
-        self.release_fontmatter = f"""+++
+        # 生成frontmatter，草稿模式下添加draft=true
+        if not self.draft_mode:
+            self.release_fontmatter = f"""+++
 title = '{self.release_tag}'
 date = {datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%S+00:00")}
 slug = 'downloads/{self.release_tag}'
 showTableOfContents = false
++++
+"""
+        else:
+            self.release_fontmatter = f"""+++
+title = 'Draft'
+date = {datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%S+00:00")}
+slug = 'downloads/draft'
+showTableOfContents = false
+draft = true
 +++
 """
 
@@ -207,11 +233,14 @@ def gencomb(config):
 
     # 打印组合十进制数组
     print(sorted([f.decimal for f in combinations]))
-    
+
     return combinations
 
 
 def link_builder(filename, config):
+    if not filename:
+        return "暂无下载"
+
     link_github = config.baseurl_github + config.release_tag + "/" + filename
     link_ghproxy = config.baseurl_ghproxy + config.release_tag + "/" + filename
     str = f"[Github下载]({link_github}) / [备链]({link_ghproxy})"
@@ -219,38 +248,64 @@ def link_builder(filename, config):
 
 
 def gentable(combinations, config):
-
-    if not os.path.exists(config.pair_path):
-        print(f"Pair path {config.pair_path} does not exist. Skipping gentable function.")
-        return
-
     table_matrix = []
 
-    # 添加 polyfill
-    fzip = open(f"{config.pair_path}/zip_{config.polyfill_comb}")
-    linezip = fzip.readline()
-    fzip.close()
+    # 检查 pair_path 目录是否存在
+    pairs_exist = os.path.exists(config.pair_path)
+    if not pairs_exist:
+        print(f"警告: Pair 路径 {config.pair_path} 不存在. 将使用空值替代.")
 
-    fapk = open(f"{config.pair_path}/apk_{config.polyfill_comb}")
-    lineapk = fapk.readline()
-    fapk.close()
+    # 添加 polyfill
+    if pairs_exist:
+        try:
+            fzip = open(f"{config.pair_path}/zip_{config.polyfill_comb}")
+            linezip = fzip.readline().strip()
+            fzip.close()
+
+            fapk = open(f"{config.pair_path}/apk_{config.polyfill_comb}")
+            lineapk = fapk.readline().strip()
+            fapk.close()
+        except Exception as e:
+            print(f"读取 polyfill 文件时出错: {e}")
+            linezip = ""
+            lineapk = ""
+    else:
+        linezip = ""
+        lineapk = ""
 
     table_matrix.append(
-        ["BESC+CSD(兼容版)", link_builder(linezip, config), link_builder(lineapk, config)]
+        [
+            "BESC+CSD(兼容版)",
+            link_builder(linezip, config),
+            link_builder(lineapk, config),
+        ]
     )
     # 添加 polyfill 结束
 
     for comb in combinations:
-        fzip = open(f"{config.pair_path}/zip_{comb.decimal}")
-        linezip = fzip.readline()
-        fzip.close()
+        if pairs_exist:
+            try:
+                fzip = open(f"{config.pair_path}/zip_{comb.decimal}")
+                linezip = fzip.readline().strip()
+                fzip.close()
 
-        fapk = open(f"{config.pair_path}/apk_{comb.decimal}")
-        lineapk = fapk.readline()
-        fapk.close()
+                fapk = open(f"{config.pair_path}/apk_{comb.decimal}")
+                lineapk = fapk.readline().strip()
+                fapk.close()
+            except Exception as e:
+                print(f"读取文件时出错 decimal={comb.decimal}: {e}")
+                linezip = ""
+                lineapk = ""
+        else:
+            linezip = ""
+            lineapk = ""
 
         table_matrix.append(
-            [comb.functions, link_builder(linezip, config), link_builder(lineapk, config)]
+            [
+                comb.functions,
+                link_builder(linezip, config),
+                link_builder(lineapk, config),
+            ]
         )
 
     writer = MarkdownTableWriter(
@@ -259,7 +314,12 @@ def gentable(combinations, config):
         value_matrix=table_matrix,
     )
 
-    md_path_now = config.md_path + "/" + config.release_tag + ".md"
+    md_path_now = (
+        config.md_path
+        + "/"
+        + (config.release_tag if config.release_tag else "draft")
+        + ".md"
+    )
     f = open(md_path_now, "w")
     f.write(config.release_fontmatter)
     f.write(config.release_prepend)
@@ -270,6 +330,22 @@ def gentable(combinations, config):
 
 def main():
     config = Config()
+
+    # 在非草稿模式下，验证必要条件
+    if not config.draft_mode:
+        if not config.release_tag:
+            print("错误: 非草稿模式下必须提供 release_tag 参数")
+            sys.exit(1)
+
+        if not os.path.exists(config.pair_path):
+            print(f"错误: 非草稿模式下 {config.pair_path} 目录必须存在")
+            sys.exit(1)
+
+    # 在草稿模式下，如果没有release_tag，使用draft作为标记
+    if not config.release_tag:
+        config.release_tag = "draft"
+        print(f"注意: 使用 '{config.release_tag}' 作为发布标签")
+
     combinations = gencomb(config)
     gentable(combinations, config)
 
