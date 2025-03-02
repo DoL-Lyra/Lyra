@@ -3,49 +3,50 @@ import sys
 import os
 import datetime
 
-# 功能定义
-functions = [
-    "GOOSE",
-    "UCB",
-    "SUSATO",
-    "WAX",
-    "HIKARI",
-    "KR特写",
-    "BJ特写",
-    "CSD",
-    "作弊",
-    "BESC",
-]
 
-# 暂时移除： 二进制:   10001000, 十进制: 136, 功能: ***CSD+SUSATO(推荐)***, 推荐： 1
-# 白名单
-add_dec = [5, 37, 132, 516, 774]
-# 黑名单
-skip_dec = [128, 512]
-# 推荐
-recommend_dec = [5, 37, 132, 516]
-# polyfill
-polyfill_comb = "polyfill_7"
+class Config:
+    def __init__(self):
+        # 功能定义
+        self.functions = [
+            "GOOSE",
+            "UCB",
+            "SUSATO",
+            "WAX",
+            "HIKARI",
+            "KR特写",
+            "BJ特写",
+            "CSD",
+            "作弊",
+            "BESC",
+        ]
 
-baseurl_github = "https://github.com/DoL-Lyra/Lyra/releases/download/"
-baseurl_ghproxy = f"https://ghfast.top/{baseurl_github}"
-# pair_path = str(sys.argv[1])
-pair_path = "pairs"
-release_tag = str(sys.argv[1])
+        # 白名单
+        self.add_dec = [5, 37, 132, 516, 774]
+        # 黑名单
+        self.skip_dec = [128, 512]
+        # 推荐
+        self.recommend_dec = [5, 37, 132, 516]
+        # polyfill
+        self.polyfill_comb = "polyfill_7"
 
-md_path = "content/posts/downloads"
-if not os.path.exists(md_path):
-    os.mkdir(md_path)
+        self.baseurl_github = "https://github.com/DoL-Lyra/Lyra/releases/download/"
+        self.baseurl_ghproxy = f"https://ghfast.top/{self.baseurl_github}"
+        self.pair_path = "pairs"
+        self.release_tag = str(sys.argv[1]) if len(sys.argv) > 1 else ""
 
-release_fontmatter = f"""+++
-title = '{release_tag}'
+        self.md_path = "content/posts/downloads"
+        if not os.path.exists(self.md_path):
+            os.mkdir(self.md_path)
+
+        self.release_fontmatter = f"""+++
+title = '{self.release_tag}'
 date = {datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%S+00:00")}
-slug = 'downloads/{release_tag}'
+slug = 'downloads/{self.release_tag}'
 showTableOfContents = false
 +++
 """
 
-release_prepend = """
+        self.release_prepend = """
 {{< alert >}}
 ⚠永远记得在升级之前备份你的存档⚠
 {{< /alert >}}
@@ -77,12 +78,6 @@ BJ 及 KR 暂未适配新版
 ## 下载
 """
 
-# release_fontmatter_latest = f"""
-# +++
-# title = '{release_tag}'
-# +++
-# """
-
 
 class combination:
     binary = 0
@@ -98,19 +93,12 @@ class combination:
         return self.decimal < other.decimal
 
 
-combinations = []
+def gencomb(config):
+    combinations = []
 
+    BINARY_FORMAT = f"{len(config.functions):02}b"
 
-def gencomb():
-    global functions
-    global combinations
-    global add_dec
-    global skip_dec
-    global recommend_dec
-
-    BINARY_FORMAT = f"{len(functions):02}b"
-
-    for i in range(2 ** len(functions)):
+    for i in range(2 ** len(config.functions)):
         binary = format(i, BINARY_FORMAT)  # 用8位二进制表示
         decimal = i
 
@@ -174,39 +162,35 @@ def gencomb():
         if should_skip_mutex(10, 8):
             continue
 
-        # combinations.append((binary, decimal))
         combinations.append(combination(binary, decimal))
 
     # 白名单
-    for dec in add_dec:
+    for dec in config.add_dec:
         binary = format(dec, BINARY_FORMAT)
         # combinations.append((binary, dec))
         combinations.append(combination(binary, dec))
         combinations.sort()
     # 黑名单
-    combs_tmp = [x for x in combinations if x.decimal not in skip_dec]
-    combinations = combs_tmp
+    combinations = [x for x in combinations if x.decimal not in config.skip_dec]
 
-    # 功能组合
-    # for binary, decimal in combinations:
-    for i, comb in enumerate(combinations):
+    combinations.sort(key=lambda x: x.recommend, reverse=True)
+
+    # 打印所有组合
+    for comb in combinations:
         decimal = comb.decimal
         binary = comb.binary
 
         funcs = ""
         for j in range(len(binary) - 1, -1, -1):
-            # 跳过BES如果BESC存在
-            # if j == len(binary) - 1 and binary[j - 1] == "1":
-            #     continue
             if binary[j] == "1":
-                funcs = funcs + functions[j] + "+"
+                funcs = funcs + config.functions[j] + "+"
         funcs = funcs.strip("+")
         # 推荐
-        if comb.decimal in recommend_dec:
-            combinations[i].functions = f"***{funcs}(推荐)***"
-            combinations[i].recommend = 1
+        if comb.decimal in config.recommend_dec:
+            comb.functions = f"***{funcs}(推荐)***"
+            comb.recommend = 1
         else:
-            combinations[i].functions = funcs
+            comb.functions = funcs
 
     # 重排序组合，推荐放至最前
     combinations.sort(key=lambda x: x.recommend, reverse=True)
@@ -218,56 +202,55 @@ def gencomb():
         functions = comb.functions
         recommend = comb.recommend
         print(
-            f"二进制: {binary}, 十进制: {decimal}, 功能: {functions}, 推荐： {recommend}"
+            f"二进制: {binary}, 十进制: {decimal:3d}, 功能: {functions}, 推荐： {recommend}"
         )
 
     # 打印组合十进制数组
-
     print(sorted([f.decimal for f in combinations]))
+    
+    return combinations
 
 
-def gentable():
-    global combinations
-    global pair_path
-    global release_fontmatter
-    global release_fontmatter_latest
-    global polyfill_comb
+def link_builder(filename, config):
+    link_github = config.baseurl_github + config.release_tag + "/" + filename
+    link_ghproxy = config.baseurl_ghproxy + config.release_tag + "/" + filename
+    str = f"[Github下载]({link_github}) / [备链]({link_ghproxy})"
+    return str
 
-    class comb_table:
-        functions = ""
-        decimal = 0
 
-        def __init__(self, functions, decimal):
-            self.functions = functions
-            self.decimal = decimal
+def gentable(combinations, config):
+
+    if not os.path.exists(config.pair_path):
+        print(f"Pair path {config.pair_path} does not exist. Skipping gentable function.")
+        return
 
     table_matrix = []
 
     # 添加 polyfill
-    fzip = open(f"{pair_path}/zip_{polyfill_comb}")
+    fzip = open(f"{config.pair_path}/zip_{config.polyfill_comb}")
     linezip = fzip.readline()
     fzip.close()
 
-    fapk = open(f"{pair_path}/apk_{polyfill_comb}")
+    fapk = open(f"{config.pair_path}/apk_{config.polyfill_comb}")
     lineapk = fapk.readline()
     fapk.close()
 
     table_matrix.append(
-        ["BESC+CSD(兼容版)", link_builder(linezip), link_builder(lineapk)]
+        ["BESC+CSD(兼容版)", link_builder(linezip, config), link_builder(lineapk, config)]
     )
     # 添加 polyfill 结束
 
     for comb in combinations:
-        fzip = open(f"{pair_path}/zip_{comb.decimal}")
+        fzip = open(f"{config.pair_path}/zip_{comb.decimal}")
         linezip = fzip.readline()
         fzip.close()
 
-        fapk = open(f"{pair_path}/apk_{comb.decimal}")
+        fapk = open(f"{config.pair_path}/apk_{comb.decimal}")
         lineapk = fapk.readline()
         fapk.close()
 
         table_matrix.append(
-            [comb.functions, link_builder(linezip), link_builder(lineapk)]
+            [comb.functions, link_builder(linezip, config), link_builder(lineapk, config)]
         )
 
     writer = MarkdownTableWriter(
@@ -276,32 +259,20 @@ def gentable():
         value_matrix=table_matrix,
     )
 
-    md_path_now = md_path + "/" + release_tag + ".md"
+    md_path_now = config.md_path + "/" + config.release_tag + ".md"
     f = open(md_path_now, "w")
-    f.write(release_fontmatter)
-    f.write(release_prepend)
+    f.write(config.release_fontmatter)
+    f.write(config.release_prepend)
     f.write("\n")
     f.write(writer.dumps())
     f.close()
 
-    # md_path_latest = md_path + "/" + "latest.md"
-    # f = open(md_path_latest, "w")
-    # f.write(release_fontmatter_latest)
-    # f.write("\n")
-    # f.write(writer.dumps())
-    # f.close()
 
-
-def link_builder(filename):
-    global baseurl_github
-    global baseurl_ghproxy
-    global release_tag
-    link_github = baseurl_github + release_tag + "/" + filename
-    link_ghproxy = baseurl_ghproxy + release_tag + "/" + filename
-    str = f"[Github下载]({link_github}) / [备链]({link_ghproxy})"
-    return str
+def main():
+    config = Config()
+    combinations = gencomb(config)
+    gentable(combinations, config)
 
 
 if __name__ == "__main__":
-    gencomb()
-    gentable()
+    main()
