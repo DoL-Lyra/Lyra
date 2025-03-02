@@ -185,12 +185,13 @@ jobs:
             content=$(cat "$pair")
             echo "$filename,$content" >>"pairs.csv"
           done
+          tar -czf pairs.tar.gz pairs/* pairs.csv
 
-      - name: Upload pairs
+      - name: Upload pairs archive
         uses: actions/upload-artifact@v4
         with:
-          name: pairs
-          path: pairs.csv
+          name: pairs-archive
+          path: pairs.tar.gz
 
   release:
     runs-on: ubuntu-latest
