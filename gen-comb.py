@@ -104,6 +104,19 @@ BJ 及 KR 暂未适配新版
 ## 下载
 """
 
+        self.md_append = """
+<details>
+
+<summary>组合对照</summary>
+
+```
+{}
+```
+
+</details>
+
+"""
+
 
 class combination:
     binary = 0
@@ -117,6 +130,20 @@ class combination:
 
     def __lt__(self, other):
         return self.decimal < other.decimal
+
+
+def combs_tostring(combinations: list[combination]):
+    result = ""
+    # 打印所有组合
+    for comb in combinations:
+        decimal = comb.decimal
+        binary = comb.binary
+        functions = comb.functions
+        recommend = comb.recommend
+        result += f"二进制: {binary}, 十进制: {decimal:3d}, 功能: {functions}, 推荐： {recommend}\n"
+    # 打印组合十进制数组
+    result += str(sorted([f.decimal for f in combinations]))
+    return result
 
 
 def gencomb(config):
@@ -222,17 +249,7 @@ def gencomb(config):
     combinations.sort(key=lambda x: x.recommend, reverse=True)
 
     # 打印所有组合
-    for comb in combinations:
-        decimal = comb.decimal
-        binary = comb.binary
-        functions = comb.functions
-        recommend = comb.recommend
-        print(
-            f"二进制: {binary}, 十进制: {decimal:3d}, 功能: {functions}, 推荐： {recommend}"
-        )
-
-    # 打印组合十进制数组
-    print(sorted([f.decimal for f in combinations]))
+    print(combs_tostring(combinations))
 
     return combinations
 
@@ -314,6 +331,9 @@ def gentable(combinations, config):
         value_matrix=table_matrix,
     )
 
+    # combs
+    combs_str = config.md_append.format(combs_tostring(combinations))
+
     md_path_now = (
         config.md_path
         + "/"
@@ -325,6 +345,8 @@ def gentable(combinations, config):
     f.write(config.release_prepend)
     f.write("\n")
     f.write(writer.dumps())
+    f.write("\n")
+    f.write(combs_str)
     f.close()
 
 
