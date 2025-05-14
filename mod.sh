@@ -235,7 +235,7 @@ fun_besc() {
   popd || exit
 
   #HACK: Case isssue from kaervek
-  mv "$BEAUTIFY_DIR/img/hair/sides/messy ponytail/Shoulder.png" "$BEAUTIFY_DIR/img/hair/sides/messy ponytail/shoulder.png"
+  mv "$BEAUTIFY_DIR/img/hair/sides/messy ponytail/Shoulder.png" "$BEAUTIFY_DIR/img/hair/sides/messy ponytail/shoulder.png" || true
 
   cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
 }
@@ -285,8 +285,8 @@ fun_sideview_hikari() {
   popd || exit
 
   #HACK: Case isssue from b3s_hikfem
-  rm -r "$BEAUTIFY_DIR/img/hair/fringe/Messy curls"
-  rm "$BEAUTIFY_DIR/img/clothes/face/foxmask/Full.png"
+  rm -f -r "$BEAUTIFY_DIR/img/hair/fringe/Messy curls"
+  rm -f "$BEAUTIFY_DIR/img/clothes/face/foxmask/Full.png"
 
   cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
 }
@@ -307,13 +307,6 @@ fun_sideview_goose() {
     tar xf dolp-tmp.tar.gz --strip-components 3 --directory=img
     rm dolp-tmp.tar.gz
 
-  done
-  popd || exit
-
-  #HACK: Case isssue from goosefemsubs
-  pushd "$BEAUTIFY_DIR/img/clothes/lower/openshoulderlolitaclassic" || exit
-  for file in ./*.PNG; do
-    mv "$file" "${file%.PNG}.png"
   done
   popd || exit
 
@@ -343,9 +336,8 @@ fun_ucb() {
   popd || exit
 
   #HACK: Case isssue from mysterious
-  mv "$BEAUTIFY_DIR/img/sex/close/chest/NPC" "$BEAUTIFY_DIR/img/sex/close/chest/npc"
-  rm "$BEAUTIFY_DIR/img/sex/missionary/active/virginkiller/chest.png"
-  rm "$BEAUTIFY_DIR/img/sex/missionary/active/virginkiller/waist.png"
+  rm -f "$BEAUTIFY_DIR/img/sex/missionary/active/virginkiller/chest.png"
+  rm -f "$BEAUTIFY_DIR/img/sex/missionary/active/virginkiller/waist.png"
 
   cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
 }
