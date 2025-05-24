@@ -235,6 +235,8 @@ fun_besc() {
   popd || exit
 
   #HACK: Case isssue from kaervek
+  mv "$BEAUTIFY_DIR/img/hair/fringe/Messy curls/*" "$BEAUTIFY_DIR/img/hair/fringe/messy curls/" || true
+  rm -f "$BEAUTIFY_DIR/img/hair/fringe/Messy curls"
   mv "$BEAUTIFY_DIR/img/hair/sides/messy ponytail/Shoulder.png" "$BEAUTIFY_DIR/img/hair/sides/messy ponytail/shoulder.png" || true
 
   cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
