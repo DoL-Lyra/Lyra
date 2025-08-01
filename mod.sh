@@ -3,6 +3,7 @@
 set -e
 
 #[
+#     "AU",     1024
 #     "GOOSE",  512
 #     "UCB",    256
 #     "SUSATO", 128
@@ -40,6 +41,7 @@ URL_APKSIGN=https://github.com/patrickfav/uber-apk-signer/releases/download/v1.3
 # URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/double-cheeseburger/-/raw/master/Paril_BJ_BEEESSS_Addon.rar
 # URL_UCB=https://github.com/site098/mysterious/releases/download/%E9%A2%84%E5%8F%91%E5%B8%83/default.zip
 URL_DOLP_BASE="https://gitgud.io/Frostberg/degrees-of-lewdity-plus/-/archive/master/degrees-of-lewdity-plus-master.tar.gz?path=imagepacks"
+URL_AU=https://github.com/DoL-Lyra/assets/releases/download/assets/AU3.0.imgpack_v0.4.0.zip
 
 EXTRACT_DIR=extract # 解压目录
 OUTPUT_DIR=output   # 输出目录
@@ -177,6 +179,12 @@ fun_check_code() {
     OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-goose
     echo 512-Complete patch sideview type goose!
   fi
+  if [ $((MOD_CODE & 1024)) -ne 0 ]; then
+    echo 1024-Start patch sideview type AU...
+    fun_sideview_au
+    OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-au
+    echo 1024-Complete patch sideview type AU!
+  fi
   if [ $((MOD_CODE & 256)) -ne 0 ]; then
     echo 256-Start patch Universal Combat Beautification...
     fun_ucb
@@ -310,6 +318,22 @@ fun_sideview_goose() {
     rm dolp-tmp.tar.gz
 
   done
+  popd || exit
+
+  cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
+}
+
+# AU 特写
+fun_sideview_au() {
+  BEAUTIFY_DIR="sideview_au"
+  mkdir -p $BEAUTIFY_DIR/img
+
+  pushd $BEAUTIFY_DIR || exit
+
+  wget -q -O au.zip "$URL_AU"
+  unzip -q au.zip
+  rm au.zip
+
   popd || exit
 
   cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
