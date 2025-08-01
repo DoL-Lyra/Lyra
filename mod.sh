@@ -326,7 +326,7 @@ fun_sideview_goose() {
 # AU 特写
 fun_sideview_au() {
   BEAUTIFY_DIR="sideview_au"
-  mkdir -p $BEAUTIFY_DIR/img
+  mkdir -p $BEAUTIFY_DIR
 
   pushd $BEAUTIFY_DIR || exit
 
@@ -336,7 +336,7 @@ fun_sideview_au() {
 
   popd || exit
 
-  cp -r $BEAUTIFY_DIR/img/* $IMG_PATH/
+  cp -r $BEAUTIFY_DIR/* $IMG_PATH/
 }
 
 # UCB
