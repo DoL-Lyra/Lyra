@@ -32,7 +32,7 @@ IS_POLYFILL=0
 
 # 资源地址
 # 工具
-URL_APKTOOL=https://github.com/iBotPeaches/Apktool/releases/download/v2.10.0/apktool_2.10.0.jar
+URL_APKTOOL=https://github.com/iBotPeaches/Apktool/releases/download/v2.12.0/apktool_2.12.0.jar
 URL_APKSIGN=https://github.com/patrickfav/uber-apk-signer/releases/download/v1.3.0/uber-apk-signer-1.3.0.jar
 # 资源
 # URL_BES=https://gitgud.io/BEEESSS/degrees-of-lewdity-graphics-mod/-/raw/master/img.zip
