@@ -24,7 +24,7 @@ jobs:
           java-version: "17"
       # 下载焊入html的i18n
       - name: Download game files (zip)
-        uses: robinraju/release-downloader@v1.11
+        uses: robinraju/release-downloader@v1.12
         with:
           repository: "DoL-Lyra/DoLModLoaderBuild"
           latest: true
@@ -32,7 +32,7 @@ jobs:
 
       # 下载汉化仓库的apk
       - name: Download game files (apk)
-        uses: robinraju/release-downloader@v1.11
+        uses: robinraju/release-downloader@v1.12
         with:
           repository: "Eltirosto/Degrees-of-Lewdity-Chinese-Localization"
           latest: true
@@ -42,7 +42,7 @@ jobs:
       - name: Modify ZIP&APK
         run: |
           # Download apktool
-          URL_APKTOOL=https://github.com/iBotPeaches/Apktool/releases/download/v2.10.0/apktool_2.10.0.jar
+          URL_APKTOOL=https://github.com/iBotPeaches/Apktool/releases/download/v2.12.0/apktool_2.12.0.jar
           wget -q -nc -O apktool.jar $URL_APKTOOL
           APKTOOL=$(realpath apktool.jar)
 
