@@ -30,13 +30,13 @@ jobs:
 
       - id: getRelease
         name: release-downloader
-        uses: robinraju/release-downloader@v1.11
+        uses: robinraju/release-downloader@v1.12
         with:
           latest: true
           fileName: "DoL-*-Lyra-*-besc-cheat-csd-*.zip"
       - id: getRelease-polyfill
         name: release-downloader
-        uses: robinraju/release-downloader@v1.11
+        uses: robinraju/release-downloader@v1.12
         with:
           latest: true
           fileName: "DoL-*-Lyra-*-polyfill-besc-cheat-csd-*.zip"
