@@ -31,6 +31,12 @@ BES 社区补充包，社区美化的集合，基于 BES 并修正了部分 BES 
 
 ![预览](readme-goose.webp)
 
+### AU 特写
+
+[AOKIUTAGE/UTAGEsDOL3.0][au]
+
+![预览](readme-au.webp)
+
 ### 通用战斗美化 (UCB)
 
 [Universal Combat Beautification][ucb-github]
@@ -121,3 +127,4 @@ BES 社区补充包，社区美化的集合，基于 BES 并修正了部分 BES 
 [cheat-lyra]: https://github.com/DoL-Lyra/Cheat
 [hikari]: https://gitgud.io/HikariT/hikari-mods
 [goose]: https://gitgud.io/goose/createshit
+[au]: https://github.com/AOKIUTAGE/UTAGEsDOL3.0
