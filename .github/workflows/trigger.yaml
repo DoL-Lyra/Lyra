@@ -3,9 +3,11 @@ name: Trigger
 on:
   workflow_dispatch:
     inputs:
-      skip_DoLModLoaderBuild:
-        description: "yes to skip DoLModLoaderBuild"
-        required: false
+      trigger_DoLModLoaderBuild:
+        description: "true to trigger DoLModLoaderBuild"
+        type: boolean
+        default: true
+        required: true
 
 env:
   GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
@@ -43,7 +45,7 @@ jobs:
 
       - name: Trigger DoL-Lyra/DoLModLoaderBuild/Update-Submodules.yaml
         uses: convictional/trigger-workflow-and-wait@v1.6.5
-        if: env.NEED_UPDATE == 'true' && inputs.skip_DoLModLoaderBuild != 'yes'
+        if: env.NEED_UPDATE == 'true' && inputs.trigger_DoLModLoaderBuild
         with:
           owner: DoL-Lyra
           repo: DoLModLoaderBuild
@@ -53,7 +55,7 @@ jobs:
 
       - name: Trigger DoL-Lyra/DoLModLoaderBuild/Build-Html-Package.yml
         uses: convictional/trigger-workflow-and-wait@v1.6.5
-        if: env.NEED_UPDATE == 'true' && inputs.skip_DoLModLoaderBuild != 'yes'
+        if: env.NEED_UPDATE == 'true' && inputs.trigger_DoLModLoaderBuild
         with:
           owner: DoL-Lyra
           repo: DoLModLoaderBuild
