@@ -31,11 +31,17 @@ BES 社区补充包，社区美化的集合，基于 BES 并修正了部分 BES 
 
 ![预览](readme-goose.webp)
 
-### AU 特写
+### AU 特写 - 女性
 
 [AOKIUTAGE/UTAGEsDOL3.0][au]
 
-![预览](readme-au.webp)
+![预览](readme-au-f.webp)
+
+### AU 特写 - 男性
+
+[AOKIUTAGE/UTAGEsDOL3.0][au]
+
+![预览](readme-au-m.webp)
 
 ### 通用战斗美化 (UCB)
 

@@ -23,7 +23,8 @@ class Config:
 
         # 功能定义
         self.functions = [
-            "AU",
+            "AU-M",
+            "AU-F",
             "GOOSE",
             "UCB",
             "SUSATO",
@@ -39,7 +40,7 @@ class Config:
         # 白名单
         self.add_dec = [5, 37, 132, 516, 774, 1028]
         # 黑名单
-        self.skip_dec = [128, 512, 1024]
+        self.skip_dec = [128, 512, 1024, 2048]
         # 推荐
         self.recommend_dec = [5, 37, 132, 516, 1028]
         # polyfill
@@ -215,14 +216,24 @@ def gencomb(config):
         # AU 与 BESC 互斥
         if should_skip_mutex(11, 1):
             continue
+        if should_skip_mutex(12, 1):
+            continue
         # Susato 与 Goose 互斥
         if should_skip_mutex(8, 10):
             continue
         # Susato 与 AU 互斥
         if should_skip_mutex(8, 11):
             continue
+        # Susato 与 AU 互斥
+        if should_skip_mutex(8, 12):
+            continue
         # AU 与 Goose 互斥
         if should_skip_mutex(11, 10):
+            continue
+        if should_skip_mutex(12, 10):
+            continue
+        # AU-M 与 AU-F 互斥
+        if should_skip_mutex(12, 11):
             continue
 
         combinations.append(combination(binary, decimal))
