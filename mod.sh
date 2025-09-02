@@ -3,7 +3,8 @@
 set -e
 
 #[
-#     "AU",     1024
+#     "AU-M",   2048
+#     "AU-F",   1024
 #     "GOOSE",  512
 #     "UCB",    256
 #     "SUSATO", 128
@@ -41,7 +42,8 @@ URL_APKSIGN=https://github.com/patrickfav/uber-apk-signer/releases/download/v1.3
 # URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/double-cheeseburger/-/raw/master/Paril_BJ_BEEESSS_Addon.rar
 # URL_UCB=https://github.com/site098/mysterious/releases/download/%E9%A2%84%E5%8F%91%E5%B8%83/default.zip
 URL_DOLP_BASE="https://gitgud.io/Frostberg/degrees-of-lewdity-plus/-/archive/master/degrees-of-lewdity-plus-master.tar.gz?path=imagepacks"
-URL_AU=https://github.com/DoL-Lyra/assets/releases/download/assets/AU3.0.imgpack_v0.4.0.zip
+URL_AU_F="https://github.com/DoL-Lyra/assets/releases/download/assets/AUfemale.imgpack_v0.5.5.zip"
+URL_AU_M="https://github.com/DoL-Lyra/assets/releases/download/assets/AUmale.imgpack_v0.2.0.zip"
 
 EXTRACT_DIR=extract # 解压目录
 OUTPUT_DIR=output   # 输出目录
@@ -180,10 +182,16 @@ fun_check_code() {
     echo 512-Complete patch sideview type goose!
   fi
   if [ $((MOD_CODE & 1024)) -ne 0 ]; then
-    echo 1024-Start patch sideview type AU...
-    fun_sideview_au
-    OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-au
-    echo 1024-Complete patch sideview type AU!
+    echo 1024-Start patch sideview type AU-F...
+    fun_sideview_au_f
+    OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-au-f
+    echo 1024-Complete patch sideview type AU-F!
+  fi
+  if [ $((MOD_CODE & 2048)) -ne 0 ]; then
+    echo 2048-Start patch sideview type AU-M...
+    fun_sideview_au_m
+    OUTPUT_SUFFIX=${OUTPUT_SUFFIX}-au-m
+    echo 2048-Complete patch sideview type AU-M!
   fi
   if [ $((MOD_CODE & 256)) -ne 0 ]; then
     echo 256-Start patch Universal Combat Beautification...
@@ -324,13 +332,27 @@ fun_sideview_goose() {
 }
 
 # AU 特写
-fun_sideview_au() {
-  BEAUTIFY_DIR="sideview_au"
+fun_sideview_au_f() {
+  BEAUTIFY_DIR="sideview_au_f"
   mkdir -p $BEAUTIFY_DIR
 
   pushd $BEAUTIFY_DIR || exit
 
-  wget -q -O au.zip "$URL_AU"
+  wget -q -O au.zip "$URL_AU_F"
+  unzip -q au.zip
+  rm au.zip
+
+  popd || exit
+
+  cp -r $BEAUTIFY_DIR/* $IMG_PATH/
+}
+fun_sideview_au_m() {
+  BEAUTIFY_DIR="sideview_au_m"
+  mkdir -p $BEAUTIFY_DIR
+
+  pushd $BEAUTIFY_DIR || exit
+
+  wget -q -O au.zip "$URL_AU_M"
   unzip -q au.zip
   rm au.zip
 
