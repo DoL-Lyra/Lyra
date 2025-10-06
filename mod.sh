@@ -42,8 +42,8 @@ URL_APKSIGN=https://github.com/patrickfav/uber-apk-signer/releases/download/v1.3
 # URL_AVATAR_BJ=https://gitgud.io/GTXMEGADUDE/double-cheeseburger/-/raw/master/Paril_BJ_BEEESSS_Addon.rar
 # URL_UCB=https://github.com/site098/mysterious/releases/download/%E9%A2%84%E5%8F%91%E5%B8%83/default.zip
 URL_DOLP_BASE="https://gitgud.io/Frostberg/degrees-of-lewdity-plus/-/archive/master/degrees-of-lewdity-plus-master.tar.gz?path=imagepacks"
-URL_AU_F="https://github.com/DoL-Lyra/assets/releases/download/assets/AUfemale.imgpack_v0.5.5.zip"
-URL_AU_M="https://github.com/DoL-Lyra/assets/releases/download/assets/AUmale.imgpack_v0.2.0.zip"
+URL_AU_F="https://github.com/DoL-Lyra/assets/releases/download/assets/AUfemale.imgpack_v0.6.4.zip"
+URL_AU_M="https://github.com/DoL-Lyra/assets/releases/download/assets/AUmale.imgpack_v0.2.4.zip"
 
 EXTRACT_DIR=extract # 解压目录
 OUTPUT_DIR=output   # 输出目录
