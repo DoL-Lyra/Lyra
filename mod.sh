@@ -398,12 +398,12 @@ files_with_polyfill=(DoL*polyfill*.zip)
 
 if [[ ${MOD_CODE} = polyfill-* ]]; then
   echo polyfill-6 Use i18n cheat csd base
-  FILE_NAME=$(${files_with_polyfill[0]})
+  FILE_NAME=${files_with_polyfill[0]}
   IS_POLYFILL=1
   MOD_CODE=$(echo $MOD_CODE | cut -d '-' -f 2)
 else
   echo 6 Use i18n cheat csd base
-  FILE_NAME=$(${files_without_polyfill[0]})
+  FILE_NAME=${files_without_polyfill[0]}
 fi
 
 case "$VERSION" in
