@@ -38,9 +38,9 @@ class Config:
         ]
 
         # 白名单
-        self.add_dec = [774]
+        self.add_dec = [774, 1286, 2310]
         # 黑名单
-        self.skip_dec = [128, 512, 1024, 2048]
+        self.skip_dec = []
         # 推荐
         self.recommend_dec = [7, 39, 518, 1030]
         # polyfill
