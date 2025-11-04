@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -e
-shopt -s extglob
 
 #[
 #     "AU-M",   2048
@@ -393,17 +392,24 @@ fun_ucb() {
 
 # 入口
 
-files_without_polyfill=(DoL*!(*polyfill*).zip)
-files_with_polyfill=(DoL*polyfill*.zip)
-
 if [[ ${MOD_CODE} = polyfill-* ]]; then
   echo polyfill-6 Use i18n cheat csd base
-  FILE_NAME=${files_with_polyfill[0]}
+  # 查找包含 polyfill 的文件
+  FILE_NAME=$(find . -maxdepth 1 -name "DoL*polyfill*.zip" -type f | head -n 1 | sed 's|^\./||')
+  if [ -z "$FILE_NAME" ]; then
+    echo "Error: No polyfill zip file found"
+    exit 1
+  fi
   IS_POLYFILL=1
   MOD_CODE=$(echo $MOD_CODE | cut -d '-' -f 2)
 else
   echo 6 Use i18n cheat csd base
-  FILE_NAME=${files_without_polyfill[0]}
+  # 查找不包含 polyfill 的文件
+  FILE_NAME=$(find . -maxdepth 1 -name "DoL*.zip" -type f ! -name "*polyfill*" | head -n 1 | sed 's|^\./||')
+  if [ -z "$FILE_NAME" ]; then
+    echo "Error: No non-polyfill zip file found"
+    exit 1
+  fi
 fi
 
 case "$VERSION" in
