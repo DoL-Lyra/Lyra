@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+shopt -s extglob
 
 #[
 #     "AU-M",   2048
@@ -391,29 +392,18 @@ fun_ucb() {
 }
 
 # 入口
+
+files_without_polyfill=(DoL*!(*polyfill*).zip)
+files_with_polyfill=(DoL*polyfill*.zip)
+
 if [[ ${MOD_CODE} = polyfill-* ]]; then
-  echo polyfill-6-Use cheat csd base
-  FILE_NAME=$(basename DoL*polyfill-6.$VERSION)
+  echo polyfill-6 Use i18n cheat csd base
+  FILE_NAME=$(${files_with_polyfill[0]})
   IS_POLYFILL=1
   MOD_CODE=$(echo $MOD_CODE | cut -d '-' -f 2)
-elif [ $MOD_CODE -eq 134 ]; then
-  echo 134-Use susato cheat csd
-  FILE_NAME=$(basename DoL*-134.$VERSION)
-elif [ $MOD_CODE -eq 132 ]; then
-  echo 132-Use susato csd
-  FILE_NAME=$(basename DoL*-132.$VERSION)
-elif [ $((MOD_CODE & 6)) -eq 6 ]; then
-  echo 6-Use cheat csd base
-  FILE_NAME=$(basename DoL*[^polyfill]-6.$VERSION)
-elif [ $((MOD_CODE & 4)) -eq 4 ]; then
-  echo 4-Use csd base
-  FILE_NAME=$(basename DoL*-4.$VERSION)
-elif [ $((MOD_CODE & 2)) -eq 2 ]; then
-  echo 2-Use cheat base
-  FILE_NAME=$(basename DoL*-2.$VERSION)
 else
-  echo 0-Use i18n only
-  FILE_NAME=$(basename DoL*-0.$VERSION)
+  echo 6 Use i18n cheat csd base
+  FILE_NAME=$(${files_without_polyfill[0]})
 fi
 
 case "$VERSION" in
