@@ -32,17 +32,17 @@ class Config:
             "HIKARI",
             "KR特写",
             "BJ特写",
-            "CSD",
-            "作弊",
-            "BESC",
+            "CSD", # 3
+            "作弊", # 2
+            "BESC", # 1
         ]
 
         # 白名单
-        self.add_dec = [5, 37, 132, 516, 774, 1028]
+        self.add_dec = [774]
         # 黑名单
         self.skip_dec = [128, 512, 1024, 2048]
         # 推荐
-        self.recommend_dec = [5, 37, 132, 516, 1028]
+        self.recommend_dec = [7, 39, 518, 1030]
         # polyfill
         self.polyfill_comb = "polyfill_7"
 
@@ -94,7 +94,7 @@ draft = true
 {{< /alert >}}
 <br>
 {{< alert >}}
-BJ 及 KR 暂未适配新版
+内置的 `汉化/作弊/CSD` mod 已可以在 ModLoader 处自行选择禁用或者启用，此后将只提供合并版本，不需要特定 mod 的需自行禁用
 {{< /alert >}}
 <br>
 {{< alert >}}
@@ -170,12 +170,15 @@ def gencomb(config):
         # 跳过 0
         if i == 0:
             continue
+        # 2和3必选（作弊和CSD必须存在）
+        if not binary_and(2) or not binary_and(3):
+            continue
         # 跳过 WAX，BJ，KR
         if binary_and(7) or binary_and(5) or binary_and(4):
             continue
         # 跳过 SUSATO
-        # if binary_and(8):
-        #     continue
+        if binary_and(8):
+            continue
         # 添加限制条件：BESC只能在BES应用的同时应用
         # if should_skip_dep(2, 1):
         #     continue
@@ -203,10 +206,10 @@ def gencomb(config):
         if should_skip_mutex(4, 5):
             continue
         # HP作弊异或
-        if (binary_and(2) and not binary_and(3)) or (
-            not binary_and(2) and binary_and(3)
-        ):
-            continue
+        # if (binary_and(2) and not binary_and(3)) or (
+        #     not binary_and(2) and binary_and(3)
+        # ):
+        #     continue
         # Susato 与 BESC 互斥
         if should_skip_mutex(8, 1):
             continue
