@@ -51,7 +51,8 @@ jobs:
           # 解压apk
           java -jar $APKTOOL d *.APK -o modify_tmp/apk
 
-          dol_basename=$(basename DoL*[^polyfill].zip .zip)
+          dol_filename=$(ls -1 DoL*.zip | grep -v "polyfill")
+          dol_basename=$(basename ${dol_filename} .zip)
           unzip -q ${dol_basename}.zip -d modify_tmp/zip
           # 将zip的img覆盖到apk中
           cp -r "modify_tmp/zip/img" "modify_tmp/apk/assets/www/"
@@ -77,7 +78,8 @@ jobs:
 
 
           # polyfill
-          dol_basename=$(basename DoL*polyfill-6.zip .zip)
+          dol_filename=$(ls -1 DoL*.zip | grep "polyfill")
+          dol_basename=$(basename ${dol_filename} .zip)
           unzip -q ${dol_basename}.zip -d modify_tmp/zip
           # 将zip的img覆盖到apk中
           cp -r "modify_tmp/zip/img" "modify_tmp/apk/assets/www/"
