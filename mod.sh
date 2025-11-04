@@ -392,12 +392,14 @@ fun_ucb() {
 
 # 入口
 
+ls -la
+
 if [[ ${MOD_CODE} = polyfill-* ]]; then
   echo polyfill-6 Use i18n cheat csd base
   # 查找包含 polyfill 的文件
-  FILE_NAME=$(find . -maxdepth 1 -name "DoL*polyfill*.zip" -type f | head -n 1 | sed 's|^\./||')
+  FILE_NAME=$(find . -maxdepth 1 -name "DoL*polyfill*.*" -type f | head -n 1 | sed 's|^\./||')
   if [ -z "$FILE_NAME" ]; then
-    echo "Error: No polyfill zip file found"
+    echo "Error: No polyfill file found"
     exit 1
   fi
   IS_POLYFILL=1
@@ -405,9 +407,9 @@ if [[ ${MOD_CODE} = polyfill-* ]]; then
 else
   echo 6 Use i18n cheat csd base
   # 查找不包含 polyfill 的文件
-  FILE_NAME=$(find . -maxdepth 1 -name "DoL*.zip" -type f ! -name "*polyfill*" | head -n 1 | sed 's|^\./||')
+  FILE_NAME=$(find . -maxdepth 1 -name "DoL*.*" -type f ! -name "*polyfill*" | head -n 1 | sed 's|^\./||')
   if [ -z "$FILE_NAME" ]; then
-    echo "Error: No non-polyfill zip file found"
+    echo "Error: No non-polyfill file found"
     exit 1
   fi
 fi
