@@ -114,7 +114,7 @@ jobs:
       fail-fast: true
       matrix:
         pack: [zip, apk]
-        code: [6, 7, 39, 263, 295, 518, 774, 1030, 2054, polyfill-7]
+        code: [6, 7, 39, 263, 295, 518, 774, 1030, 1286, 2054, 2310, polyfill-7]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
