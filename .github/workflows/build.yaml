@@ -62,6 +62,7 @@ jobs:
           # patch apk
           pushd modify_tmp/apk/assets/www
           patch < ${{ github.workspace }}/patches/0001-dol-android-save-to-file.patch
+          rm -f index.html.orig
           popd
 
           # 打包

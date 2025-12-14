@@ -11,7 +11,7 @@ index 6631a1a..c8d2439 100644
  <meta name="viewport" content="width=device-width,initial-scale=1" />
  <!--
  
-@@ -34956,7 +34958,7 @@ const Utils = (() => {
+@@ -35652,7 +35654,7 @@ const Utils = (() => {
  		}
  		const saveName = `${Story.domId}-${getDatestamp()}.save`;
  		const encodedObj = LZString.compressToBase64(JSON.stringify(saveObj));
@@ -20,7 +20,7 @@ index 6631a1a..c8d2439 100644
  			new Blob([encodedObj], {
  				type: "text/plain;charset=UTF-8",
  			}),
-@@ -65555,7 +65557,7 @@ var IronMan = (Save => {
+@@ -67744,7 +67746,7 @@ var IronMan = (Save => {
  		const saveName = data.metadata.saveName;
  		const exportName = `${data.id}-${saveName === "" ? saveId : saveName}-${getDatestamp()}.save`;
  		const saveObj = LZString.compressToBase64(JSON.stringify(data));
@@ -29,7 +29,7 @@ index 6631a1a..c8d2439 100644
  	}
  
  	/**
-@@ -65618,7 +65620,7 @@ var IronMan = (Save => {
+@@ -67807,7 +67809,7 @@ var IronMan = (Save => {
  		const saveName = saveData.metadata.saveName;
  		const exportName = `${saveData.id}-${saveName === "" ? saveId : saveName}-${getDatestamp()}.save`;
  		const saveObj = LZString.compressToBase64(JSON.stringify(saveData));
@@ -38,7 +38,7 @@ index 6631a1a..c8d2439 100644
  	}
  
  	const clickCount = {
-@@ -68226,7 +68228,7 @@ function exportSettings(data, type) {
+@@ -71807,7 +71809,7 @@ function exportSettings(data, type) {
  		textArea.value = result;
  	} else if (type === "file") {
  		const blob = new Blob([result], { type: "text/plain;charset=utf-8" });
@@ -47,7 +47,7 @@ index 6631a1a..c8d2439 100644
  	}
  }
  window.exportSettings = exportSettings;
-@@ -726733,7 +726735,7 @@ var Save = (() => { // eslint-disable-line no-unused-vars, no-var
+@@ -860996,7 +860998,7 @@ var Save = (() => { // eslint-disable-li
  		const supplemental = metadata == null ? {} : { metadata }; // lazy equality for null
  		const data         = LZString.compressToBase64(JSON.stringify(_marshal(supplemental, { type : Type.Disk })));
  		const saveObj      = data + LZString.compressToBase64(JSON.stringify({ [Story.domId] : data.length }));
