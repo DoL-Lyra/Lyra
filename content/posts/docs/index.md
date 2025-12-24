@@ -43,6 +43,12 @@ BES 社区补充包，社区美化的集合，基于 BES 并修正了部分 BES 
 
 ![预览](readme-au-m.webp)
 
+### AU-A 特写 - 中性
+
+[AOKIUTAGE/UTAGEsDOL3.0][au]
+
+![预览](readme-au-a.webp)
+
 ### 通用战斗美化 (UCB)
 
 [Universal Combat Beautification][ucb-github]
