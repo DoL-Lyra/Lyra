@@ -23,28 +23,29 @@ class Config:
 
         # 功能定义
         self.functions = [
+            "AU-A",
             "AU-M",
             "AU-F",
             "GOOSE",
-            "UCB",
+            "UCB",  # 9:256
             "SUSATO",
             "WAX",
             "HIKARI",
             "KR特写",
             "BJ特写",
-            "CSD", # 3
-            "作弊", # 2
-            "BESC", # 1
+            "",  # 3 保留，作弊CSD已合并
+            "作弊CSD",  # 2
+            "BESC",  # 1
         ]
 
         # 白名单
-        self.add_dec = [774, 1286, 2310]
+        self.add_dec = [770, 1282, 2306, 4354]
         # 黑名单
         self.skip_dec = []
         # 推荐
-        self.recommend_dec = [7, 39, 518, 1030]
+        self.recommend_dec = [3, 35, 514, 1026]
         # polyfill
-        self.polyfill_comb = "polyfill_7"
+        self.polyfill_comb = "polyfill_3"
 
         self.baseurl_github = "https://github.com/DoL-Lyra/Lyra/releases/download/"
         self.baseurl_ghproxy = f"https://ghfast.top/{self.baseurl_github}"
@@ -94,16 +95,16 @@ draft = true
 {{< /alert >}}
 <br>
 {{< alert >}}
-内置的 `汉化/作弊/CSD` mod 已可以在 ModLoader 处自行选择禁用或者启用，此后将只提供合并版本，不需要特定 mod 的需自行禁用
-{{< /alert >}}
-<br>
-{{< alert >}}
 本仓库分发的为完整游戏本体+mod的 **`整合包`**，并非单独的 mod，请勿使用 modloader 加载。
 <br>
 请 **`不要`** 手动再添加汉化 `ModI18N.mod.zip` 和图片包 `GameOriginalImagePack.mod.zip`
 {{< /alert >}}
 
 ## 下载
+
+> 内置的 `汉化/作弊/CSD` mod 已可以在 ModLoader 处自行选择禁用或者启用，不需要特定 mod 的需自行禁用
+> 基础即为只包含 `作弊+CSD` 的版本，其他版本均在基础上添加了对应功能
+
 """
 
         self.md_append = """
@@ -142,7 +143,7 @@ def combs_tostring(combinations: list[combination]):
         binary = comb.binary
         functions = comb.functions
         recommend = comb.recommend
-        result += f"二进制: {binary}, 十进制: {decimal:3d}, 功能: {functions}, 推荐： {recommend}\n"
+        result += f"二进制: {binary}, 十进制: {decimal:4d}, 功能: {functions}, 推荐： {recommend}\n"
     # 打印组合十进制数组
     result += str(sorted([f.decimal for f in combinations]))
     return result
@@ -170,8 +171,11 @@ def gencomb(config):
         # 跳过 0
         if i == 0:
             continue
-        # 2和3必选（作弊和CSD必须存在）
-        if not binary_and(2) or not binary_and(3):
+        # 跳过 3 （保留）
+        if binary_and(3):
+            continue
+        # 2必选（作弊和CSD必须存在）
+        if not binary_and(2):
             continue
         # 跳过 WAX，BJ，KR
         if binary_and(7) or binary_and(5) or binary_and(4):
@@ -221,22 +225,34 @@ def gencomb(config):
             continue
         if should_skip_mutex(12, 1):
             continue
+        if should_skip_mutex(13, 1):
+            continue
         # Susato 与 Goose 互斥
         if should_skip_mutex(8, 10):
             continue
         # Susato 与 AU 互斥
         if should_skip_mutex(8, 11):
             continue
-        # Susato 与 AU 互斥
         if should_skip_mutex(8, 12):
+            continue
+        if should_skip_mutex(8, 13):
             continue
         # AU 与 Goose 互斥
         if should_skip_mutex(11, 10):
             continue
         if should_skip_mutex(12, 10):
             continue
+        if should_skip_mutex(13, 10):
+            continue
+
         # AU-M 与 AU-F 互斥
         if should_skip_mutex(12, 11):
+            continue
+        # AU-A 与 AU-M 互斥
+        if should_skip_mutex(13, 12):
+            continue
+        # AU-A 与 AU-F 互斥
+        if should_skip_mutex(13, 11):
             continue
 
         combinations.append(combination(binary, decimal))
@@ -260,8 +276,14 @@ def gencomb(config):
         funcs = ""
         for j in range(len(binary) - 1, -1, -1):
             if binary[j] == "1":
+                if len(binary) - 2 == j:  # 倒数第二位是作弊CSD
+                    continue  # 跳过作弊CSD的文本
                 funcs = funcs + config.functions[j] + "+"
         funcs = funcs.strip("+")
+
+        if decimal == 2:
+            funcs = "基础"  # 作弊CSD
+
         # 推荐
         if comb.decimal in config.recommend_dec:
             comb.functions = f"***{funcs}(推荐)***"
