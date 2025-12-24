@@ -62,6 +62,7 @@ jobs:
           # patch apk
           pushd modify_tmp/apk/assets/www
           patch < ${{ github.workspace }}/patches/0001-dol-android-save-to-file.patch
+          sed -i 's/saveAs(/cordova.plugins.saveDialog.saveFile(/g' index.html
           rm -f index.html.orig
           popd
 
